@@ -30,12 +30,12 @@
     self.navigationController.navigationBar.translucent = NO;
     
     UIButton *userInfoButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    userInfoButton.frame = CGRectMake(0, 0, self.view.width * 0.2, 64);
+    userInfoButton.frame = CGRectMake(0, 0, self.navigationController.navigationBar.height, self.navigationController.navigationBar.height);
     userInfoButton.backgroundColor = [UIColor redColor];
     [self.navigationController.navigationBar addSubview:userInfoButton];
     
     UIButton *searchButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    searchButton.frame = CGRectMake(self.view.width *0.8, 0, userInfoButton.width, userInfoButton.height);
+    searchButton.frame = CGRectMake(self.view.width - userInfoButton.width, 0, userInfoButton.width, userInfoButton.height);
     searchButton.backgroundColor = [UIColor whiteColor];
     [searchButton setImage:[UIImage imageNamed:@"search"] forState:UIControlStateNormal];
     
@@ -54,7 +54,7 @@
 
 
     self.titles = @[@"首页", @"人言", @"主题", @"活动"];
-    self.topTitleView = [SGTopTitleView topTitleViewWithFrame:CGRectMake(self.view.width * 0.2, 0, self.view.frame.size.width * 0.6, 64)];
+    self.topTitleView = [SGTopTitleView topTitleViewWithFrame:CGRectMake(self.view.width * 0.2, 0, self.view.frame.size.width * 0.6, self.navigationController.navigationBar.height)];
     _topTitleView.scrollTitleArr = [NSArray arrayWithArray:_titles];
     _topTitleView.showsTitleBackgroundIndicatorStyle = NO;
     _topTitleView.delegate_SG = self;
@@ -62,7 +62,7 @@
     
     // 创建底部滚动视图
     self.mainScrollView = [[UIScrollView alloc] init];
-    _mainScrollView.frame = CGRectMake(0, self.navigationController.navigationBar.y , self.view.frame.size.width, self.view.frame.size.height);
+    _mainScrollView.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
     _mainScrollView.contentSize = CGSizeMake(self.view.frame.size.width * _titles.count, 0);
     _mainScrollView.backgroundColor = [UIColor clearColor];
     // 开启分页

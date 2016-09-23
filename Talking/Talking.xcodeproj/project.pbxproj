@@ -11,9 +11,10 @@
 		491E43051D93686000939063 /* HotTopicCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 491E43041D93686000939063 /* HotTopicCollectionViewCell.m */; };
 		491E43091D936BED00939063 /* HotTopicModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 491E43081D936BED00939063 /* HotTopicModel.m */; };
 		491E430C1D936F9700939063 /* HotTopicCollectionViewLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 491E430B1D936F9700939063 /* HotTopicCollectionViewLayout.m */; };
-		491E430E1D93765800939063 /* 0.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 491E430D1D93765800939063 /* 0.jpeg */; };
-		491E43101D93785900939063 /* 1.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 491E430F1D93785900939063 /* 1.jpeg */; };
-		491E43121D93786100939063 /* 2.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 491E43111D93786100939063 /* 2.jpeg */; };
+		491E434A1D94061E00939063 /* HotTopicLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 491E43491D94061E00939063 /* HotTopicLabel.m */; };
+		49ADC5721D94CF53004CD252 /* EverydayCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 49ADC5711D94CF53004CD252 /* EverydayCollectionViewCell.m */; };
+		49ADC5781D94D9A3004CD252 /* EverydayCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 49ADC5771D94D9A3004CD252 /* EverydayCellModel.m */; };
+		49ADC57B1D9502BF004CD252 /* cardContentsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 49ADC57A1D9502BF004CD252 /* cardContentsModel.m */; };
 		49D9305E1D92142E008499F5 /* TalkingTextCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 49D9305D1D92142E008499F5 /* TalkingTextCollectionViewCell.m */; };
 		49D9307A1D92AE81008499F5 /* SGTopTitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 49D930791D92AE81008499F5 /* SGTopTitleView.m */; };
 		49D9307D1D92AEA4008499F5 /* UIView+SGExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 49D9307C1D92AEA4008499F5 /* UIView+SGExtension.m */; };
@@ -62,9 +63,14 @@
 		491E43081D936BED00939063 /* HotTopicModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HotTopicModel.m; sourceTree = "<group>"; };
 		491E430A1D936F9700939063 /* HotTopicCollectionViewLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HotTopicCollectionViewLayout.h; sourceTree = "<group>"; };
 		491E430B1D936F9700939063 /* HotTopicCollectionViewLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HotTopicCollectionViewLayout.m; sourceTree = "<group>"; };
-		491E430D1D93765800939063 /* 0.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 0.jpeg; sourceTree = "<group>"; };
-		491E430F1D93785900939063 /* 1.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 1.jpeg; sourceTree = "<group>"; };
-		491E43111D93786100939063 /* 2.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 2.jpeg; sourceTree = "<group>"; };
+		491E43481D94061E00939063 /* HotTopicLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HotTopicLabel.h; sourceTree = "<group>"; };
+		491E43491D94061E00939063 /* HotTopicLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HotTopicLabel.m; sourceTree = "<group>"; };
+		49ADC5701D94CF53004CD252 /* EverydayCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EverydayCollectionViewCell.h; sourceTree = "<group>"; };
+		49ADC5711D94CF53004CD252 /* EverydayCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EverydayCollectionViewCell.m; sourceTree = "<group>"; };
+		49ADC5761D94D9A3004CD252 /* EverydayCellModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EverydayCellModel.h; sourceTree = "<group>"; };
+		49ADC5771D94D9A3004CD252 /* EverydayCellModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EverydayCellModel.m; sourceTree = "<group>"; };
+		49ADC5791D9502BF004CD252 /* cardContentsModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cardContentsModel.h; sourceTree = "<group>"; };
+		49ADC57A1D9502BF004CD252 /* cardContentsModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = cardContentsModel.m; sourceTree = "<group>"; };
 		49D9305C1D92142E008499F5 /* TalkingTextCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TalkingTextCollectionViewCell.h; sourceTree = "<group>"; };
 		49D9305D1D92142E008499F5 /* TalkingTextCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TalkingTextCollectionViewCell.m; sourceTree = "<group>"; };
 		49D930781D92AE81008499F5 /* SGTopTitleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SGTopTitleView.h; path = "../../../../../Downloads/SGTopTitleView-master/SGTopTitleView/SGTopTitleView.h"; sourceTree = "<group>"; };
@@ -157,24 +163,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		491E42F91D9366DF00939063 /* HomeView */ = {
+		491E42F91D9366DF00939063 /* HomeHotTopicView */ = {
 			isa = PBXGroup;
 			children = (
 				491E42FA1D9366ED00939063 /* Controller */,
 				491E43061D936BCE00939063 /* Model */,
 				491E42FC1D93672200939063 /* View */,
 			);
-			path = HomeView;
+			path = HomeHotTopicView;
 			sourceTree = "<group>";
 		};
 		491E42FA1D9366ED00939063 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				491E430D1D93765800939063 /* 0.jpeg */,
-				491E430F1D93785900939063 /* 1.jpeg */,
-				491E43111D93786100939063 /* 2.jpeg */,
-				49D9308D1D92BB56008499F5 /* EverydayViewController.h */,
-				49D9308E1D92BB56008499F5 /* EverydayViewController.m */,
 				49D9308A1D92BB15008499F5 /* HotTopicViewController.h */,
 				49D9308B1D92BB15008499F5 /* HotTopicViewController.m */,
 			);
@@ -188,6 +189,8 @@
 				491E43041D93686000939063 /* HotTopicCollectionViewCell.m */,
 				491E430A1D936F9700939063 /* HotTopicCollectionViewLayout.h */,
 				491E430B1D936F9700939063 /* HotTopicCollectionViewLayout.m */,
+				491E43481D94061E00939063 /* HotTopicLabel.h */,
+				491E43491D94061E00939063 /* HotTopicLabel.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -199,6 +202,78 @@
 				491E43081D936BED00939063 /* HotTopicModel.m */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		49ADC56C1D94C9CC004CD252 /* HomeEveryView */ = {
+			isa = PBXGroup;
+			children = (
+				49ADC56D1D94C9E5004CD252 /* Controller */,
+				49ADC56E1D94CEEF004CD252 /* Model */,
+				49ADC56F1D94CEFA004CD252 /* View */,
+			);
+			path = HomeEveryView;
+			sourceTree = "<group>";
+		};
+		49ADC56D1D94C9E5004CD252 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				49D9308D1D92BB56008499F5 /* EverydayViewController.h */,
+				49D9308E1D92BB56008499F5 /* EverydayViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		49ADC56E1D94CEEF004CD252 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				49ADC5761D94D9A3004CD252 /* EverydayCellModel.h */,
+				49ADC5771D94D9A3004CD252 /* EverydayCellModel.m */,
+				49ADC5791D9502BF004CD252 /* cardContentsModel.h */,
+				49ADC57A1D9502BF004CD252 /* cardContentsModel.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		49ADC56F1D94CEFA004CD252 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				49ADC5701D94CF53004CD252 /* EverydayCollectionViewCell.h */,
+				49ADC5711D94CF53004CD252 /* EverydayCollectionViewCell.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		49ADC57C1D952471004CD252 /* TalkView */ = {
+			isa = PBXGroup;
+			children = (
+				49ADC57D1D95247D004CD252 /* Controller */,
+				49ADC57E1D952488004CD252 /* Model */,
+				49ADC57F1D95248F004CD252 /* View */,
+			);
+			path = TalkView;
+			sourceTree = "<group>";
+		};
+		49ADC57D1D95247D004CD252 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				49D930811D92AFEC008499F5 /* TalkingViewController.h */,
+				49D930821D92AFEC008499F5 /* TalkingViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		49ADC57E1D952488004CD252 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		49ADC57F1D95248F004CD252 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		49D930751D92AE40008499F5 /* SGTopTitleView */ = {
@@ -382,7 +457,6 @@
 			isa = PBXGroup;
 			children = (
 				49FCC0CC1D916284007614B5 /* Home */,
-				491E42F91D9366DF00939063 /* HomeView */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -407,7 +481,10 @@
 			isa = PBXGroup;
 			children = (
 				49FCC0CD1D916289007614B5 /* Controller */,
+				49ADC56C1D94C9CC004CD252 /* HomeEveryView */,
+				491E42F91D9366DF00939063 /* HomeHotTopicView */,
 				49FCC0CF1D916296007614B5 /* Model */,
+				49ADC57C1D952471004CD252 /* TalkView */,
 				49FCC0D31D916B64007614B5 /* View */,
 			);
 			path = Home;
@@ -422,8 +499,6 @@
 				49D9307F1D92AFDC008499F5 /* HomeViewController.m */,
 				49FCC0D71D916BBB007614B5 /* TalkingHomeViewController.h */,
 				49FCC0D81D916BBB007614B5 /* TalkingHomeViewController.m */,
-				49D930811D92AFEC008499F5 /* TalkingViewController.h */,
-				49D930821D92AFEC008499F5 /* TalkingViewController.m */,
 				49D930841D92B001008499F5 /* TopicViewController.h */,
 				49D930851D92B001008499F5 /* TopicViewController.m */,
 			);
@@ -527,10 +602,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				491E43101D93785900939063 /* 1.jpeg in Resources */,
 				49FCC06E1D9160F3007614B5 /* LaunchScreen.storyboard in Resources */,
-				491E430E1D93765800939063 /* 0.jpeg in Resources */,
-				491E43121D93786100939063 /* 2.jpeg in Resources */,
 				49FCC06B1D9160F3007614B5 /* Assets.xcassets in Resources */,
 				49FCC0691D9160F3007614B5 /* Main.storyboard in Resources */,
 			);
@@ -600,6 +672,8 @@
 				49FCC0B81D916206007614B5 /* HttpClient.m in Sources */,
 				49FCC0A21D916193007614B5 /* NSString+Regex.m in Sources */,
 				491E43051D93686000939063 /* HotTopicCollectionViewCell.m in Sources */,
+				49ADC57B1D9502BF004CD252 /* cardContentsModel.m in Sources */,
+				49ADC5781D94D9A3004CD252 /* EverydayCellModel.m in Sources */,
 				49D9307D1D92AEA4008499F5 /* UIView+SGExtension.m in Sources */,
 				49FCC0E21D917268007614B5 /* TalkingHomeModel.m in Sources */,
 				49FCC0631D9160F3007614B5 /* AppDelegate.m in Sources */,
@@ -612,7 +686,9 @@
 				49D930831D92AFEC008499F5 /* TalkingViewController.m in Sources */,
 				49D9305E1D92142E008499F5 /* TalkingTextCollectionViewCell.m in Sources */,
 				49FCC09F1D916193007614B5 /* NSDictionary+Categories.m in Sources */,
+				491E434A1D94061E00939063 /* HotTopicLabel.m in Sources */,
 				49FCC0CB1D916279007614B5 /* AboutMe.text in Sources */,
+				49ADC5721D94CF53004CD252 /* EverydayCollectionViewCell.m in Sources */,
 				49FCC0A01D916193007614B5 /* NSNumber+Extend.m in Sources */,
 				49FCC0B41D9161ED007614B5 /* DataBaseManager.m in Sources */,
 				49FCC0A71D916193007614B5 /* UIView+Frame.m in Sources */,
