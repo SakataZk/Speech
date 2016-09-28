@@ -15,6 +15,12 @@
 		49ADC5721D94CF53004CD252 /* EverydayCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 49ADC5711D94CF53004CD252 /* EverydayCollectionViewCell.m */; };
 		49ADC5781D94D9A3004CD252 /* EverydayCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 49ADC5771D94D9A3004CD252 /* EverydayCellModel.m */; };
 		49ADC57B1D9502BF004CD252 /* cardContentsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 49ADC57A1D9502BF004CD252 /* cardContentsModel.m */; };
+		49B91D2C1D9A1FF400255632 /* ClassModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 49B91D2B1D9A1FF400255632 /* ClassModel.m */; };
+		49B91D2F1D9A213500255632 /* ClassCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 49B91D2E1D9A213500255632 /* ClassCollectionCell.m */; };
+		49B91D5B1D9A715A00255632 /* ActivityModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 49B91D5A1D9A715A00255632 /* ActivityModel.m */; };
+		49B91D5E1D9A747E00255632 /* ActivityTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 49B91D5D1D9A747E00255632 /* ActivityTableViewCell.m */; };
+		49B91D611D9AA3CA00255632 /* UserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49B91D601D9AA3CA00255632 /* UserViewController.m */; };
+		49B91D6C1D9AAA8800255632 /* ActiveInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49B91D6B1D9AAA8800255632 /* ActiveInfoViewController.m */; };
 		49D9305E1D92142E008499F5 /* TalkingTextCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 49D9305D1D92142E008499F5 /* TalkingTextCollectionViewCell.m */; };
 		49D9307A1D92AE81008499F5 /* SGTopTitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 49D930791D92AE81008499F5 /* SGTopTitleView.m */; };
 		49D9307D1D92AEA4008499F5 /* UIView+SGExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 49D9307C1D92AEA4008499F5 /* UIView+SGExtension.m */; };
@@ -24,6 +30,9 @@
 		49D930891D92B017008499F5 /* ActivityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49D930881D92B017008499F5 /* ActivityViewController.m */; };
 		49D9308C1D92BB15008499F5 /* HotTopicViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49D9308B1D92BB15008499F5 /* HotTopicViewController.m */; };
 		49D9308F1D92BB56008499F5 /* EverydayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49D9308E1D92BB56008499F5 /* EverydayViewController.m */; };
+		49DADB331D9664530060D830 /* TalkingCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 49DADB321D9664530060D830 /* TalkingCollectionViewCell.m */; };
+		49DADB3A1D967EBC0060D830 /* TitleCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 49DADB391D967EBC0060D830 /* TitleCollectionCell.m */; };
+		49DADB3D1D967FDD0060D830 /* TitleModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 49DADB3C1D967FDD0060D830 /* TitleModel.m */; };
 		49FCC0601D9160F3007614B5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 49FCC05F1D9160F3007614B5 /* main.m */; };
 		49FCC0631D9160F3007614B5 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 49FCC0621D9160F3007614B5 /* AppDelegate.m */; };
 		49FCC0691D9160F3007614B5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 49FCC0671D9160F3007614B5 /* Main.storyboard */; };
@@ -71,6 +80,18 @@
 		49ADC5771D94D9A3004CD252 /* EverydayCellModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EverydayCellModel.m; sourceTree = "<group>"; };
 		49ADC5791D9502BF004CD252 /* cardContentsModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cardContentsModel.h; sourceTree = "<group>"; };
 		49ADC57A1D9502BF004CD252 /* cardContentsModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = cardContentsModel.m; sourceTree = "<group>"; };
+		49B91D2A1D9A1FF400255632 /* ClassModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClassModel.h; sourceTree = "<group>"; };
+		49B91D2B1D9A1FF400255632 /* ClassModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClassModel.m; sourceTree = "<group>"; };
+		49B91D2D1D9A213500255632 /* ClassCollectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClassCollectionCell.h; sourceTree = "<group>"; };
+		49B91D2E1D9A213500255632 /* ClassCollectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClassCollectionCell.m; sourceTree = "<group>"; };
+		49B91D591D9A715A00255632 /* ActivityModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ActivityModel.h; path = Topic/Controller/ActivityModel.h; sourceTree = "<group>"; };
+		49B91D5A1D9A715A00255632 /* ActivityModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ActivityModel.m; path = Topic/Controller/ActivityModel.m; sourceTree = "<group>"; };
+		49B91D5C1D9A747E00255632 /* ActivityTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ActivityTableViewCell.h; path = ../../../ActivityTableViewCell.h; sourceTree = "<group>"; };
+		49B91D5D1D9A747E00255632 /* ActivityTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ActivityTableViewCell.m; path = ../../../ActivityTableViewCell.m; sourceTree = "<group>"; };
+		49B91D5F1D9AA3CA00255632 /* UserViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserViewController.h; path = ../Common/DataBase/UserViewController.h; sourceTree = "<group>"; };
+		49B91D601D9AA3CA00255632 /* UserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UserViewController.m; path = ../Common/DataBase/UserViewController.m; sourceTree = "<group>"; };
+		49B91D6A1D9AAA8800255632 /* ActiveInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActiveInfoViewController.h; sourceTree = "<group>"; };
+		49B91D6B1D9AAA8800255632 /* ActiveInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActiveInfoViewController.m; sourceTree = "<group>"; };
 		49D9305C1D92142E008499F5 /* TalkingTextCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TalkingTextCollectionViewCell.h; sourceTree = "<group>"; };
 		49D9305D1D92142E008499F5 /* TalkingTextCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TalkingTextCollectionViewCell.m; sourceTree = "<group>"; };
 		49D930781D92AE81008499F5 /* SGTopTitleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SGTopTitleView.h; path = "../../../../../Downloads/SGTopTitleView-master/SGTopTitleView/SGTopTitleView.h"; sourceTree = "<group>"; };
@@ -83,12 +104,18 @@
 		49D930821D92AFEC008499F5 /* TalkingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TalkingViewController.m; sourceTree = "<group>"; };
 		49D930841D92B001008499F5 /* TopicViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopicViewController.h; sourceTree = "<group>"; };
 		49D930851D92B001008499F5 /* TopicViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopicViewController.m; sourceTree = "<group>"; };
-		49D930871D92B017008499F5 /* ActivityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivityViewController.h; sourceTree = "<group>"; };
-		49D930881D92B017008499F5 /* ActivityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActivityViewController.m; sourceTree = "<group>"; };
+		49D930871D92B017008499F5 /* ActivityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ActivityViewController.h; path = Controller/ActivityViewController.h; sourceTree = "<group>"; };
+		49D930881D92B017008499F5 /* ActivityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ActivityViewController.m; path = Controller/ActivityViewController.m; sourceTree = "<group>"; };
 		49D9308A1D92BB15008499F5 /* HotTopicViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HotTopicViewController.h; sourceTree = "<group>"; };
 		49D9308B1D92BB15008499F5 /* HotTopicViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HotTopicViewController.m; sourceTree = "<group>"; };
 		49D9308D1D92BB56008499F5 /* EverydayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EverydayViewController.h; sourceTree = "<group>"; };
 		49D9308E1D92BB56008499F5 /* EverydayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EverydayViewController.m; sourceTree = "<group>"; };
+		49DADB311D9664530060D830 /* TalkingCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TalkingCollectionViewCell.h; sourceTree = "<group>"; };
+		49DADB321D9664530060D830 /* TalkingCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TalkingCollectionViewCell.m; sourceTree = "<group>"; };
+		49DADB381D967EBC0060D830 /* TitleCollectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TitleCollectionCell.h; sourceTree = "<group>"; };
+		49DADB391D967EBC0060D830 /* TitleCollectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TitleCollectionCell.m; sourceTree = "<group>"; };
+		49DADB3B1D967FDD0060D830 /* TitleModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TitleModel.h; sourceTree = "<group>"; };
+		49DADB3C1D967FDD0060D830 /* TitleModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TitleModel.m; sourceTree = "<group>"; };
 		49FCC05B1D9160F3007614B5 /* Talking.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Talking.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		49FCC05F1D9160F3007614B5 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		49FCC0611D9160F3007614B5 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -140,8 +167,8 @@
 		49FCC0C01D91621A007614B5 /* SystemUnit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SystemUnit.h; sourceTree = "<group>"; };
 		49FCC0C91D916271007614B5 /* Spkit.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Spkit.pch; sourceTree = "<group>"; };
 		49FCC0CA1D916279007614B5 /* AboutMe.text */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = AboutMe.text; sourceTree = "<group>"; };
-		49FCC0D71D916BBB007614B5 /* TalkingHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TalkingHomeViewController.h; sourceTree = "<group>"; };
-		49FCC0D81D916BBB007614B5 /* TalkingHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TalkingHomeViewController.m; sourceTree = "<group>"; };
+		49FCC0D71D916BBB007614B5 /* TalkingHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TalkingHomeViewController.h; path = ../TalkingHomeViewController.h; sourceTree = "<group>"; };
+		49FCC0D81D916BBB007614B5 /* TalkingHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TalkingHomeViewController.m; path = ../TalkingHomeViewController.m; sourceTree = "<group>"; };
 		49FCC0DB1D916D4C007614B5 /* SpMacro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SpMacro.h; sourceTree = "<group>"; };
 		49FCC0DD1D91724B007614B5 /* TalkingHomeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TalkingHomeView.h; sourceTree = "<group>"; };
 		49FCC0DE1D91724B007614B5 /* TalkingHomeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TalkingHomeView.m; sourceTree = "<group>"; };
@@ -272,8 +299,113 @@
 		49ADC57F1D95248F004CD252 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				49DADB311D9664530060D830 /* TalkingCollectionViewCell.h */,
+				49DADB321D9664530060D830 /* TalkingCollectionViewCell.m */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		49B91D551D9A6BA200255632 /* Active */ = {
+			isa = PBXGroup;
+			children = (
+				49B91D561D9A6BAE00255632 /* Controller */,
+				49B91D581D9A6BBD00255632 /* Model */,
+				49B91D571D9A6BB500255632 /* View */,
+			);
+			name = Active;
+			sourceTree = "<group>";
+		};
+		49B91D561D9A6BAE00255632 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				49D930871D92B017008499F5 /* ActivityViewController.h */,
+				49D930881D92B017008499F5 /* ActivityViewController.m */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		49B91D571D9A6BB500255632 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				49B91D5C1D9A747E00255632 /* ActivityTableViewCell.h */,
+				49B91D5D1D9A747E00255632 /* ActivityTableViewCell.m */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		49B91D581D9A6BBD00255632 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				49B91D591D9A715A00255632 /* ActivityModel.h */,
+				49B91D5A1D9A715A00255632 /* ActivityModel.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		49B91D621D9AA40500255632 /* User */ = {
+			isa = PBXGroup;
+			children = (
+				49B91D651D9AA41A00255632 /* Model */,
+				49B91D641D9AA41600255632 /* View */,
+				49B91D631D9AA40C00255632 /* Controller */,
+			);
+			name = User;
+			sourceTree = "<group>";
+		};
+		49B91D631D9AA40C00255632 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				49B91D5F1D9AA3CA00255632 /* UserViewController.h */,
+				49B91D601D9AA3CA00255632 /* UserViewController.m */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		49B91D641D9AA41600255632 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		49B91D651D9AA41A00255632 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		49B91D661D9AAA4400255632 /* ActivityInfo */ = {
+			isa = PBXGroup;
+			children = (
+				49B91D691D9AAA5500255632 /* Model */,
+				49B91D681D9AAA5100255632 /* View */,
+				49B91D671D9AAA4B00255632 /* Controller */,
+			);
+			name = ActivityInfo;
+			sourceTree = "<group>";
+		};
+		49B91D671D9AAA4B00255632 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				49B91D6A1D9AAA8800255632 /* ActiveInfoViewController.h */,
+				49B91D6B1D9AAA8800255632 /* ActiveInfoViewController.m */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		49B91D681D9AAA5100255632 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		49B91D691D9AAA5500255632 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 		49D930751D92AE40008499F5 /* SGTopTitleView */ = {
@@ -285,6 +417,47 @@
 				49D9307C1D92AEA4008499F5 /* UIView+SGExtension.m */,
 			);
 			path = SGTopTitleView;
+			sourceTree = "<group>";
+		};
+		49DADB341D966F6F0060D830 /* Topic */ = {
+			isa = PBXGroup;
+			children = (
+				49DADB351D9674750060D830 /* Controller */,
+				49DADB371D9674810060D830 /* Model */,
+				49DADB361D96747C0060D830 /* View */,
+			);
+			path = Topic;
+			sourceTree = "<group>";
+		};
+		49DADB351D9674750060D830 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				49D930841D92B001008499F5 /* TopicViewController.h */,
+				49D930851D92B001008499F5 /* TopicViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		49DADB361D96747C0060D830 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				49DADB381D967EBC0060D830 /* TitleCollectionCell.h */,
+				49DADB391D967EBC0060D830 /* TitleCollectionCell.m */,
+				49B91D2D1D9A213500255632 /* ClassCollectionCell.h */,
+				49B91D2E1D9A213500255632 /* ClassCollectionCell.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		49DADB371D9674810060D830 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				49B91D2A1D9A1FF400255632 /* ClassModel.h */,
+				49B91D2B1D9A1FF400255632 /* ClassModel.m */,
+				49DADB3B1D967FDD0060D830 /* TitleModel.h */,
+				49DADB3C1D967FDD0060D830 /* TitleModel.m */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		49FCC0521D9160F3007614B5 = {
@@ -456,6 +629,8 @@
 		49FCC0C51D916234007614B5 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				49B91D661D9AAA4400255632 /* ActivityInfo */,
+				49B91D621D9AA40500255632 /* User */,
 				49FCC0CC1D916284007614B5 /* Home */,
 			);
 			path = Modules;
@@ -480,12 +655,14 @@
 		49FCC0CC1D916284007614B5 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				49FCC0CF1D916296007614B5 /* Model */,
+				49FCC0D31D916B64007614B5 /* View */,
 				49FCC0CD1D916289007614B5 /* Controller */,
+				49B91D551D9A6BA200255632 /* Active */,
 				49ADC56C1D94C9CC004CD252 /* HomeEveryView */,
 				491E42F91D9366DF00939063 /* HomeHotTopicView */,
-				49FCC0CF1D916296007614B5 /* Model */,
 				49ADC57C1D952471004CD252 /* TalkView */,
-				49FCC0D31D916B64007614B5 /* View */,
+				49DADB341D966F6F0060D830 /* Topic */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -493,14 +670,10 @@
 		49FCC0CD1D916289007614B5 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				49D930871D92B017008499F5 /* ActivityViewController.h */,
-				49D930881D92B017008499F5 /* ActivityViewController.m */,
-				49D9307E1D92AFDC008499F5 /* HomeViewController.h */,
-				49D9307F1D92AFDC008499F5 /* HomeViewController.m */,
 				49FCC0D71D916BBB007614B5 /* TalkingHomeViewController.h */,
 				49FCC0D81D916BBB007614B5 /* TalkingHomeViewController.m */,
-				49D930841D92B001008499F5 /* TopicViewController.h */,
-				49D930851D92B001008499F5 /* TopicViewController.m */,
+				49D9307E1D92AFDC008499F5 /* HomeViewController.h */,
+				49D9307F1D92AFDC008499F5 /* HomeViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -667,9 +840,12 @@
 				49D930891D92B017008499F5 /* ActivityViewController.m in Sources */,
 				49D9307A1D92AE81008499F5 /* SGTopTitleView.m in Sources */,
 				491E43091D936BED00939063 /* HotTopicModel.m in Sources */,
+				49B91D2C1D9A1FF400255632 /* ClassModel.m in Sources */,
 				49FCC0A11D916193007614B5 /* NSString+Categories.m in Sources */,
 				49FCC0AD1D9161C5007614B5 /* SpBaseModel.m in Sources */,
+				49B91D6C1D9AAA8800255632 /* ActiveInfoViewController.m in Sources */,
 				49FCC0B81D916206007614B5 /* HttpClient.m in Sources */,
+				49B91D5B1D9A715A00255632 /* ActivityModel.m in Sources */,
 				49FCC0A21D916193007614B5 /* NSString+Regex.m in Sources */,
 				491E43051D93686000939063 /* HotTopicCollectionViewCell.m in Sources */,
 				49ADC57B1D9502BF004CD252 /* cardContentsModel.m in Sources */,
@@ -677,13 +853,17 @@
 				49D9307D1D92AEA4008499F5 /* UIView+SGExtension.m in Sources */,
 				49FCC0E21D917268007614B5 /* TalkingHomeModel.m in Sources */,
 				49FCC0631D9160F3007614B5 /* AppDelegate.m in Sources */,
+				49DADB3A1D967EBC0060D830 /* TitleCollectionCell.m in Sources */,
 				49FCC0A41D916193007614B5 /* UIButton+Block.m in Sources */,
 				49FCC09C1D916193007614B5 /* NSArray+Categories.m in Sources */,
 				49FCC09E1D916193007614B5 /* NSDate+EasyExtend.mm in Sources */,
+				49DADB3D1D967FDD0060D830 /* TitleModel.m in Sources */,
 				49FCC0DF1D91724B007614B5 /* TalkingHomeView.m in Sources */,
+				49B91D2F1D9A213500255632 /* ClassCollectionCell.m in Sources */,
 				49FCC0B01D9161CF007614B5 /* SpBaseView.m in Sources */,
 				49D930861D92B001008499F5 /* TopicViewController.m in Sources */,
 				49D930831D92AFEC008499F5 /* TalkingViewController.m in Sources */,
+				49B91D5E1D9A747E00255632 /* ActivityTableViewCell.m in Sources */,
 				49D9305E1D92142E008499F5 /* TalkingTextCollectionViewCell.m in Sources */,
 				49FCC09F1D916193007614B5 /* NSDictionary+Categories.m in Sources */,
 				491E434A1D94061E00939063 /* HotTopicLabel.m in Sources */,
@@ -692,11 +872,13 @@
 				49FCC0A01D916193007614B5 /* NSNumber+Extend.m in Sources */,
 				49FCC0B41D9161ED007614B5 /* DataBaseManager.m in Sources */,
 				49FCC0A71D916193007614B5 /* UIView+Frame.m in Sources */,
+				49DADB331D9664530060D830 /* TalkingCollectionViewCell.m in Sources */,
 				49FCC0A31D916193007614B5 /* NSUserDefaults+Categories.m in Sources */,
 				49FCC0D91D916BBB007614B5 /* TalkingHomeViewController.m in Sources */,
 				49FCC0A61D916193007614B5 /* UIImage+Categories.m in Sources */,
 				491E430C1D936F9700939063 /* HotTopicCollectionViewLayout.m in Sources */,
 				49D9308C1D92BB15008499F5 /* HotTopicViewController.m in Sources */,
+				49B91D611D9AA3CA00255632 /* UserViewController.m in Sources */,
 				49D930801D92AFDC008499F5 /* HomeViewController.m in Sources */,
 				49D9308F1D92BB56008499F5 /* EverydayViewController.m in Sources */,
 				49FCC0A51D916193007614B5 /* UIColor+Categories.m in Sources */,

@@ -12,10 +12,14 @@
 #import "TalkingViewController.h"
 #import "TopicViewController.h"
 #import "ActivityViewController.h"
+#import "UserViewController.h"
 
 
 
-@interface TalkingHomeViewController ()<SGTopTitleViewDelegate, UIScrollViewDelegate>
+@interface TalkingHomeViewController ()
+<SGTopTitleViewDelegate,
+UIScrollViewDelegate
+>
 @property (nonatomic, strong) SGTopTitleView *topTitleView;
 @property (nonatomic, strong) UIScrollView *mainScrollView;
 @property (nonatomic, strong) NSArray *titles;
@@ -23,6 +27,10 @@
 @end
 
 @implementation TalkingHomeViewController
+
+- (void)viewWillAppear:(BOOL)animated {
+    self.navigationController.navigationBarHidden = NO;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -33,16 +41,26 @@
     userInfoButton.frame = CGRectMake(0, 0, self.navigationController.navigationBar.height, self.navigationController.navigationBar.height);
     userInfoButton.backgroundColor = [UIColor redColor];
     [self.navigationController.navigationBar addSubview:userInfoButton];
+    [userInfoButton handleControlEvent:UIControlEventTouchUpInside withBlock:^{
+        NSLog(@"柯柯");
+        UserViewController *userView = [[UserViewController alloc] init];
+        [self.navigationController pushViewController:userView animated:YES];
+    }];
+    
     
     UIButton *searchButton = [UIButton buttonWithType:UIButtonTypeCustom];
     searchButton.frame = CGRectMake(self.view.width - userInfoButton.width, 0, userInfoButton.width, userInfoButton.height);
     searchButton.backgroundColor = [UIColor whiteColor];
     [searchButton setImage:[UIImage imageNamed:@"search"] forState:UIControlStateNormal];
-    
     [self.navigationController.navigationBar addSubview:searchButton];
+    [searchButton handleControlEvent:UIControlEventTouchUpInside withBlock:^{
+        NSLog(@"搜索");
+    }];
+    
+    
+    
     self.automaticallyAdjustsScrollViewInsets = NO;
     
-
     HomeViewController *oneVC = [[HomeViewController alloc] init];
     [self addChildViewController:oneVC];
     TalkingViewController *twoVC = [[TalkingViewController alloc] init];
@@ -76,6 +94,9 @@
     _mainScrollView.scrollEnabled = NO;
     
     [self.view addSubview:_mainScrollView];
+    /**
+     *  /////// 直接显示第二页
+     */
     [self.mainScrollView addSubview:oneVC.view];
     
     [self.view insertSubview:_mainScrollView belowSubview:_topTitleView];

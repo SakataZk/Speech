@@ -48,6 +48,7 @@
     _mainScrollView.showsHorizontalScrollIndicator = NO;
     _mainScrollView.delegate = self;
     [self.view addSubview:_mainScrollView];
+    
     [self.mainScrollView addSubview:_hotTopicVC.view];
     [self.view insertSubview:_mainScrollView belowSubview:_topTitleView];
 }

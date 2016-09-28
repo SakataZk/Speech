@@ -22,6 +22,10 @@
  */
 @property (nonatomic, strong) NSString *pictureSmall;
 /**
+ *  轮播图
+ */
+@property (nonatomic, strong) NSString *pictureCut;
+/**
  *  封面文字
  */
 @property (nonatomic, strong) NSString *text;

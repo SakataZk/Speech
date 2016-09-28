@@ -13,7 +13,6 @@
 @end
 
 @implementation SpBaseViewController
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.automaticallyAdjustsScrollViewInsets = NO;
