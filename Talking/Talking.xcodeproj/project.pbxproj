@@ -270,11 +270,11 @@
 		495FD5E01D9D085E0016B349 /* Card */ = {
 			isa = PBXGroup;
 			children = (
+				495FD5E11D9D08650016B349 /* Controller */,
 				495FD5E31D9D08700016B349 /* Model */,
 				495FD5E21D9D086B0016B349 /* View */,
-				495FD5E11D9D08650016B349 /* Controller */,
 			);
-			name = Card;
+			path = Card;
 			sourceTree = "<group>";
 		};
 		495FD5E11D9D08650016B349 /* Controller */ = {
@@ -283,14 +283,14 @@
 				495FD5E41D9D08A70016B349 /* CardViewController.h */,
 				495FD5E51D9D08A70016B349 /* CardViewController.m */,
 			);
-			name = Controller;
+			path = Controller;
 			sourceTree = "<group>";
 		};
 		495FD5E21D9D086B0016B349 /* View */ = {
 			isa = PBXGroup;
 			children = (
 			);
-			name = View;
+			path = View;
 			sourceTree = "<group>";
 		};
 		495FD5E31D9D08700016B349 /* Model */ = {
@@ -299,17 +299,17 @@
 				495FD5E71D9D09350016B349 /* CardModel.h */,
 				495FD5E81D9D09350016B349 /* CardModel.m */,
 			);
-			name = Model;
+			path = Model;
 			sourceTree = "<group>";
 		};
 		49AA87D31D9C9F3D00706AD9 /* AlbumView */ = {
 			isa = PBXGroup;
 			children = (
+				49AA87D41D9C9F5A00706AD9 /* Controller */,
 				49AA87D61D9C9F6500706AD9 /* Model */,
 				49AA87D51D9C9F6000706AD9 /* View */,
-				49AA87D41D9C9F5A00706AD9 /* Controller */,
 			);
-			name = AlbumView;
+			path = AlbumView;
 			sourceTree = "<group>";
 		};
 		49AA87D41D9C9F5A00706AD9 /* Controller */ = {
@@ -318,18 +318,18 @@
 				49AA87D71D9C9F7F00706AD9 /* AlbumViewController.h */,
 				49AA87D81D9C9F7F00706AD9 /* AlbumViewController.m */,
 			);
-			name = Controller;
+			path = Controller;
 			sourceTree = "<group>";
 		};
 		49AA87D51D9C9F6000706AD9 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				49AA87DA1D9CBB6800706AD9 /* AlbumCollectionViewCell.h */,
-				49AA87DB1D9CBB6800706AD9 /* AlbumCollectionViewCell.m */,
 				495FD5EA1D9D0D550016B349 /* AlbumCardCollectionViewCell.h */,
 				495FD5EB1D9D0D550016B349 /* AlbumCardCollectionViewCell.m */,
+				49AA87DA1D9CBB6800706AD9 /* AlbumCollectionViewCell.h */,
+				49AA87DB1D9CBB6800706AD9 /* AlbumCollectionViewCell.m */,
 			);
-			name = View;
+			path = View;
 			sourceTree = "<group>";
 		};
 		49AA87D61D9C9F6500706AD9 /* Model */ = {
@@ -338,7 +338,7 @@
 				49AA87DD1D9CC12D00706AD9 /* AlbumModel.h */,
 				49AA87DE1D9CC12D00706AD9 /* AlbumModel.m */,
 			);
-			name = Model;
+			path = Model;
 			sourceTree = "<group>";
 		};
 		49ADC56C1D94C9CC004CD252 /* HomeEveryView */ = {
@@ -374,8 +374,6 @@
 		49ADC56F1D94CEFA004CD252 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				49EBF58E1D9E019A007958ED /* EverydayCardView.h */,
-				49EBF58F1D9E019A007958ED /* EverydayCardView.m */,
 				49ADC5701D94CF53004CD252 /* EverydayCollectionViewCell.h */,
 				49ADC5711D94CF53004CD252 /* EverydayCollectionViewCell.m */,
 			);
@@ -411,6 +409,8 @@
 		49ADC57F1D95248F004CD252 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				49EBF58E1D9E019A007958ED /* EverydayCardView.h */,
+				49EBF58F1D9E019A007958ED /* EverydayCardView.m */,
 				49DADB311D9664530060D830 /* TalkingCollectionViewCell.h */,
 				49DADB321D9664530060D830 /* TalkingCollectionViewCell.m */,
 			);
@@ -592,11 +592,11 @@
 		49BA38C81D9BE87E002D1B57 /* Search */ = {
 			isa = PBXGroup;
 			children = (
-				49BA38CB1D9BE895002D1B57 /* View */,
-				49BA38CA1D9BE88E002D1B57 /* Model */,
 				49BA38C91D9BE888002D1B57 /* Controller */,
+				49BA38CA1D9BE88E002D1B57 /* Model */,
+				49BA38CB1D9BE895002D1B57 /* View */,
 			);
-			name = Search;
+			path = Search;
 			sourceTree = "<group>";
 		};
 		49BA38C91D9BE888002D1B57 /* Controller */ = {
@@ -605,21 +605,21 @@
 				49BA38C51D9BE86B002D1B57 /* SearchViewController.h */,
 				49BA38C61D9BE86B002D1B57 /* SearchViewController.m */,
 			);
-			name = Controller;
+			path = Controller;
 			sourceTree = "<group>";
 		};
 		49BA38CA1D9BE88E002D1B57 /* Model */ = {
 			isa = PBXGroup;
 			children = (
 			);
-			name = Model;
+			path = Model;
 			sourceTree = "<group>";
 		};
 		49BA38CB1D9BE895002D1B57 /* View */ = {
 			isa = PBXGroup;
 			children = (
 			);
-			name = View;
+			path = View;
 			sourceTree = "<group>";
 		};
 		49D930751D92AE40008499F5 /* SGTopTitleView */ = {
@@ -704,10 +704,10 @@
 				49FCC0C81D916259007614B5 /* Vendors */,
 				49FCC0611D9160F3007614B5 /* AppDelegate.h */,
 				49FCC0621D9160F3007614B5 /* AppDelegate.m */,
-				49FCC06A1D9160F3007614B5 /* share.xcassets */,
 				49FCC06F1D9160F3007614B5 /* Info.plist */,
 				49FCC06C1D9160F3007614B5 /* LaunchScreen.storyboard */,
 				49FCC0671D9160F3007614B5 /* Main.storyboard */,
+				49FCC06A1D9160F3007614B5 /* share.xcassets */,
 			);
 			path = Talking;
 			sourceTree = "<group>";
@@ -843,12 +843,12 @@
 		49FCC0C51D916234007614B5 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
-				495FD5E01D9D085E0016B349 /* Card */,
-				49AA87D31D9C9F3D00706AD9 /* AlbumView */,
-				49BA38C81D9BE87E002D1B57 /* Search */,
 				49B91D661D9AAA4400255632 /* ActivityInfo */,
+				49AA87D31D9C9F3D00706AD9 /* AlbumView */,
+				495FD5E01D9D085E0016B349 /* Card */,
 				49BA388B1D9B6A87002D1B57 /* CheckActivity */,
 				49FCC0CC1D916284007614B5 /* Home */,
+				49BA38C81D9BE87E002D1B57 /* Search */,
 				49BA38BD1D9BB606002D1B57 /* Setting */,
 				49B91D621D9AA40500255632 /* User */,
 				49BA38B81D9BB5D8002D1B57 /* Wallet */,

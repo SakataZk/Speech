@@ -15,8 +15,7 @@
 @interface HomeViewController ()
 <
 SGTopTitleViewDelegate,
-UIScrollViewDelegate,
-EverydayViewControllerDelegate
+UIScrollViewDelegate
 
 >
 @property (nonatomic, strong) SGTopTitleView *topTitleView;

@@ -11,6 +11,7 @@
 #import "EverydayCellModel.h"
 #import <UIImageView+WebCache.h>
 #import "TalkingCollectionViewCell.h"
+#import "EverydayCardView.h"
 
 
 static NSString *const cellIdentifier = @"cell";
@@ -31,6 +32,10 @@ UICollectionViewDelegate
 @property (nonatomic, strong) UICollectionView *scrollView;
 @property (nonatomic, strong) NSTimer *timer;
 @property (nonatomic, strong) NSMutableArray *currentArray;
+@property (nonatomic, strong) NSMutableArray *cidArray;
+@property (nonatomic, strong) EverydayCardView *firtsCardView;
+@property (nonatomic, strong) EverydayCardView *secondCardView;
+
 @end
 @implementation TalkingViewController
 - (void)viewDidLoad {
@@ -41,6 +46,7 @@ UICollectionViewDelegate
     self.array = [NSArray array];
     self.imageArray = [NSMutableArray array];
     self.currentArray = [NSMutableArray array];
+    self.cidArray = [NSMutableArray array];
     self.cout = 0;
     self.uid = 191128;
     
@@ -182,12 +188,16 @@ UICollectionViewDelegate
         if (_imageArray.count > 0) {
             [_imageArray removeAllObjects];
         }
+        if (_cidArray.count > 0) {
+            [_cidArray removeAllObjects];
+        }
         if ([[responseObject objectForKey:@"msg"] isEqualToString:@"查询成功, 返回内容"]) {
             _array =[responseObject objectForKey:@"cards"];
             [_cellInfoArray addObjectsFromArray:_array];
         }
         for (NSDictionary *dic in _cellInfoArray) {
             EverydayCellModel *model = [[EverydayCellModel alloc] initWithDic:dic];
+            [_cidArray addObject:model.cid];
             if ( ![model.pictureCut isEqualToString:@""]) {
                 [_imageArray addObject:model.pictureCut];
             }
@@ -225,8 +235,10 @@ UICollectionViewDelegate
             
             for (NSDictionary *dic in _array) {
                 EverydayCellModel *model = [[EverydayCellModel alloc] initWithDic:dic];
+                [_cidArray addObject:model.cid];
                 if ( ![model.pictureCut isEqualToString:@""]) {
                     [_imageArray addObject:model.pictureCut];
+    
                 }
             }
             [_cellInfoArray addObjectsFromArray:_array];
@@ -252,13 +264,93 @@ UICollectionViewDelegate
 
 
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    NSLog(@"%@",_cellInfoArray[indexPath.item]);
+
+    [self creatCardView];
+    [self GetCardInfo:_cidArray[indexPath.item]];
+    
+}
+
+- (void)creatCardView {
+    
+    self.navigationController.navigationBarHidden = YES;
+    self.view.userInteractionEnabled = YES;
+    _collectionView.scrollEnabled = NO;
+    _scrollView.scrollEnabled = NO;
     
     
+    
+    self.secondCardView = [[EverydayCardView alloc] initWithFrame:SCREEN_RECT];
+    _secondCardView.backgroundColor = [UIColor yellowColor];
+    [self.view addSubview:_secondCardView];
+    
+    self.firtsCardView = [[EverydayCardView alloc] initWithFrame:SCREEN_RECT];
+    _firtsCardView.backgroundColor = [UIColor redColor];
+    [self.view addSubview:_firtsCardView];
+    
+
+    
+    
+    UISwipeGestureRecognizer *firstLeftSwipe = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(firstLeftAction)];
+    firstLeftSwipe.direction = UISwipeGestureRecognizerDirectionLeft;
+    [_firtsCardView addGestureRecognizer:firstLeftSwipe];
+
+    UISwipeGestureRecognizer *secondLeftSwipe = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(secondLeftAction)];
+    secondLeftSwipe.direction = UISwipeGestureRecognizerDirectionLeft;
+    [_secondCardView addGestureRecognizer:secondLeftSwipe];
+    
+    
+    
+    UISwipeGestureRecognizer *downSwipe = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(dowSwipeAction)];
+    downSwipe.direction = UISwipeGestureRecognizerDirectionDown;
+    [_firtsCardView addGestureRecognizer:downSwipe];
+    [_secondCardView addGestureRecognizer:downSwipe];
+
+    
+
+}
+
+- (void)dowSwipeAction {
+    _firtsCardView.hidden = YES;
+    _secondCardView.hidden = YES;
+    self.navigationController.navigationBarHidden = NO;
+
+}
+- (void)firstLeftAction{
+
+        [self.view insertSubview:_firtsCardView belowSubview:_secondCardView];
+
+}
+- (void)secondLeftAction {
+
+    [self.view insertSubview:_secondCardView belowSubview:_firtsCardView];
+
 }
 
 
 
+
+
+
+
+- (void)GetCardInfo:(NSNumber *)cid{
+    
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    [manager.requestSerializer setValue:@"189186" forHTTPHeaderField:@"X-User"];
+    [manager.requestSerializer setValue:@"A991B7D59DACB35A141ED180BF3EA6534F2B5E4FD8BAE126DF9BDAB620ABB39B589F205ECF3D7791C8CE287E9B087D6B72B3B832A054648EB2B435216FF109CD" forHTTPHeaderField:@"X-AuthToken"];
+    [manager.requestSerializer setValue:@"j8slb29fbalc83pna2af2c2954hcw65" forHTTPHeaderField:@"X-ApiKey"];
+    NSString *url = [NSString stringWithFormat:@"http://app.ry.api.renyan.cn/rest/auth/card/select_by_cids?cids=%@",cid];
+    [manager GET:url parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSLog(@"%@",responseObject);
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        NSLog(@"error : %@",error);
+    }];
+
+
+
+
+
+
+}
 
 
 
