@@ -12,7 +12,7 @@
 #import <UIImageView+WebCache.h>
 #import "TalkingCollectionViewCell.h"
 #import "EverydayCardView.h"
-
+#import "AlbumModel.h"
 
 static NSString *const cellIdentifier = @"cell";
 @interface TalkingViewController ()
@@ -32,10 +32,13 @@ UICollectionViewDelegate
 @property (nonatomic, strong) UICollectionView *scrollView;
 @property (nonatomic, strong) NSTimer *timer;
 @property (nonatomic, strong) NSMutableArray *currentArray;
+
+
 @property (nonatomic, strong) NSMutableArray *cidArray;
 @property (nonatomic, strong) EverydayCardView *firtsCardView;
 @property (nonatomic, strong) EverydayCardView *secondCardView;
-
+@property (nonatomic, strong) NSArray *cardArray;
+@property (nonatomic, assign) NSInteger cidCount;
 @end
 @implementation TalkingViewController
 - (void)viewDidLoad {
@@ -47,6 +50,7 @@ UICollectionViewDelegate
     self.imageArray = [NSMutableArray array];
     self.currentArray = [NSMutableArray array];
     self.cidArray = [NSMutableArray array];
+    self.cardArray = [NSArray array];
     self.cout = 0;
     self.uid = 191128;
     
@@ -206,9 +210,12 @@ UICollectionViewDelegate
         if (_currentArray.count > 0) {
             [_currentArray removeAllObjects];
         }
-        [_currentArray addObject:[_imageArray lastObject]];
-        [_currentArray addObjectsFromArray:_imageArray];
-        [_currentArray addObject:[_imageArray firstObject]];
+        if (_imageArray.count > 0) {
+            [_currentArray addObject:[_imageArray lastObject]];
+            [_currentArray addObjectsFromArray:_imageArray];
+            [_currentArray addObject:[_imageArray firstObject]];
+            
+        }
         _scrollView.contentOffset = CGPointMake(SCREEN_WIDTH, 0);
         
         
@@ -249,9 +256,12 @@ UICollectionViewDelegate
         if (_currentArray.count > 0) {
             [_currentArray removeAllObjects];
         }
-        [_currentArray addObject:[_imageArray firstObject]];
-        [_currentArray addObjectsFromArray:_imageArray];
-        [_currentArray addObject:[_imageArray lastObject]];
+        if (_imageArray.count > 0) {
+            
+            [_currentArray addObject:[_imageArray firstObject]];
+            [_currentArray addObjectsFromArray:_imageArray];
+            [_currentArray addObject:[_imageArray lastObject]];
+        }
         [_collectionView reloadData];
         [_scrollView reloadData];
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
@@ -263,11 +273,15 @@ UICollectionViewDelegate
 
 
 
+
+
+
+
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
 
     [self creatCardView];
-    [self GetCardInfo:_cidArray[indexPath.item]];
-    
+    _cidCount = indexPath.item;
+    [self GetCardInfo:_cidArray[_cidCount]];
 }
 
 - (void)creatCardView {
@@ -277,18 +291,11 @@ UICollectionViewDelegate
     _collectionView.scrollEnabled = NO;
     _scrollView.scrollEnabled = NO;
     
-    
-    
     self.secondCardView = [[EverydayCardView alloc] initWithFrame:SCREEN_RECT];
-    _secondCardView.backgroundColor = [UIColor yellowColor];
     [self.view addSubview:_secondCardView];
     
     self.firtsCardView = [[EverydayCardView alloc] initWithFrame:SCREEN_RECT];
-    _firtsCardView.backgroundColor = [UIColor redColor];
     [self.view addSubview:_firtsCardView];
-    
-
-    
     
     UISwipeGestureRecognizer *firstLeftSwipe = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(firstLeftAction)];
     firstLeftSwipe.direction = UISwipeGestureRecognizerDirectionLeft;
@@ -298,35 +305,72 @@ UICollectionViewDelegate
     secondLeftSwipe.direction = UISwipeGestureRecognizerDirectionLeft;
     [_secondCardView addGestureRecognizer:secondLeftSwipe];
     
+    UISwipeGestureRecognizer *firstDownSwipe = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(downSwipeAction)];
+    firstDownSwipe.direction = UISwipeGestureRecognizerDirectionDown;
+    [_firtsCardView addGestureRecognizer:firstDownSwipe];
     
-    
-    UISwipeGestureRecognizer *downSwipe = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(dowSwipeAction)];
-    downSwipe.direction = UISwipeGestureRecognizerDirectionDown;
-    [_firtsCardView addGestureRecognizer:downSwipe];
-    [_secondCardView addGestureRecognizer:downSwipe];
+    UISwipeGestureRecognizer *secondDownSwipe = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(downSwipeAction)];
+    secondDownSwipe.direction = UISwipeGestureRecognizerDirectionDown;
+    [_secondCardView addGestureRecognizer:secondDownSwipe];
+
+    NSDictionary *dic = [_array firstObject];
+    AlbumModel *model = [[AlbumModel alloc] initWithDic:dic];
+    _firtsCardView.model = model;
 
     
 
+
+    
 }
 
-- (void)dowSwipeAction {
+
+
+- (void)downSwipeAction {
     _firtsCardView.hidden = YES;
     _secondCardView.hidden = YES;
+    _collectionView.scrollEnabled = YES;
+    _scrollView.scrollEnabled = YES;
     self.navigationController.navigationBarHidden = NO;
-
 }
+
 - (void)firstLeftAction{
+    NSLog(@"%ld  %ld",_cidCount, _cidArray.count);
+    _cidCount ++;
+    if (_cidCount < _cidArray.count) {
+        [self GetCardInfo:_cidArray[_cidCount]];
+        NSDictionary *dic = [_array firstObject];
+        AlbumModel *model = [[AlbumModel alloc] initWithDic:dic];
+        _secondCardView.model = model;
+        [UIView transitionWithView:_firtsCardView duration:1.0f options:UIViewAnimationOptionCurveEaseInOut animations:^{
 
-        [self.view insertSubview:_firtsCardView belowSubview:_secondCardView];
-
+            
+        } completion:nil];
+        [UIView transitionFromView:_firtsCardView toView:_secondCardView duration:0.5f options:UIViewAnimationOptionCurveEaseInOut completion:nil];
+//        [self.view insertSubview:_firtsCardView belowSubview:_secondCardView];
+    } else {
+        [self addCard];
+    }
 }
+
 - (void)secondLeftAction {
-
-    [self.view insertSubview:_secondCardView belowSubview:_firtsCardView];
+    NSLog(@"%ld  %ld",_cidCount, _cidArray.count);
+    _cidCount ++;
+    if (_cidCount < _cidArray.count) {
+        [self GetCardInfo:_cidArray[_cidCount]];
+        NSDictionary *dic = [_array firstObject];
+        AlbumModel *model = [[AlbumModel alloc] initWithDic:dic];
+        _firtsCardView.model = model;
+        [UIView transitionWithView:_firtsCardView duration:1.0f options:UIViewAnimationOptionCurveEaseInOut animations:^{
+            
+        } completion:nil];
+        [UIView transitionFromView:_secondCardView toView:_firtsCardView duration:0.5f options:UIViewAnimationOptionCurveEaseInOut completion:nil];
+//        [self.view insertSubview:_secondCardView belowSubview:_firtsCardView];
+        
+    }else {
+        [self addCard];
+    }
 
 }
-
-
 
 
 
@@ -340,16 +384,11 @@ UICollectionViewDelegate
     [manager.requestSerializer setValue:@"j8slb29fbalc83pna2af2c2954hcw65" forHTTPHeaderField:@"X-ApiKey"];
     NSString *url = [NSString stringWithFormat:@"http://app.ry.api.renyan.cn/rest/auth/card/select_by_cids?cids=%@",cid];
     [manager GET:url parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        NSLog(@"%@",responseObject);
+        _array = [responseObject objectForKey:@"cards"];
+
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"error : %@",error);
     }];
-
-
-
-
-
-
 }
 
 

@@ -155,6 +155,7 @@
     if (_model != model) {
         NSURL *url = [NSURL URLWithString:model.pictureCut];
         [_imageView sd_setImageWithURL:url];
+        
         NSString *maintagString = [NSString stringWithFormat:@"%@",model.albumMainTag];
         _mainTagLabel.text = maintagString;
         _subTagLabel.text = [NSString stringWithFormat:@"%@",model.albumSubTag];
@@ -176,7 +177,9 @@
             [_subTagLabel removeFromSuperview];
         }
         
-        
+        if (model.template == 1) {
+            _textLabel.frame =CGRectMake(self.width * 0.18, self.height * 0.05, self.width * 0.64, self.width * 0.64);
+        }
         
         
         NSString *text = model.text;

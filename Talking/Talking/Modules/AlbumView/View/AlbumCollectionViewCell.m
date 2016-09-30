@@ -51,9 +51,9 @@
         
         NSURL *url = [NSURL URLWithString:model.pictureSmall];
         [_imageView sd_setImageWithURL:url];
-//        if (model.template == 6) {
-//            _textLabel.frame = CGRectMake(self.width * 0.15, self.height * 0.1, self.width * 0.7, self.height * 0.76);
-//        }
+        if (model.template == 1) {
+            _textLabel.frame = CGRectMake(self.width * 0.15, self.height * 0.1, self.width * 0.7, self.height * 0.76);
+        }
         _textLabel.text = [NSString stringWithFormat:@"%@",model.text];
         
     }

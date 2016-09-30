@@ -174,10 +174,11 @@
         if ([model.albumSubTag isEqualToString:@""]) {
             [_subTagLabel removeFromSuperview];
         }
-        
-        
-        
-        
+        if (model.template == 1) {
+            _textLabel.frame = CGRectMake(self.width * 0.18, self.height * 0.15, self.width * 0.64, self.width * 0.64);
+        }else {        
+            _textLabel.frame = CGRectMake(_imageView.x, _imageView.y + _imageView.height + self.height * 0.04, _imageView.width, 40);
+        }
         NSString *text = model.text;
         NSString *albumName = [NSString stringWithFormat:@"「 %@ 」",model.albumName];
         NSDictionary *dic = @{NSFontAttributeName : [UIFont systemFontOfSize:17.f]};
@@ -203,7 +204,7 @@
         
         _viewLabel.text = [NSString stringWithFormat:@"%ld",model.view];
         _commentLabel.text = [NSString stringWithFormat:@"%ld",model.comment];
-        
+
     }
 }
 

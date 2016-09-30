@@ -79,18 +79,21 @@
             NSURL *coverUrl = [NSURL URLWithString:everydayCell.pictureSmall];
             [_pictureSmall sd_setImageWithURL:coverUrl];
             _textLabel.text = everydayCell.text;
+            
             if (everydayCell.template == 6) {
                 _pictureSmall.y = _albumNameLabel.y + _albumNameLabel.height;
                 _pictureSmall.centerX = self.centerX;
                 _pictureSmall.size = CGSizeMake(self.width * 0.6, self.width * 0.6);
                 _pictureSmall.layer.cornerRadius = _pictureSmall.frame.size.width / 2;
                 _pictureSmall.layer.masksToBounds = YES;
-                
                 _textLabel.frame = CGRectMake(_albumImage.x, _pictureSmall.y + _pictureSmall.height, self.width - _albumImage.x * 2, self.height - _pictureSmall.y - _pictureSmall.height - 5);
             }
             if ( !(everydayCell.template == 3 || everydayCell.template == 5 || everydayCell.template == 6)) {
                 _pictureSmall.frame = CGRectMake(_albumImage.x + _albumImage.width / 2, _albumNameLabel.y + _albumNameLabel.height, self.width - (_albumImage.x + _albumImage.width / 2) * 2, self.height * 0.4);
                 _textLabel.frame = CGRectMake(_albumImage.x, _pictureSmall.y + _pictureSmall.height, self.width - _albumImage.x * 2, self.height - _pictureSmall.y - _pictureSmall.height - 5);
+            }
+            if (everydayCell.template == 1) {
+                _textLabel.frame = CGRectMake(_albumImage.x, _albumNameLabel.y + _albumNameLabel.height, self.width - _albumImage.x * 2,  self.height - _pictureSmall.y - 5);
             }
         }
     }

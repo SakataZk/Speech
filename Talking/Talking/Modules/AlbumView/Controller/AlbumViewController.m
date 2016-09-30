@@ -107,9 +107,10 @@ UICollectionViewDelegate
     // Do any additional setup after loading the view.
 }
 - (void)swipeAction{
-[UIView animateWithDuration:1.0f animations:^{
+ [UIView animateWithDuration:1.0f animations:^{
     _bigScrollView.scrollEnabled = YES;
     _bigView.frame = CGRectZero;
+     _bigScrollView.pagingEnabled = YES;
 }];
 
 
