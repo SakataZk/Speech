@@ -9,6 +9,7 @@
 #import "ActiveInfoViewController.h"
 #import "ActivityModel.h"
 #import "UIImageView+WebCache.h"
+#import "CheckActivityViewController.h"
 
 @interface ActiveInfoViewController ()
 
@@ -19,6 +20,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationController.navigationBarHidden = YES;
+    
+    
     UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, self.view.width, self.view.height * 0.08)];
 //    titleLabel.backgroundColor = [UIColor whiteColor];
     titleLabel.userInteractionEnabled = YES;
@@ -35,26 +38,47 @@
 
         [self.navigationController popViewControllerAnimated:YES];
     }];
-    UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, titleLabel.height, self.view.width, self.view.height - titleLabel.height)];
+    [titleLabel addSubview:returnButton];
+    
+    UIScrollView *bodyScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, titleLabel.height, self.view.width, self.view.height - titleLabel.height)];
+    bodyScrollView.contentSize = CGSizeMake(self.view.width, self.view.height);
+    bodyScrollView.bounces = NO;
+    bodyScrollView.showsVerticalScrollIndicator = NO;
+    [self.view addSubview:bodyScrollView];
+    
+    
+    
+    UIImageView *imageView = [[UIImageView alloc] initWithFrame:self.view.bounds];
     imageView.backgroundColor = [UIColor whiteColor];
     NSURL *url = [NSURL URLWithString:_model.bigPicture];
     [imageView sd_setImageWithURL:url];
-    [self.view addSubview:imageView];
-    [titleLabel addSubview:returnButton];
+    [bodyScrollView addSubview:imageView];
 
-    UILabel *bottomLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, self.view.height * 0.91, self.view.width, self.view.height * 0.09)];
-    bottomLabel.backgroundColor = [UIColor blackColor];
-    bottomLabel.alpha = 0.8f;
+    
+    UIView *bottomView = [[UIView alloc] initWithFrame:CGRectMake(0, self.view.height * 0.91, self.view.width, self.view.height * 0.09)];
+    bottomView.backgroundColor = [UIColor blackColor];
+    bottomView.alpha = 0.8f;
+    [self.view addSubview:bottomView];
+    
+    UILabel *bottomLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, self.view.width * 0.77, bottomView.height)];
     bottomLabel.textColor = [UIColor whiteColor];
     bottomLabel.text = [NSString stringWithFormat:@"    #本期活动#%@",_model.name];
-    [self.view addSubview:bottomLabel];
-    
-//    UIButton *checkButton = [UIButton buttonWithType:UIButtonTypeCustom];
-//    checkButton.frame = CGRectMake(self.view.width *0.77, 0, <#CGFloat width#>, <#CGFloat height#>)
-//    
-//    [checkButton setTitle:@"立即查看" forState:UIControlStateNormal];
+    [bottomView addSubview:bottomLabel];
     
     
+    UIButton *checkButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    checkButton.frame = CGRectMake(self.view.width *0.77, bottomView.height /4 , self.view.width * 0.2, bottomView.height / 2);
+    checkButton.layer.cornerRadius = 5;
+    checkButton.clipsToBounds = YES;
+    checkButton.backgroundColor = [UIColor colorWithRed:1.0 green:0.9156 blue:0.0506 alpha:1.0];
+    [checkButton setTitle:@"立即查看" forState:UIControlStateNormal];
+    [checkButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [bottomView addSubview:checkButton];
+    [checkButton handleControlEvent:UIControlEventTouchUpInside withBlock:^{
+        CheckActivityViewController *checkActivityView = [[CheckActivityViewController alloc] init];
+        checkActivityView.model = _model;
+        [self.navigationController pushViewController:checkActivityView animated:YES];
+    }];
     
     
     

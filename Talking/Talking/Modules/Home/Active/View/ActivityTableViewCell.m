@@ -25,7 +25,7 @@
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         self.activityImageView = [[UIImageView alloc] initWithFrame:CGRectZero];
-        _activityImageView.backgroundColor = [UIColor greenColor];
+        _activityImageView.backgroundColor = [UIColor clearColor];
         [self.contentView addSubview:_activityImageView];
         
     }

@@ -13,6 +13,8 @@
 #import "HotTopicModel.h"
 #import <UIImageView+WebCache.h>
 #import <MJRefresh.h>
+#import "AlbumViewController.h"
+
 
 static NSString *const cellIdentifier = @"cell";
 
@@ -33,8 +35,6 @@ HotTopicCollectionViewLayoutDelegate
 
 
 -(void)viewDidLoad {
-
-    
     
     [self netWorking];
     self.cellInfoArray = [NSMutableArray array];
@@ -60,12 +60,14 @@ HotTopicCollectionViewLayoutDelegate
     _collectionView.mj_header.automaticallyChangeAlpha = YES;
 
 }
+
+
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
     if ([scrollView isEqual: _collectionView]) {
         if (_collectionView.contentOffset.y > _flowLayout.contentHeight - self.view.height) {
                 AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
                 [manager.requestSerializer setValue:@"189186" forHTTPHeaderField:@"X-User"];
-                [manager.requestSerializer setValue:@"A991B7D59DACB35A141ED180BF3EA6534F2B5E4FD8BAE126DF9BDAB620ABB39B589F205ECF3D7791C8CE287E9B087D6BEF48CA1E5A3FE3FC6C968A08F7642843" forHTTPHeaderField:@"X-AuthToken"];
+                [manager.requestSerializer setValue:@"A991B7D59DACB35A141ED180BF3EA6534F2B5E4FD8BAE126DF9BDAB620ABB39B589F205ECF3D7791C8CE287E9B087D6B72B3B832A054648EB2B435216FF109CD" forHTTPHeaderField:@"X-AuthToken"];
                 [manager.requestSerializer setValue:@"j8slb29fbalc83pna2af2c2954hcw65" forHTTPHeaderField:@"X-ApiKey"];
                 NSString *url = [NSString stringWithFormat:@"http://app.ry.api.renyan.cn/rest/auth/album/queue/get?count=10&uid=189186"];
                 [manager GET:url parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
@@ -81,14 +83,11 @@ HotTopicCollectionViewLayoutDelegate
 }
 
 
-
-
-
-
-
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     return _cellInfoArray.count;
 }
+
+
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     HotTopicCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:cellIdentifier forIndexPath:indexPath];
     NSDictionary *dic = _cellInfoArray[indexPath.row];
@@ -96,6 +95,8 @@ HotTopicCollectionViewLayoutDelegate
     cell.hotTopicCell = hotTopic;
     return cell;
 }
+
+
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(HotTopicCollectionViewCell *)layout width:(CGFloat)width heightAtIndexPath:(NSIndexPath *)indexPath {
     CGFloat height = 0;
     HotTopicModel *hotTopic = [[HotTopicModel alloc] initWithDic:_cellInfoArray[indexPath.item]];
@@ -103,11 +104,12 @@ HotTopicCollectionViewLayoutDelegate
     return height;
 }
 
+
 - (void)netWorking {
 
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     [manager.requestSerializer setValue:@"189186" forHTTPHeaderField:@"X-User"];
-    [manager.requestSerializer setValue:@"A991B7D59DACB35A141ED180BF3EA6534F2B5E4FD8BAE126DF9BDAB620ABB39B589F205ECF3D7791C8CE287E9B087D6BEF48CA1E5A3FE3FC6C968A08F7642843" forHTTPHeaderField:@"X-AuthToken"];
+    [manager.requestSerializer setValue:@"A991B7D59DACB35A141ED180BF3EA6534F2B5E4FD8BAE126DF9BDAB620ABB39B589F205ECF3D7791C8CE287E9B087D6B72B3B832A054648EB2B435216FF109CD" forHTTPHeaderField:@"X-AuthToken"];
     [manager.requestSerializer setValue:@"j8slb29fbalc83pna2af2c2954hcw65" forHTTPHeaderField:@"X-ApiKey"];
     NSString *url = @"http://app.ry.api.renyan.cn/rest/auth/album/queue/get?count=10&uid=189186";
     [manager GET:url parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
@@ -120,6 +122,16 @@ HotTopicCollectionViewLayoutDelegate
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"error : %@",error);
     }];
+}
+
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    AlbumViewController *albumView = [[AlbumViewController alloc] init];
+    NSDictionary *dic = _cellInfoArray[indexPath.row];
+    HotTopicModel *hotTopic = [[HotTopicModel alloc] initWithDic:dic];
+    albumView.hotTopic = hotTopic;
+    [self.navigationController pushViewController:albumView animated:YES];
+
 }
 
 

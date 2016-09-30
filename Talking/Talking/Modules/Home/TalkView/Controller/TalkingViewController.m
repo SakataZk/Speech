@@ -45,7 +45,6 @@ UICollectionViewDelegate
     self.uid = 191128;
     
     UICollectionViewFlowLayout *scrollFlowLayout = [[UICollectionViewFlowLayout alloc] init];
-    
     scrollFlowLayout.itemSize = CGSizeMake(self.view.width, ( self.view.height - self.navigationController.navigationBar.height ) /  2);
     scrollFlowLayout.minimumInteritemSpacing = 0;
     scrollFlowLayout.minimumLineSpacing = 0;
@@ -58,9 +57,8 @@ UICollectionViewDelegate
     
     _scrollView.backgroundColor = [UIColor whiteColor];
     _scrollView.showsHorizontalScrollIndicator = NO;
-  
-
     [self.view addSubview:_scrollView];
+    
     
     [_scrollView registerClass:[TalkingCollectionViewCell class] forCellWithReuseIdentifier:cellIdentifier];
     if (_timer) {
@@ -114,7 +112,6 @@ UICollectionViewDelegate
             [self netWorking];
         }
     }
-    
 }
 
 
@@ -172,7 +169,7 @@ UICollectionViewDelegate
     
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     [manager.requestSerializer setValue:@"189186" forHTTPHeaderField:@"X-User"];
-    [manager.requestSerializer setValue:@"A991B7D59DACB35A141ED180BF3EA6534F2B5E4FD8BAE126DF9BDAB620ABB39B589F205ECF3D7791C8CE287E9B087D6BEF48CA1E5A3FE3FC6C968A08F7642843" forHTTPHeaderField:@"X-AuthToken"];
+    [manager.requestSerializer setValue:@"A991B7D59DACB35A141ED180BF3EA6534F2B5E4FD8BAE126DF9BDAB620ABB39B589F205ECF3D7791C8CE287E9B087D6B72B3B832A054648EB2B435216FF109CD" forHTTPHeaderField:@"X-AuthToken"];
     [manager.requestSerializer setValue:@"j8slb29fbalc83pna2af2c2954hcw65" forHTTPHeaderField:@"X-ApiKey"];
     
     NSString *url = [NSString stringWithFormat:@"http://app.ry.api.renyan.cn/rest/auth/queue/get?count=10&uid=%ld",_uid];
@@ -219,7 +216,7 @@ UICollectionViewDelegate
 - (void)addCard {
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     [manager.requestSerializer setValue:@"189186" forHTTPHeaderField:@"X-User"];
-    [manager.requestSerializer setValue:@"A991B7D59DACB35A141ED180BF3EA6534F2B5E4FD8BAE126DF9BDAB620ABB39B589F205ECF3D7791C8CE287E9B087D6BEF48CA1E5A3FE3FC6C968A08F7642843" forHTTPHeaderField:@"X-AuthToken"];
+    [manager.requestSerializer setValue:@"A991B7D59DACB35A141ED180BF3EA6534F2B5E4FD8BAE126DF9BDAB620ABB39B589F205ECF3D7791C8CE287E9B087D6B72B3B832A054648EB2B435216FF109CD" forHTTPHeaderField:@"X-AuthToken"];
     [manager.requestSerializer setValue:@"j8slb29fbalc83pna2af2c2954hcw65" forHTTPHeaderField:@"X-ApiKey"];
     NSString *url = [NSString stringWithFormat:@"http://app.ry.api.renyan.cn/rest/auth/queue/get?count=10&uid=%ld",_uid];
     [manager GET:url parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
@@ -252,6 +249,13 @@ UICollectionViewDelegate
 }
 
 
+
+
+-(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    NSLog(@"%@",_cellInfoArray[indexPath.item]);
+    
+    
+}
 
 
 

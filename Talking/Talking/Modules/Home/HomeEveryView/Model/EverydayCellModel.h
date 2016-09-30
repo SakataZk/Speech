@@ -37,4 +37,6 @@
  *  长篇文本 字典
  */
 @property (nonatomic, strong)NSArray *cardContents;
+
+@property (nonatomic, strong) NSNumber *cid;
 @end

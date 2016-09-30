@@ -53,4 +53,11 @@
  *  图片大小
  */
 @property (nonatomic, assign)CGFloat imageRatio;
+/**
+ *  相册id
+ */
+@property (nonatomic, strong)NSNumber *aid;
+
+@property (nonatomic, strong)NSNumber *uid;
+
 @end

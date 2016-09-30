@@ -11,7 +11,14 @@
 #import "HotTopicViewController.h"
 #import "EverydayViewController.h"
 
-@interface HomeViewController ()<SGTopTitleViewDelegate, UIScrollViewDelegate>
+
+@interface HomeViewController ()
+<
+SGTopTitleViewDelegate,
+UIScrollViewDelegate,
+EverydayViewControllerDelegate
+
+>
 @property (nonatomic, strong) SGTopTitleView *topTitleView;
 @property (nonatomic, strong) UIScrollView *mainScrollView;
 @property (nonatomic, strong) NSArray *titles;
@@ -23,7 +30,7 @@
 - (void)viewDidLoad {
     self.view.backgroundColor = [UIColor colorWithWhite:0.9 alpha:1.0];
     self.automaticallyAdjustsScrollViewInsets = NO;
-    
+    self.navigationController.navigationBarHidden = NO;
     
     self.hotTopicVC = [[HotTopicViewController alloc] init];
     [self addChildViewController:_hotTopicVC];
@@ -59,23 +66,17 @@
 }
 // 显示控制器的view
 - (void)showVc:(NSInteger)index {
-    
     CGFloat offsetX = index * self.view.frame.size.width;
-    
     UIViewController *VC = self.childViewControllers[index];
-    // 判断控制器的view有没有加载过,如果已经加载过,就不需要加载
     if (VC.isViewLoaded) return;
-    
     [self.mainScrollView addSubview:VC.view];
     VC.view.frame = CGRectMake(offsetX, 0, self.view.frame.size.width, self.view.frame.size.height);
 }
-- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView{
-    
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView{    
     NSInteger index = scrollView.contentOffset.x / scrollView.frame.size.width;
     [self showVc:index];
     UILabel *selLabel = self.topTitleView.allTitleLabel[index];
     [self.topTitleView staticTitleLabelSelecteded:selLabel];
-    
 }
 
 @end

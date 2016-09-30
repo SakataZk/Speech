@@ -12,6 +12,12 @@
 		491E43091D936BED00939063 /* HotTopicModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 491E43081D936BED00939063 /* HotTopicModel.m */; };
 		491E430C1D936F9700939063 /* HotTopicCollectionViewLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 491E430B1D936F9700939063 /* HotTopicCollectionViewLayout.m */; };
 		491E434A1D94061E00939063 /* HotTopicLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 491E43491D94061E00939063 /* HotTopicLabel.m */; };
+		495FD5E61D9D08A70016B349 /* CardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 495FD5E51D9D08A70016B349 /* CardViewController.m */; };
+		495FD5E91D9D09350016B349 /* CardModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 495FD5E81D9D09350016B349 /* CardModel.m */; };
+		495FD5EC1D9D0D550016B349 /* AlbumCardCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 495FD5EB1D9D0D550016B349 /* AlbumCardCollectionViewCell.m */; };
+		49AA87D91D9C9F7F00706AD9 /* AlbumViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49AA87D81D9C9F7F00706AD9 /* AlbumViewController.m */; };
+		49AA87DC1D9CBB6800706AD9 /* AlbumCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 49AA87DB1D9CBB6800706AD9 /* AlbumCollectionViewCell.m */; };
+		49AA87DF1D9CC12D00706AD9 /* AlbumModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 49AA87DE1D9CC12D00706AD9 /* AlbumModel.m */; };
 		49ADC5721D94CF53004CD252 /* EverydayCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 49ADC5711D94CF53004CD252 /* EverydayCollectionViewCell.m */; };
 		49ADC5781D94D9A3004CD252 /* EverydayCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 49ADC5771D94D9A3004CD252 /* EverydayCellModel.m */; };
 		49ADC57B1D9502BF004CD252 /* cardContentsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 49ADC57A1D9502BF004CD252 /* cardContentsModel.m */; };
@@ -21,6 +27,11 @@
 		49B91D5E1D9A747E00255632 /* ActivityTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 49B91D5D1D9A747E00255632 /* ActivityTableViewCell.m */; };
 		49B91D611D9AA3CA00255632 /* UserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49B91D601D9AA3CA00255632 /* UserViewController.m */; };
 		49B91D6C1D9AAA8800255632 /* ActiveInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49B91D6B1D9AAA8800255632 /* ActiveInfoViewController.m */; };
+		49BA38911D9B6AA9002D1B57 /* CheckActivityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49BA38901D9B6AA9002D1B57 /* CheckActivityViewController.m */; };
+		49BA38BC1D9BB5FD002D1B57 /* WalletViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49BA38BB1D9BB5FD002D1B57 /* WalletViewController.m */; };
+		49BA38C11D9BB618002D1B57 /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49BA38C01D9BB618002D1B57 /* SettingViewController.m */; };
+		49BA38C41D9BBC47002D1B57 /* UserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 49BA38C31D9BBC47002D1B57 /* UserModel.m */; };
+		49BA38C71D9BE86B002D1B57 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49BA38C61D9BE86B002D1B57 /* SearchViewController.m */; };
 		49D9305E1D92142E008499F5 /* TalkingTextCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 49D9305D1D92142E008499F5 /* TalkingTextCollectionViewCell.m */; };
 		49D9307A1D92AE81008499F5 /* SGTopTitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 49D930791D92AE81008499F5 /* SGTopTitleView.m */; };
 		49D9307D1D92AEA4008499F5 /* UIView+SGExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 49D9307C1D92AEA4008499F5 /* UIView+SGExtension.m */; };
@@ -33,10 +44,11 @@
 		49DADB331D9664530060D830 /* TalkingCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 49DADB321D9664530060D830 /* TalkingCollectionViewCell.m */; };
 		49DADB3A1D967EBC0060D830 /* TitleCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 49DADB391D967EBC0060D830 /* TitleCollectionCell.m */; };
 		49DADB3D1D967FDD0060D830 /* TitleModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 49DADB3C1D967FDD0060D830 /* TitleModel.m */; };
+		49EBF5901D9E019A007958ED /* EverydayCardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 49EBF58F1D9E019A007958ED /* EverydayCardView.m */; };
 		49FCC0601D9160F3007614B5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 49FCC05F1D9160F3007614B5 /* main.m */; };
 		49FCC0631D9160F3007614B5 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 49FCC0621D9160F3007614B5 /* AppDelegate.m */; };
 		49FCC0691D9160F3007614B5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 49FCC0671D9160F3007614B5 /* Main.storyboard */; };
-		49FCC06B1D9160F3007614B5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 49FCC06A1D9160F3007614B5 /* Assets.xcassets */; };
+		49FCC06B1D9160F3007614B5 /* share.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 49FCC06A1D9160F3007614B5 /* share.xcassets */; };
 		49FCC06E1D9160F3007614B5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 49FCC06C1D9160F3007614B5 /* LaunchScreen.storyboard */; };
 		49FCC09C1D916193007614B5 /* NSArray+Categories.m in Sources */ = {isa = PBXBuildFile; fileRef = 49FCC0851D916193007614B5 /* NSArray+Categories.m */; };
 		49FCC09D1D916193007614B5 /* NSDate+Categories.m in Sources */ = {isa = PBXBuildFile; fileRef = 49FCC0871D916193007614B5 /* NSDate+Categories.m */; };
@@ -74,6 +86,18 @@
 		491E430B1D936F9700939063 /* HotTopicCollectionViewLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HotTopicCollectionViewLayout.m; sourceTree = "<group>"; };
 		491E43481D94061E00939063 /* HotTopicLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HotTopicLabel.h; sourceTree = "<group>"; };
 		491E43491D94061E00939063 /* HotTopicLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HotTopicLabel.m; sourceTree = "<group>"; };
+		495FD5E41D9D08A70016B349 /* CardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardViewController.h; sourceTree = "<group>"; };
+		495FD5E51D9D08A70016B349 /* CardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CardViewController.m; sourceTree = "<group>"; };
+		495FD5E71D9D09350016B349 /* CardModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardModel.h; sourceTree = "<group>"; };
+		495FD5E81D9D09350016B349 /* CardModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CardModel.m; sourceTree = "<group>"; };
+		495FD5EA1D9D0D550016B349 /* AlbumCardCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlbumCardCollectionViewCell.h; sourceTree = "<group>"; };
+		495FD5EB1D9D0D550016B349 /* AlbumCardCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlbumCardCollectionViewCell.m; sourceTree = "<group>"; };
+		49AA87D71D9C9F7F00706AD9 /* AlbumViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlbumViewController.h; sourceTree = "<group>"; };
+		49AA87D81D9C9F7F00706AD9 /* AlbumViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlbumViewController.m; sourceTree = "<group>"; };
+		49AA87DA1D9CBB6800706AD9 /* AlbumCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlbumCollectionViewCell.h; sourceTree = "<group>"; };
+		49AA87DB1D9CBB6800706AD9 /* AlbumCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlbumCollectionViewCell.m; sourceTree = "<group>"; };
+		49AA87DD1D9CC12D00706AD9 /* AlbumModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlbumModel.h; sourceTree = "<group>"; };
+		49AA87DE1D9CC12D00706AD9 /* AlbumModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlbumModel.m; sourceTree = "<group>"; };
 		49ADC5701D94CF53004CD252 /* EverydayCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EverydayCollectionViewCell.h; sourceTree = "<group>"; };
 		49ADC5711D94CF53004CD252 /* EverydayCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EverydayCollectionViewCell.m; sourceTree = "<group>"; };
 		49ADC5761D94D9A3004CD252 /* EverydayCellModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EverydayCellModel.h; sourceTree = "<group>"; };
@@ -84,14 +108,24 @@
 		49B91D2B1D9A1FF400255632 /* ClassModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClassModel.m; sourceTree = "<group>"; };
 		49B91D2D1D9A213500255632 /* ClassCollectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClassCollectionCell.h; sourceTree = "<group>"; };
 		49B91D2E1D9A213500255632 /* ClassCollectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClassCollectionCell.m; sourceTree = "<group>"; };
-		49B91D591D9A715A00255632 /* ActivityModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ActivityModel.h; path = Topic/Controller/ActivityModel.h; sourceTree = "<group>"; };
-		49B91D5A1D9A715A00255632 /* ActivityModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ActivityModel.m; path = Topic/Controller/ActivityModel.m; sourceTree = "<group>"; };
-		49B91D5C1D9A747E00255632 /* ActivityTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ActivityTableViewCell.h; path = ../../../ActivityTableViewCell.h; sourceTree = "<group>"; };
-		49B91D5D1D9A747E00255632 /* ActivityTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ActivityTableViewCell.m; path = ../../../ActivityTableViewCell.m; sourceTree = "<group>"; };
-		49B91D5F1D9AA3CA00255632 /* UserViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserViewController.h; path = ../Common/DataBase/UserViewController.h; sourceTree = "<group>"; };
-		49B91D601D9AA3CA00255632 /* UserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UserViewController.m; path = ../Common/DataBase/UserViewController.m; sourceTree = "<group>"; };
+		49B91D591D9A715A00255632 /* ActivityModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivityModel.h; sourceTree = "<group>"; };
+		49B91D5A1D9A715A00255632 /* ActivityModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActivityModel.m; sourceTree = "<group>"; };
+		49B91D5C1D9A747E00255632 /* ActivityTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivityTableViewCell.h; sourceTree = "<group>"; };
+		49B91D5D1D9A747E00255632 /* ActivityTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActivityTableViewCell.m; sourceTree = "<group>"; };
+		49B91D5F1D9AA3CA00255632 /* UserViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserViewController.h; sourceTree = "<group>"; };
+		49B91D601D9AA3CA00255632 /* UserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserViewController.m; sourceTree = "<group>"; };
 		49B91D6A1D9AAA8800255632 /* ActiveInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActiveInfoViewController.h; sourceTree = "<group>"; };
 		49B91D6B1D9AAA8800255632 /* ActiveInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActiveInfoViewController.m; sourceTree = "<group>"; };
+		49BA388F1D9B6AA9002D1B57 /* CheckActivityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CheckActivityViewController.h; sourceTree = "<group>"; };
+		49BA38901D9B6AA9002D1B57 /* CheckActivityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CheckActivityViewController.m; sourceTree = "<group>"; };
+		49BA38BA1D9BB5FD002D1B57 /* WalletViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WalletViewController.h; sourceTree = "<group>"; };
+		49BA38BB1D9BB5FD002D1B57 /* WalletViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WalletViewController.m; sourceTree = "<group>"; };
+		49BA38BF1D9BB618002D1B57 /* SettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingViewController.h; sourceTree = "<group>"; };
+		49BA38C01D9BB618002D1B57 /* SettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingViewController.m; sourceTree = "<group>"; };
+		49BA38C21D9BBC47002D1B57 /* UserModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserModel.h; sourceTree = "<group>"; };
+		49BA38C31D9BBC47002D1B57 /* UserModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserModel.m; sourceTree = "<group>"; };
+		49BA38C51D9BE86B002D1B57 /* SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchViewController.h; sourceTree = "<group>"; };
+		49BA38C61D9BE86B002D1B57 /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
 		49D9305C1D92142E008499F5 /* TalkingTextCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TalkingTextCollectionViewCell.h; sourceTree = "<group>"; };
 		49D9305D1D92142E008499F5 /* TalkingTextCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TalkingTextCollectionViewCell.m; sourceTree = "<group>"; };
 		49D930781D92AE81008499F5 /* SGTopTitleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SGTopTitleView.h; path = "../../../../../Downloads/SGTopTitleView-master/SGTopTitleView/SGTopTitleView.h"; sourceTree = "<group>"; };
@@ -104,8 +138,8 @@
 		49D930821D92AFEC008499F5 /* TalkingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TalkingViewController.m; sourceTree = "<group>"; };
 		49D930841D92B001008499F5 /* TopicViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopicViewController.h; sourceTree = "<group>"; };
 		49D930851D92B001008499F5 /* TopicViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopicViewController.m; sourceTree = "<group>"; };
-		49D930871D92B017008499F5 /* ActivityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ActivityViewController.h; path = Controller/ActivityViewController.h; sourceTree = "<group>"; };
-		49D930881D92B017008499F5 /* ActivityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ActivityViewController.m; path = Controller/ActivityViewController.m; sourceTree = "<group>"; };
+		49D930871D92B017008499F5 /* ActivityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivityViewController.h; sourceTree = "<group>"; };
+		49D930881D92B017008499F5 /* ActivityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActivityViewController.m; sourceTree = "<group>"; };
 		49D9308A1D92BB15008499F5 /* HotTopicViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HotTopicViewController.h; sourceTree = "<group>"; };
 		49D9308B1D92BB15008499F5 /* HotTopicViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HotTopicViewController.m; sourceTree = "<group>"; };
 		49D9308D1D92BB56008499F5 /* EverydayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EverydayViewController.h; sourceTree = "<group>"; };
@@ -116,12 +150,14 @@
 		49DADB391D967EBC0060D830 /* TitleCollectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TitleCollectionCell.m; sourceTree = "<group>"; };
 		49DADB3B1D967FDD0060D830 /* TitleModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TitleModel.h; sourceTree = "<group>"; };
 		49DADB3C1D967FDD0060D830 /* TitleModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TitleModel.m; sourceTree = "<group>"; };
+		49EBF58E1D9E019A007958ED /* EverydayCardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EverydayCardView.h; sourceTree = "<group>"; };
+		49EBF58F1D9E019A007958ED /* EverydayCardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EverydayCardView.m; sourceTree = "<group>"; };
 		49FCC05B1D9160F3007614B5 /* Talking.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Talking.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		49FCC05F1D9160F3007614B5 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		49FCC0611D9160F3007614B5 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		49FCC0621D9160F3007614B5 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		49FCC0681D9160F3007614B5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		49FCC06A1D9160F3007614B5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		49FCC06A1D9160F3007614B5 /* share.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = share.xcassets; sourceTree = "<group>"; };
 		49FCC06D1D9160F3007614B5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		49FCC06F1D9160F3007614B5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		49FCC0841D916193007614B5 /* NSArray+Categories.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+Categories.h"; sourceTree = "<group>"; };
@@ -167,8 +203,8 @@
 		49FCC0C01D91621A007614B5 /* SystemUnit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SystemUnit.h; sourceTree = "<group>"; };
 		49FCC0C91D916271007614B5 /* Spkit.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Spkit.pch; sourceTree = "<group>"; };
 		49FCC0CA1D916279007614B5 /* AboutMe.text */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = AboutMe.text; sourceTree = "<group>"; };
-		49FCC0D71D916BBB007614B5 /* TalkingHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TalkingHomeViewController.h; path = ../TalkingHomeViewController.h; sourceTree = "<group>"; };
-		49FCC0D81D916BBB007614B5 /* TalkingHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TalkingHomeViewController.m; path = ../TalkingHomeViewController.m; sourceTree = "<group>"; };
+		49FCC0D71D916BBB007614B5 /* TalkingHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TalkingHomeViewController.h; sourceTree = "<group>"; };
+		49FCC0D81D916BBB007614B5 /* TalkingHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TalkingHomeViewController.m; sourceTree = "<group>"; };
 		49FCC0DB1D916D4C007614B5 /* SpMacro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SpMacro.h; sourceTree = "<group>"; };
 		49FCC0DD1D91724B007614B5 /* TalkingHomeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TalkingHomeView.h; sourceTree = "<group>"; };
 		49FCC0DE1D91724B007614B5 /* TalkingHomeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TalkingHomeView.m; sourceTree = "<group>"; };
@@ -231,6 +267,80 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		495FD5E01D9D085E0016B349 /* Card */ = {
+			isa = PBXGroup;
+			children = (
+				495FD5E31D9D08700016B349 /* Model */,
+				495FD5E21D9D086B0016B349 /* View */,
+				495FD5E11D9D08650016B349 /* Controller */,
+			);
+			name = Card;
+			sourceTree = "<group>";
+		};
+		495FD5E11D9D08650016B349 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				495FD5E41D9D08A70016B349 /* CardViewController.h */,
+				495FD5E51D9D08A70016B349 /* CardViewController.m */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		495FD5E21D9D086B0016B349 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		495FD5E31D9D08700016B349 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				495FD5E71D9D09350016B349 /* CardModel.h */,
+				495FD5E81D9D09350016B349 /* CardModel.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		49AA87D31D9C9F3D00706AD9 /* AlbumView */ = {
+			isa = PBXGroup;
+			children = (
+				49AA87D61D9C9F6500706AD9 /* Model */,
+				49AA87D51D9C9F6000706AD9 /* View */,
+				49AA87D41D9C9F5A00706AD9 /* Controller */,
+			);
+			name = AlbumView;
+			sourceTree = "<group>";
+		};
+		49AA87D41D9C9F5A00706AD9 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				49AA87D71D9C9F7F00706AD9 /* AlbumViewController.h */,
+				49AA87D81D9C9F7F00706AD9 /* AlbumViewController.m */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		49AA87D51D9C9F6000706AD9 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				49AA87DA1D9CBB6800706AD9 /* AlbumCollectionViewCell.h */,
+				49AA87DB1D9CBB6800706AD9 /* AlbumCollectionViewCell.m */,
+				495FD5EA1D9D0D550016B349 /* AlbumCardCollectionViewCell.h */,
+				495FD5EB1D9D0D550016B349 /* AlbumCardCollectionViewCell.m */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		49AA87D61D9C9F6500706AD9 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				49AA87DD1D9CC12D00706AD9 /* AlbumModel.h */,
+				49AA87DE1D9CC12D00706AD9 /* AlbumModel.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
 		49ADC56C1D94C9CC004CD252 /* HomeEveryView */ = {
 			isa = PBXGroup;
 			children = (
@@ -264,6 +374,8 @@
 		49ADC56F1D94CEFA004CD252 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				49EBF58E1D9E019A007958ED /* EverydayCardView.h */,
+				49EBF58F1D9E019A007958ED /* EverydayCardView.m */,
 				49ADC5701D94CF53004CD252 /* EverydayCollectionViewCell.h */,
 				49ADC5711D94CF53004CD252 /* EverydayCollectionViewCell.m */,
 			);
@@ -312,7 +424,7 @@
 				49B91D581D9A6BBD00255632 /* Model */,
 				49B91D571D9A6BB500255632 /* View */,
 			);
-			name = Active;
+			path = Active;
 			sourceTree = "<group>";
 		};
 		49B91D561D9A6BAE00255632 /* Controller */ = {
@@ -321,7 +433,7 @@
 				49D930871D92B017008499F5 /* ActivityViewController.h */,
 				49D930881D92B017008499F5 /* ActivityViewController.m */,
 			);
-			name = Controller;
+			path = Controller;
 			sourceTree = "<group>";
 		};
 		49B91D571D9A6BB500255632 /* View */ = {
@@ -330,7 +442,7 @@
 				49B91D5C1D9A747E00255632 /* ActivityTableViewCell.h */,
 				49B91D5D1D9A747E00255632 /* ActivityTableViewCell.m */,
 			);
-			name = View;
+			path = View;
 			sourceTree = "<group>";
 		};
 		49B91D581D9A6BBD00255632 /* Model */ = {
@@ -339,17 +451,17 @@
 				49B91D591D9A715A00255632 /* ActivityModel.h */,
 				49B91D5A1D9A715A00255632 /* ActivityModel.m */,
 			);
-			name = Model;
+			path = Model;
 			sourceTree = "<group>";
 		};
 		49B91D621D9AA40500255632 /* User */ = {
 			isa = PBXGroup;
 			children = (
+				49B91D631D9AA40C00255632 /* Controller */,
 				49B91D651D9AA41A00255632 /* Model */,
 				49B91D641D9AA41600255632 /* View */,
-				49B91D631D9AA40C00255632 /* Controller */,
 			);
-			name = User;
+			path = User;
 			sourceTree = "<group>";
 		};
 		49B91D631D9AA40C00255632 /* Controller */ = {
@@ -358,31 +470,33 @@
 				49B91D5F1D9AA3CA00255632 /* UserViewController.h */,
 				49B91D601D9AA3CA00255632 /* UserViewController.m */,
 			);
-			name = Controller;
+			path = Controller;
 			sourceTree = "<group>";
 		};
 		49B91D641D9AA41600255632 /* View */ = {
 			isa = PBXGroup;
 			children = (
 			);
-			name = View;
+			path = View;
 			sourceTree = "<group>";
 		};
 		49B91D651D9AA41A00255632 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				49BA38C21D9BBC47002D1B57 /* UserModel.h */,
+				49BA38C31D9BBC47002D1B57 /* UserModel.m */,
 			);
-			name = Model;
+			path = Model;
 			sourceTree = "<group>";
 		};
 		49B91D661D9AAA4400255632 /* ActivityInfo */ = {
 			isa = PBXGroup;
 			children = (
+				49B91D671D9AAA4B00255632 /* Controller */,
 				49B91D691D9AAA5500255632 /* Model */,
 				49B91D681D9AAA5100255632 /* View */,
-				49B91D671D9AAA4B00255632 /* Controller */,
 			);
-			name = ActivityInfo;
+			path = ActivityInfo;
 			sourceTree = "<group>";
 		};
 		49B91D671D9AAA4B00255632 /* Controller */ = {
@@ -391,21 +505,121 @@
 				49B91D6A1D9AAA8800255632 /* ActiveInfoViewController.h */,
 				49B91D6B1D9AAA8800255632 /* ActiveInfoViewController.m */,
 			);
-			name = Controller;
+			path = Controller;
 			sourceTree = "<group>";
 		};
 		49B91D681D9AAA5100255632 /* View */ = {
 			isa = PBXGroup;
 			children = (
 			);
-			name = View;
+			path = View;
 			sourceTree = "<group>";
 		};
 		49B91D691D9AAA5500255632 /* Model */ = {
 			isa = PBXGroup;
 			children = (
 			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		49BA388B1D9B6A87002D1B57 /* CheckActivity */ = {
+			isa = PBXGroup;
+			children = (
+				49BA388C1D9B6A93002D1B57 /* Controller */,
+				49BA388E1D9B6A9F002D1B57 /* Model */,
+				49BA388D1D9B6A9A002D1B57 /* View */,
+			);
+			path = CheckActivity;
+			sourceTree = "<group>";
+		};
+		49BA388C1D9B6A93002D1B57 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				49BA388F1D9B6AA9002D1B57 /* CheckActivityViewController.h */,
+				49BA38901D9B6AA9002D1B57 /* CheckActivityViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		49BA388D1D9B6A9A002D1B57 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		49BA388E1D9B6A9F002D1B57 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		49BA38B81D9BB5D8002D1B57 /* Wallet */ = {
+			isa = PBXGroup;
+			children = (
+				49BA38B91D9BB5E3002D1B57 /* Controller */,
+			);
+			path = Wallet;
+			sourceTree = "<group>";
+		};
+		49BA38B91D9BB5E3002D1B57 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				49BA38BA1D9BB5FD002D1B57 /* WalletViewController.h */,
+				49BA38BB1D9BB5FD002D1B57 /* WalletViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		49BA38BD1D9BB606002D1B57 /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+				49BA38BE1D9BB60D002D1B57 /* Controller */,
+			);
+			path = Setting;
+			sourceTree = "<group>";
+		};
+		49BA38BE1D9BB60D002D1B57 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				49BA38BF1D9BB618002D1B57 /* SettingViewController.h */,
+				49BA38C01D9BB618002D1B57 /* SettingViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		49BA38C81D9BE87E002D1B57 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				49BA38CB1D9BE895002D1B57 /* View */,
+				49BA38CA1D9BE88E002D1B57 /* Model */,
+				49BA38C91D9BE888002D1B57 /* Controller */,
+			);
+			name = Search;
+			sourceTree = "<group>";
+		};
+		49BA38C91D9BE888002D1B57 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				49BA38C51D9BE86B002D1B57 /* SearchViewController.h */,
+				49BA38C61D9BE86B002D1B57 /* SearchViewController.m */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		49BA38CA1D9BE88E002D1B57 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
 			name = Model;
+			sourceTree = "<group>";
+		};
+		49BA38CB1D9BE895002D1B57 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = View;
 			sourceTree = "<group>";
 		};
 		49D930751D92AE40008499F5 /* SGTopTitleView */ = {
@@ -441,10 +655,10 @@
 		49DADB361D96747C0060D830 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				49DADB381D967EBC0060D830 /* TitleCollectionCell.h */,
-				49DADB391D967EBC0060D830 /* TitleCollectionCell.m */,
 				49B91D2D1D9A213500255632 /* ClassCollectionCell.h */,
 				49B91D2E1D9A213500255632 /* ClassCollectionCell.m */,
+				49DADB381D967EBC0060D830 /* TitleCollectionCell.h */,
+				49DADB391D967EBC0060D830 /* TitleCollectionCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -490,7 +704,7 @@
 				49FCC0C81D916259007614B5 /* Vendors */,
 				49FCC0611D9160F3007614B5 /* AppDelegate.h */,
 				49FCC0621D9160F3007614B5 /* AppDelegate.m */,
-				49FCC06A1D9160F3007614B5 /* Assets.xcassets */,
+				49FCC06A1D9160F3007614B5 /* share.xcassets */,
 				49FCC06F1D9160F3007614B5 /* Info.plist */,
 				49FCC06C1D9160F3007614B5 /* LaunchScreen.storyboard */,
 				49FCC0671D9160F3007614B5 /* Main.storyboard */,
@@ -629,9 +843,15 @@
 		49FCC0C51D916234007614B5 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				495FD5E01D9D085E0016B349 /* Card */,
+				49AA87D31D9C9F3D00706AD9 /* AlbumView */,
+				49BA38C81D9BE87E002D1B57 /* Search */,
 				49B91D661D9AAA4400255632 /* ActivityInfo */,
-				49B91D621D9AA40500255632 /* User */,
+				49BA388B1D9B6A87002D1B57 /* CheckActivity */,
 				49FCC0CC1D916284007614B5 /* Home */,
+				49BA38BD1D9BB606002D1B57 /* Setting */,
+				49B91D621D9AA40500255632 /* User */,
+				49BA38B81D9BB5D8002D1B57 /* Wallet */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -655,14 +875,14 @@
 		49FCC0CC1D916284007614B5 /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				49FCC0CF1D916296007614B5 /* Model */,
-				49FCC0D31D916B64007614B5 /* View */,
-				49FCC0CD1D916289007614B5 /* Controller */,
 				49B91D551D9A6BA200255632 /* Active */,
+				49FCC0CD1D916289007614B5 /* Controller */,
 				49ADC56C1D94C9CC004CD252 /* HomeEveryView */,
 				491E42F91D9366DF00939063 /* HomeHotTopicView */,
+				49FCC0CF1D916296007614B5 /* Model */,
 				49ADC57C1D952471004CD252 /* TalkView */,
 				49DADB341D966F6F0060D830 /* Topic */,
+				49FCC0D31D916B64007614B5 /* View */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -670,10 +890,10 @@
 		49FCC0CD1D916289007614B5 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				49FCC0D71D916BBB007614B5 /* TalkingHomeViewController.h */,
-				49FCC0D81D916BBB007614B5 /* TalkingHomeViewController.m */,
 				49D9307E1D92AFDC008499F5 /* HomeViewController.h */,
 				49D9307F1D92AFDC008499F5 /* HomeViewController.m */,
+				49FCC0D71D916BBB007614B5 /* TalkingHomeViewController.h */,
+				49FCC0D81D916BBB007614B5 /* TalkingHomeViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -776,7 +996,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				49FCC06E1D9160F3007614B5 /* LaunchScreen.storyboard in Resources */,
-				49FCC06B1D9160F3007614B5 /* Assets.xcassets in Resources */,
+				49FCC06B1D9160F3007614B5 /* share.xcassets in Resources */,
 				49FCC0691D9160F3007614B5 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -837,10 +1057,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				49FCC0C31D91621A007614B5 /* NSUserDefaultsUtils.m in Sources */,
+				495FD5E91D9D09350016B349 /* CardModel.m in Sources */,
 				49D930891D92B017008499F5 /* ActivityViewController.m in Sources */,
 				49D9307A1D92AE81008499F5 /* SGTopTitleView.m in Sources */,
 				491E43091D936BED00939063 /* HotTopicModel.m in Sources */,
 				49B91D2C1D9A1FF400255632 /* ClassModel.m in Sources */,
+				49BA38C11D9BB618002D1B57 /* SettingViewController.m in Sources */,
+				49BA38C71D9BE86B002D1B57 /* SearchViewController.m in Sources */,
 				49FCC0A11D916193007614B5 /* NSString+Categories.m in Sources */,
 				49FCC0AD1D9161C5007614B5 /* SpBaseModel.m in Sources */,
 				49B91D6C1D9AAA8800255632 /* ActiveInfoViewController.m in Sources */,
@@ -848,17 +1071,22 @@
 				49B91D5B1D9A715A00255632 /* ActivityModel.m in Sources */,
 				49FCC0A21D916193007614B5 /* NSString+Regex.m in Sources */,
 				491E43051D93686000939063 /* HotTopicCollectionViewCell.m in Sources */,
+				49AA87D91D9C9F7F00706AD9 /* AlbumViewController.m in Sources */,
 				49ADC57B1D9502BF004CD252 /* cardContentsModel.m in Sources */,
 				49ADC5781D94D9A3004CD252 /* EverydayCellModel.m in Sources */,
 				49D9307D1D92AEA4008499F5 /* UIView+SGExtension.m in Sources */,
 				49FCC0E21D917268007614B5 /* TalkingHomeModel.m in Sources */,
 				49FCC0631D9160F3007614B5 /* AppDelegate.m in Sources */,
+				495FD5E61D9D08A70016B349 /* CardViewController.m in Sources */,
 				49DADB3A1D967EBC0060D830 /* TitleCollectionCell.m in Sources */,
+				49BA38911D9B6AA9002D1B57 /* CheckActivityViewController.m in Sources */,
 				49FCC0A41D916193007614B5 /* UIButton+Block.m in Sources */,
 				49FCC09C1D916193007614B5 /* NSArray+Categories.m in Sources */,
 				49FCC09E1D916193007614B5 /* NSDate+EasyExtend.mm in Sources */,
+				49BA38BC1D9BB5FD002D1B57 /* WalletViewController.m in Sources */,
 				49DADB3D1D967FDD0060D830 /* TitleModel.m in Sources */,
 				49FCC0DF1D91724B007614B5 /* TalkingHomeView.m in Sources */,
+				49AA87DC1D9CBB6800706AD9 /* AlbumCollectionViewCell.m in Sources */,
 				49B91D2F1D9A213500255632 /* ClassCollectionCell.m in Sources */,
 				49FCC0B01D9161CF007614B5 /* SpBaseView.m in Sources */,
 				49D930861D92B001008499F5 /* TopicViewController.m in Sources */,
@@ -869,19 +1097,23 @@
 				491E434A1D94061E00939063 /* HotTopicLabel.m in Sources */,
 				49FCC0CB1D916279007614B5 /* AboutMe.text in Sources */,
 				49ADC5721D94CF53004CD252 /* EverydayCollectionViewCell.m in Sources */,
+				49BA38C41D9BBC47002D1B57 /* UserModel.m in Sources */,
 				49FCC0A01D916193007614B5 /* NSNumber+Extend.m in Sources */,
 				49FCC0B41D9161ED007614B5 /* DataBaseManager.m in Sources */,
 				49FCC0A71D916193007614B5 /* UIView+Frame.m in Sources */,
 				49DADB331D9664530060D830 /* TalkingCollectionViewCell.m in Sources */,
 				49FCC0A31D916193007614B5 /* NSUserDefaults+Categories.m in Sources */,
 				49FCC0D91D916BBB007614B5 /* TalkingHomeViewController.m in Sources */,
+				49AA87DF1D9CC12D00706AD9 /* AlbumModel.m in Sources */,
 				49FCC0A61D916193007614B5 /* UIImage+Categories.m in Sources */,
 				491E430C1D936F9700939063 /* HotTopicCollectionViewLayout.m in Sources */,
 				49D9308C1D92BB15008499F5 /* HotTopicViewController.m in Sources */,
 				49B91D611D9AA3CA00255632 /* UserViewController.m in Sources */,
 				49D930801D92AFDC008499F5 /* HomeViewController.m in Sources */,
+				495FD5EC1D9D0D550016B349 /* AlbumCardCollectionViewCell.m in Sources */,
 				49D9308F1D92BB56008499F5 /* EverydayViewController.m in Sources */,
 				49FCC0A51D916193007614B5 /* UIColor+Categories.m in Sources */,
+				49EBF5901D9E019A007958ED /* EverydayCardView.m in Sources */,
 				49FCC0C11D91621A007614B5 /* AppStoreUtils.m in Sources */,
 				49FCC09D1D916193007614B5 /* NSDate+Categories.m in Sources */,
 				49FCC0C21D91621A007614B5 /* FileManagerUtils.m in Sources */,
@@ -1000,7 +1232,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "/Users/dllo/Speech/Talking/Talking/Supporting Files/Spkit.pch";
+				GCC_PREFIX_HEADER = "$(SRCROOT)/Talking/Supporting Files/Spkit.pch";
 				INFOPLIST_FILE = Talking/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1015,7 +1247,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "/Users/dllo/Speech/Talking/Talking/Supporting Files/Spkit.pch";
+				GCC_PREFIX_HEADER = "$(SRCROOT)/Talking/Supporting Files/Spkit.pch";
 				INFOPLIST_FILE = Talking/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

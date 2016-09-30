@@ -10,6 +10,7 @@
 #import "ActivityModel.h"
 #import "ActivityTableViewCell.h"
 #import "ActiveInfoViewController.h"
+#import "UIImageView+WebCache.h"
 
 static NSString *const identifier = @"cell";
 @interface ActivityViewController ()
@@ -18,11 +19,12 @@ UITableViewDataSource,
 UITableViewDelegate
 >
 @property (nonatomic, strong) NSMutableArray *activityArray;
+@property (nonatomic, strong) ActivityModel *nowActiveModel;
 
 @property (nonatomic, strong) UITableView *tabelView;
 @property (nonatomic, strong) UIView *headerView;
+@property (nonatomic, strong) UIImageView *image;
 
-@property (nonatomic, assign) long int timeNumber;
 @end
 
 @implementation ActivityViewController
@@ -31,9 +33,9 @@ UITableViewDelegate
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.activityArray = [NSMutableArray array];
-    
+    self.nowActiveModel = [[ActivityModel alloc] init];
     [self GetActivity];
-    self.view.backgroundColor = [UIColor redColor];
+    self.view.backgroundColor = [UIColor whiteColor];
     self.tabelView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, self.view.width, self.view.height - self.navigationController.navigationBar.y - self.navigationController.navigationBar.height) style:UITableViewStylePlain];
     _tabelView.dataSource = self;
     _tabelView.delegate = self;
@@ -41,7 +43,15 @@ UITableViewDelegate
     [self.view addSubview:_tabelView];
     
     self.headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.width, self.view.height * 0.45)];
-    _headerView.backgroundColor = [UIColor cyanColor];
+    _headerView.backgroundColor = [UIColor whiteColor];
+
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapAction)];
+    [_headerView addGestureRecognizer:tap];
+    
+    self.image = [[UIImageView alloc] initWithFrame:_headerView.bounds];
+    [_headerView addSubview:_image];
+    
+    
     
     UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(self.view.width * 0.02, self.view.width * 0.02, self.view.width * 0.2, self.view.width * 0.05)];
     label.backgroundColor = [UIColor blackColor];
@@ -53,32 +63,29 @@ UITableViewDelegate
     [_headerView addSubview:label];
 
     _tabelView.tableHeaderView = _headerView;
-    
-    NSDate* dat = [NSDate dateWithTimeIntervalSinceNow:0];
-    NSTimeInterval a=[dat timeIntervalSince1970];
-    NSString *timeString = [NSString stringWithFormat:@"%0.f", a];
-    self.timeNumber = [timeString longLongValue];
-    
-    
-//    NSLog(@"%ld",_timeNumber);
 
 }
 - (void)GetActivity {
     
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     [manager.requestSerializer setValue:@"189186" forHTTPHeaderField:@"X-User"];
-    [manager.requestSerializer setValue:@"A991B7D59DACB35A141ED180BF3EA6534F2B5E4FD8BAE126DF9BDAB620ABB39B589F205ECF3D7791C8CE287E9B087D6BEF48CA1E5A3FE3FC6C968A08F7642843" forHTTPHeaderField:@"X-AuthToken"];
+    [manager.requestSerializer setValue:@"A991B7D59DACB35A141ED180BF3EA6534F2B5E4FD8BAE126DF9BDAB620ABB39B589F205ECF3D7791C8CE287E9B087D6B72B3B832A054648EB2B435216FF109CD" forHTTPHeaderField:@"X-AuthToken"];
     [manager.requestSerializer setValue:@"j8slb29fbalc83pna2af2c2954hcw65" forHTTPHeaderField:@"X-ApiKey"];
     NSString *url = [NSString stringWithFormat:@"http://app.ry.api.renyan.cn/rest/auth/activity/select_activities/v2?curPage=1&pageSize=20"];
     [manager GET:url parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         NSArray *array = [NSArray arrayWithArray:[responseObject objectForKey:@"activities"]];
         for (NSDictionary *dic in array) {
             ActivityModel *model = [[ActivityModel alloc] initWithDic:dic];
-            long int start = [model.startTime longLongValue] / 1000;
-            long int end = [model.endTime longLongValue] / 1000;
-            if (_timeNumber > start && _timeNumber > end) {
+
+            if (model.type == 2) {
                 [_activityArray addObject:model];
+            } else {
+                _nowActiveModel = model;
+                NSURL *url = [NSURL URLWithString:model.picture];
+                [_image sd_setImageWithURL:url];
+                NSLog(@"%@",_nowActiveModel);
             }
+            
         }
         [_tabelView reloadData];
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
@@ -122,9 +129,11 @@ UITableViewDelegate
     ActiveInfoViewController *activeInfoView = [[ActiveInfoViewController  alloc] init];
     activeInfoView.model = _activityArray[indexPath.row];
     [self.navigationController pushViewController:activeInfoView animated:YES];
-    NSLog(@"%ld",indexPath.row);
-
 }
-
+- (void)tapAction {
+    ActiveInfoViewController *activeInfoView = [[ActiveInfoViewController  alloc] init];
+    activeInfoView.model = _nowActiveModel;
+    [self.navigationController pushViewController:activeInfoView animated:YES];
+}
 
 @end

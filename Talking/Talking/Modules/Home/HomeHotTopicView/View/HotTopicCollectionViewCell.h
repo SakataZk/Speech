@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+
 @class HotTopicModel;
+
 @interface HotTopicCollectionViewCell : UICollectionViewCell
+
 @property (nonatomic, strong)HotTopicModel *hotTopicCell;
+
 @end

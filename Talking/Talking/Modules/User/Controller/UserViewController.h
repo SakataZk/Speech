@@ -10,4 +10,6 @@
 
 @interface UserViewController : SpBaseViewController
 
+@property (nonatomic, strong) NSNumber *uid;
+
 @end

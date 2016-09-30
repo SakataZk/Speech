@@ -1,59 +1,40 @@
 //
-//  UserViewController.m
+//  SettingViewController.m
 //  Talking
 //
-//  Created by dllo on 16/9/27.
+//  Created by dllo on 16/9/28.
 //  Copyright © 2016年 Sakata_ZK. All rights reserved.
 //
 
-#import "UserViewController.h"
+#import "SettingViewController.h"
 
-@interface UserViewController ()
+@interface SettingViewController ()
 
 @end
 
-@implementation UserViewController
+@implementation SettingViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    self.navigationController.navigationBarHidden = YES;
+    UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, self.view.width, self.view.height * 0.08)];
+    //    titleLabel.backgroundColor = [UIColor whiteColor];
+    titleLabel.userInteractionEnabled = YES;
+    titleLabel.text = @"设置";
+    titleLabel.textAlignment = NSTextAlignmentCenter;
+    [self.view addSubview:titleLabel];
     
     UIButton *returnButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    returnButton.frame = CGRectMake(self.view.width * 0.055, self.view.height * 0.047, self.view.width * 0.055, self.view.height * 0.047);
-    [returnButton setImage:[UIImage imageNamed:@"return"] forState:UIControlStateNormal];
-    returnButton.backgroundColor = [UIColor redColor];
+    returnButton.frame = CGRectMake(self.view.width * 0.055, 0, self.view.width * 0.055, titleLabel.height / 3);
+    returnButton.centerY = titleLabel.centerY;
+    [returnButton setImage:[UIImage imageNamed:@"darkReturn"] forState:UIControlStateNormal];
     [returnButton handleControlEvent:UIControlEventTouchUpInside withBlock:^{
         [self.navigationController popViewControllerAnimated:YES];
     }];
-    [self.view addSubview:returnButton];
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+    [titleLabel addSubview:returnButton];
+
     // Do any additional setup after loading the view.
 }
-- (void)GetUserInfo {
 
-
-
-
-
-    
-    
-    
-    
-}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

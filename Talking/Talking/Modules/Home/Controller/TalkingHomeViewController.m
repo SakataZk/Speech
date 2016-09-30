@@ -13,6 +13,7 @@
 #import "TopicViewController.h"
 #import "ActivityViewController.h"
 #import "UserViewController.h"
+#import "SearchViewController.h"
 
 
 
@@ -42,8 +43,8 @@ UIScrollViewDelegate
     userInfoButton.backgroundColor = [UIColor redColor];
     [self.navigationController.navigationBar addSubview:userInfoButton];
     [userInfoButton handleControlEvent:UIControlEventTouchUpInside withBlock:^{
-        NSLog(@"柯柯");
         UserViewController *userView = [[UserViewController alloc] init];
+        userView.uid = @189186;
         [self.navigationController pushViewController:userView animated:YES];
     }];
     
@@ -54,7 +55,8 @@ UIScrollViewDelegate
     [searchButton setImage:[UIImage imageNamed:@"search"] forState:UIControlStateNormal];
     [self.navigationController.navigationBar addSubview:searchButton];
     [searchButton handleControlEvent:UIControlEventTouchUpInside withBlock:^{
-        NSLog(@"搜索");
+        SearchViewController *searchView = [[SearchViewController alloc] init];
+        [self.navigationController pushViewController:searchView animated:YES];
     }];
     
     
@@ -94,9 +96,7 @@ UIScrollViewDelegate
     _mainScrollView.scrollEnabled = NO;
     
     [self.view addSubview:_mainScrollView];
-    /**
-     *  /////// 直接显示第二页
-     */
+
     [self.mainScrollView addSubview:oneVC.view];
     
     [self.view insertSubview:_mainScrollView belowSubview:_topTitleView];

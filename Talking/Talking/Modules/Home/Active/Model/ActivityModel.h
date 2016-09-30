@@ -18,12 +18,11 @@
 
 @property (nonatomic, assign) NSInteger acid;
 
-@property (nonatomic, assign) NSString *startTime;
-//
-@property (nonatomic, assign) NSString *endTime;
+@property (nonatomic, assign) NSInteger type;
 
 @property (nonatomic, strong) NSString *name;
 
+@property (nonatomic, assign) NSNumber *tpid;
 
 @property (nonatomic, strong) NSString *urlSuffix;
 @end
