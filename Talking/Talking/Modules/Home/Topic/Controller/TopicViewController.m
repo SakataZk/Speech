@@ -13,6 +13,8 @@
 #import "EverydayCollectionViewCell.h"
 #import "UIImageView+WebCache.h"
 #import "ClassModel.h"
+#import "EverydayCardView.h"
+#import "AlbumModel.h"
 
 static NSString *const cellIdentifier = @"titleCell";
 
@@ -42,6 +44,11 @@ UIScrollViewDelegate
 @property (nonatomic, strong) NSMutableArray *classArray;
 @property (nonatomic, strong) UICollectionView *classCollectionView;
 
+@property (nonatomic, strong) NSMutableArray *array;
+@property (nonatomic, strong) NSMutableArray *cidArray;
+@property (nonatomic, strong) EverydayCardView *firtsCardView;
+@property (nonatomic, strong) NSArray *cardArray;
+@property (nonatomic, assign) NSInteger cidCount;
 
 @end
 @implementation TopicViewController
@@ -54,6 +61,8 @@ UIScrollViewDelegate
     self.cellDic = [[NSMutableDictionary alloc] init];
     self.imageArray = [[NSMutableArray alloc] init];
     self.classArray = [NSMutableArray array];
+    self.array = [NSMutableArray array];
+    self.cidArray = [NSMutableArray array];
     self.topicType = 0;
     [self GetTitleArray];
     
@@ -92,46 +101,26 @@ UIScrollViewDelegate
     [self.view addSubview:_cardCollectionView];
     
     
-    
-    
-
-    
-    
-    
-    
-    
-    
     self.number = 0;
 
 }
-//  18640907975
-
-
 
 - (void)setAnimationImageView {
-    
     self.imageView = [[UIImageView alloc] init];
     _imageView.backgroundColor = [UIColor whiteColor];
     _imageView.frame = _bigScrollView.bounds;
     [_bigScrollView addSubview:_imageView];
     if (_imageArray.count > 0) {
-        CAKeyframeAnimation *keyAnimation = [CAKeyframeAnimation animationWithKeyPath:@"image"];
-        CGMutablePathRef path = CGPathCreateMutable();
-        
-        NSMutableArray *time = [NSMutableArray array];
+        NSMutableArray *imageViewArray = [NSMutableArray array];
         for (int i = 0; i < _imageArray.count; i++) {
-            NSURL *url = [NSURL URLWithString:_imageArray[i]];;
-            UIImageView *imagev = [[UIImageView alloc] initWithFrame:_imageView.bounds];
-            [imagev sd_setImageWithURL:url];
-            NSNumber *count = @( i / (_imageArray.count * 1.0f) );
-            [_imageView addSubview:imagev];
-            [time addObject:count];
+            NSURL *url = [NSURL URLWithString:_imageArray[i]];
+            UIImage *imge = [[UIImage alloc] initWithData:[NSData dataWithContentsOfURL:url]];
+            [imageViewArray addObject:imge];
         }
-        keyAnimation.keyTimes = time;
-        keyAnimation.path = path;
-        keyAnimation.beginTime=CACurrentMediaTime()+2;
-        keyAnimation.duration = 3.0f * _imageArray.count;
-        [_imageView.layer addAnimation:keyAnimation forKey:@"image"];
+        [self.imageView isAnimating];
+        [self.imageView setAnimationImages:imageViewArray];
+        [self.imageView setAnimationDuration:3.0f * imageViewArray.count];
+        [self.imageView startAnimating];
     }
 }
 
@@ -146,7 +135,6 @@ UIScrollViewDelegate
     }
 }
 
-//  结束减速
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
     
     if ([scrollView isEqual:_bigScrollView]) {
@@ -170,7 +158,6 @@ UIScrollViewDelegate
     
     }
 
-
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     if ([collectionView isEqual:_titleCollectionView]) {
 
@@ -178,7 +165,6 @@ UIScrollViewDelegate
     }
     return _cellInfoArray.count;
 }
-
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     
@@ -203,13 +189,13 @@ UIScrollViewDelegate
     
 }
 
-
-
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     if ([collectionView isEqual:_titleCollectionView]) {
+        
         TitleCollectionCell *cell = (TitleCollectionCell *)[collectionView cellForItemAtIndexPath:indexPath];
         cell.label.textColor = [UIColor blackColor];
         if (indexPath.row < _titleArray.count) {
+            NSLog(@"点击了");
             NSArray *indexPathArray = [_titleCollectionView indexPathsForVisibleItems];
             for (NSIndexPath *MyIndexPath in indexPathArray) {
                 TitleCollectionCell *cell = (TitleCollectionCell *)[_titleCollectionView cellForItemAtIndexPath:MyIndexPath];
@@ -228,6 +214,13 @@ UIScrollViewDelegate
         } else {
             [self GetClassArray];
         }
+        
+    }
+    if ([collectionView isEqual: _cardCollectionView]) {
+        _cidCount = indexPath.item;
+        [self GetCardInfo:_cidArray[_cidCount]];
+        [self creatCardView];
+        
     }
 }
 
@@ -245,22 +238,20 @@ UIScrollViewDelegate
         if (_imageArray.count > 0) {
             [_imageArray removeAllObjects];
         }
+        if (_cidArray.count > 0) {
+            [_cidArray removeAllObjects];
+        }
         for (NSDictionary *dic in [responseObject objectForKey:@"cards"]) {
             EverydayCellModel *model = [[EverydayCellModel alloc] initWithDic:dic];
             [_cellInfoArray addObject:model];
-            
-            
+            [_cidArray addObject:model.cid];
             if ( ![model.pictureCut isEqualToString:@""]) {
                 [_imageArray addObject:model.pictureCut];
             }
-            
         }
         [_cardCollectionView reloadData];
-    
         _number = 0;
         [self setAnimationImageView];
-        
-        
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"error : %@",error);
     }];
@@ -309,6 +300,61 @@ UIScrollViewDelegate
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"error : %@",error);
     }];
+}
+
+- (void)GetCardInfo:(NSNumber *)cid{
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    [manager.requestSerializer setValue:@"189186" forHTTPHeaderField:@"X-User"];
+    [manager.requestSerializer setValue:@"A991B7D59DACB35A141ED180BF3EA6534F2B5E4FD8BAE126DF9BDAB620ABB39B589F205ECF3D7791C8CE287E9B087D6B72B3B832A054648EB2B435216FF109CD" forHTTPHeaderField:@"X-AuthToken"];
+    [manager.requestSerializer setValue:@"j8slb29fbalc83pna2af2c2954hcw65" forHTTPHeaderField:@"X-ApiKey"];
+    NSString *url = [NSString stringWithFormat:@"http://app.ry.api.renyan.cn/rest/auth/card/select_by_cids?cids=%@",cid];
+    [manager GET:url parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        _array = [responseObject objectForKey:@"cards"];
+        
+        NSDictionary *dic = [_array firstObject];
+        AlbumModel *model = [[AlbumModel alloc] initWithDic:dic];
+        _firtsCardView.model = model;
+
+
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        NSLog(@"error : %@",error);
+    }];
+}
+
+- (void)creatCardView {
+    self.navigationController.navigationBarHidden = YES;
+    self.view.userInteractionEnabled = YES;
+    _cardCollectionView.scrollEnabled = NO;
+    _bigScrollView.scrollEnabled = NO;
+    self.firtsCardView = [[EverydayCardView alloc] initWithFrame:SCREEN_RECT];
+    [self.view addSubview:_firtsCardView];
+    
+    UISwipeGestureRecognizer *firstLeftSwipe = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(firstLeftAction)];
+    firstLeftSwipe.direction = UISwipeGestureRecognizerDirectionLeft;
+    [_firtsCardView addGestureRecognizer:firstLeftSwipe];
+
+    UISwipeGestureRecognizer *firstDownSwipe = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(downSwipeAction)];
+    firstDownSwipe.direction = UISwipeGestureRecognizerDirectionDown;
+    [_firtsCardView addGestureRecognizer:firstDownSwipe];
+}
+
+- (void)downSwipeAction {
+    _firtsCardView.hidden = YES;
+    _cardCollectionView.scrollEnabled = YES;
+    _bigScrollView.scrollEnabled = YES;
+    self.navigationController.navigationBarHidden = NO;
+}
+
+- (void)firstLeftAction{
+    _cidCount ++;
+    if (_cidCount < _cidArray.count) {
+        [self GetCardInfo:_cidArray[_cidCount]];
+        CATransition  *transition = [[CATransition alloc] init];
+        transition.duration = 1.f;
+        transition.type = @"reveal";
+        transition.subtype = kCATransitionFromRight;
+        [self.view.layer addAnimation:transition forKey:@"ll"];
+    }
 }
 
 

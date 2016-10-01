@@ -11,6 +11,8 @@
 #import "TalkingCollectionViewCell.h"
 #import "EverydayCellModel.h"
 #import "EverydayCollectionViewCell.h"
+#import "EverydayCardView.h"
+#import "AlbumModel.h"
 
 static NSString *const cellIdentifier = @"cell";
 @interface CheckActivityViewController ()
@@ -30,19 +32,23 @@ UICollectionViewDelegate
 @property (nonatomic, strong) NSMutableArray *cellInfoArray;
 @property (nonatomic, strong) NSMutableDictionary *cellDic;
 
+@property (nonatomic, strong) NSMutableArray *array;
+@property (nonatomic, strong) EverydayCardView *firtsCardView;
+@property (nonatomic, strong) NSArray *cardArray;
+@property (nonatomic, assign) NSInteger cidCount;
 @end
 
 @implementation CheckActivityViewController
-
 - (void)viewDidLoad {
+
     [super viewDidLoad];
     self.imageArray = [NSMutableArray array];
     self.currentArray = [NSMutableArray array];
     self.cellInfoArray = [NSMutableArray array];
     self.cellDic = [[NSMutableDictionary alloc] init];
     self.cidArray = [NSMutableArray array];
-    
-    
+    self.array = [NSMutableArray array];
+    self.cardArray = [NSArray array];
     
     UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, self.view.width, self.view.height * 0.08)];
     //    titleLabel.backgroundColor = [UIColor whiteColor];
@@ -132,7 +138,6 @@ UICollectionViewDelegate
     [manager.requestSerializer setValue:@"j8slb29fbalc83pna2af2c2954hcw65" forHTTPHeaderField:@"X-ApiKey"];
     NSString *url = [NSString stringWithFormat:@"http://app.ry.api.renyan.cn/rest/auth/activity/get_cards?limit=10&tpid=%@",_model.tpid];
     [manager GET:url parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-//        NSLog(@"%@",responseObject);
         if (_cellInfoArray.count > 0) {
             [_cellInfoArray removeAllObjects];
         }
@@ -247,18 +252,77 @@ UICollectionViewDelegate
     
 }
 
+-(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    
+    [self creatCardView];
+    _cidCount = indexPath.item;
+    [self GetCardInfo:_cidArray[_cidCount]];
+    
+}
+
+- (void)creatCardView {
+    
+    self.view.userInteractionEnabled = YES;
+    _collectionView.scrollEnabled = NO;
+    _scrollCollectionView.scrollEnabled = NO;
+    
+    
+    
+    self.firtsCardView = [[EverydayCardView alloc] initWithFrame:SCREEN_RECT];
+    [self.view addSubview:_firtsCardView];
+    
+    UISwipeGestureRecognizer *firstLeftSwipe = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(firstLeftAction)];
+    firstLeftSwipe.direction = UISwipeGestureRecognizerDirectionLeft;
+    [_firtsCardView addGestureRecognizer:firstLeftSwipe];
+    
+    UISwipeGestureRecognizer *firstDownSwipe = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(downSwipeAction)];
+    firstDownSwipe.direction = UISwipeGestureRecognizerDirectionDown;
+    [_firtsCardView addGestureRecognizer:firstDownSwipe];
+   
+    
+}
+
+- (void)downSwipeAction {
+    _firtsCardView.hidden = YES;
+    _collectionView.scrollEnabled = YES;
+    _scrollCollectionView.scrollEnabled = YES;
+}
+
+- (void)firstLeftAction{
+    _cidCount ++;
+    if (_cidCount < _cidArray.count) {
+        [self GetCardInfo:_cidArray[_cidCount]];
+        
+        
+        CATransition  *transition = [[CATransition alloc] init];
+        transition.duration = 1.f;
+        transition.type = @"reveal";
+        transition.subtype = kCATransitionFromRight;
+        [self.view.layer addAnimation:transition forKey:@"ll"];
+        
+        
+    }else {
+        [self addMoreCard];
+    }
+}
 
 
 
-
-
-
-
-
-
-
-
-
+- (void)GetCardInfo:(NSNumber *)cid{
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    [manager.requestSerializer setValue:@"189186" forHTTPHeaderField:@"X-User"];
+    [manager.requestSerializer setValue:@"A991B7D59DACB35A141ED180BF3EA6534F2B5E4FD8BAE126DF9BDAB620ABB39B589F205ECF3D7791C8CE287E9B087D6B72B3B832A054648EB2B435216FF109CD" forHTTPHeaderField:@"X-AuthToken"];
+    [manager.requestSerializer setValue:@"j8slb29fbalc83pna2af2c2954hcw65" forHTTPHeaderField:@"X-ApiKey"];
+    NSString *url = [NSString stringWithFormat:@"http://app.ry.api.renyan.cn/rest/auth/card/select_by_cids?cids=%@",cid];
+    [manager GET:url parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        _array = [responseObject objectForKey:@"cards"];
+        NSDictionary *dic = [_array firstObject];
+        AlbumModel *model = [[AlbumModel alloc] initWithDic:dic];
+        _firtsCardView.model = model;
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        NSLog(@"error : %@",error);
+    }];
+}
 
 
 - (void)didReceiveMemoryWarning {

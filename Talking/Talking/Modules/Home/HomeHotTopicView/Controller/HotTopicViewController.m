@@ -65,19 +65,18 @@ HotTopicCollectionViewLayoutDelegate
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
     if ([scrollView isEqual: _collectionView]) {
         if (_collectionView.contentOffset.y > _flowLayout.contentHeight - self.view.height) {
-                AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
-                [manager.requestSerializer setValue:@"189186" forHTTPHeaderField:@"X-User"];
-                [manager.requestSerializer setValue:@"A991B7D59DACB35A141ED180BF3EA6534F2B5E4FD8BAE126DF9BDAB620ABB39B589F205ECF3D7791C8CE287E9B087D6B72B3B832A054648EB2B435216FF109CD" forHTTPHeaderField:@"X-AuthToken"];
-                [manager.requestSerializer setValue:@"j8slb29fbalc83pna2af2c2954hcw65" forHTTPHeaderField:@"X-ApiKey"];
-                NSString *url = [NSString stringWithFormat:@"http://app.ry.api.renyan.cn/rest/auth/album/queue/get?count=10&uid=189186"];
-                [manager GET:url parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-                        NSLog(@"%@",NSStringFromClass([[responseObject objectForKey:@"albums"] class]));
-                        self.array =[responseObject objectForKey:@"albums"];
-                        [_cellInfoArray addObjectsFromArray:_array];
-                        [_collectionView reloadData];
-                } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-                    NSLog(@"error : %@",error);
-                }];
+            [self addMoreCard];
+        }
+    
+        if (_collectionView.contentOffset.y > 64 + self.view.height * 0.07) {
+            [UIView animateWithDuration:2.0f animations:^{
+                self.navigationController.navigationBar.frame = CGRectMake(0, -64, self.view.width, 64);
+                self.navigationController.navigationBarHidden = YES;
+            }];
+        } else {
+        [UIView animateWithDuration:2.0f animations:^{
+            self.navigationController.navigationBarHidden = NO;
+        }];
         }
     }
 }
@@ -124,6 +123,26 @@ HotTopicCollectionViewLayoutDelegate
     }];
 }
 
+- (void)addMoreCard {
+
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    [manager.requestSerializer setValue:@"189186" forHTTPHeaderField:@"X-User"];
+    [manager.requestSerializer setValue:@"A991B7D59DACB35A141ED180BF3EA6534F2B5E4FD8BAE126DF9BDAB620ABB39B589F205ECF3D7791C8CE287E9B087D6B72B3B832A054648EB2B435216FF109CD" forHTTPHeaderField:@"X-AuthToken"];
+    [manager.requestSerializer setValue:@"j8slb29fbalc83pna2af2c2954hcw65" forHTTPHeaderField:@"X-ApiKey"];
+    NSString *url = [NSString stringWithFormat:@"http://app.ry.api.renyan.cn/rest/auth/album/queue/get?count=10&uid=189186"];
+    [manager GET:url parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSLog(@"%@",NSStringFromClass([[responseObject objectForKey:@"albums"] class]));
+        self.array =[responseObject objectForKey:@"albums"];
+        [_cellInfoArray addObjectsFromArray:_array];
+        [_collectionView reloadData];
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        NSLog(@"error : %@",error);
+    }];
+
+
+
+
+}
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     AlbumViewController *albumView = [[AlbumViewController alloc] init];
