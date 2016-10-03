@@ -37,32 +37,38 @@ UIScrollViewDelegate
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor colorWithWhite:0.9 alpha:1.0];
     self.navigationController.navigationBar.translucent = NO;
-    
-    UIButton *userInfoButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    userInfoButton.frame = CGRectMake(0, 0, self.navigationController.navigationBar.height, self.navigationController.navigationBar.height);
-    userInfoButton.backgroundColor = [UIColor redColor];
-    [self.navigationController.navigationBar addSubview:userInfoButton];
-    [userInfoButton handleControlEvent:UIControlEventTouchUpInside withBlock:^{
-        UserViewController *userView = [[UserViewController alloc] init];
-        userView.uid = @189186;
-        [self.navigationController pushViewController:userView animated:YES];
-    }];
-    
-    
-    UIButton *searchButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    searchButton.frame = CGRectMake(self.view.width - userInfoButton.width, 0, userInfoButton.width, userInfoButton.height);
-    searchButton.backgroundColor = [UIColor whiteColor];
-    [searchButton setImage:[UIImage imageNamed:@"search"] forState:UIControlStateNormal];
-    [self.navigationController.navigationBar addSubview:searchButton];
-    [searchButton handleControlEvent:UIControlEventTouchUpInside withBlock:^{
-        SearchViewController *searchView = [[SearchViewController alloc] init];
-        [self.navigationController pushViewController:searchView animated:YES];
-    }];
-    
-    
-    
     self.automaticallyAdjustsScrollViewInsets = NO;
+    [self creatButton];
+    [self creatView];
+    [self creatFloatButton];
+    // Do any additional setup after loading the view.
+}
+- (void)SGTopTitleView:(SGTopTitleView *)topTitleView didSelectTitleAtIndex:(NSInteger)index{
+    CGFloat offsetX = index * self.view.frame.size.width;
+    self.mainScrollView.contentOffset = CGPointMake(offsetX, 0);
+    [self showVc:index];
+}
+
+// 显示控制器的view
+- (void)showVc:(NSInteger)index {
+    CGFloat offsetX = index * self.view.frame.size.width;
+    UIViewController *VC = self.childViewControllers[index];
+    // 判断控制器的view有没有加载过,如果已经加载过,就不需要加载
+    if (VC.isViewLoaded) return;
+    [self.mainScrollView addSubview:VC.view];
+    VC.view.frame = CGRectMake(offsetX, 0, self.view.frame.size.width, self.view.frame.size.height);
+}
+
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView{
+
+    NSInteger index = scrollView.contentOffset.x / scrollView.frame.size.width;
+    [self showVc:index];
+    UILabel *selLabel = self.topTitleView.allTitleLabel[index];
+    [self.topTitleView staticTitleLabelSelecteded:selLabel];
     
+}
+
+- (void)creatView {
     HomeViewController *oneVC = [[HomeViewController alloc] init];
     [self addChildViewController:oneVC];
     TalkingViewController *twoVC = [[TalkingViewController alloc] init];
@@ -71,8 +77,8 @@ UIScrollViewDelegate
     [self addChildViewController:threeVC];
     ActivityViewController *fourVC = [[ActivityViewController alloc] init];
     [self addChildViewController:fourVC];
-
-
+    
+    
     self.titles = @[@"首页", @"人言", @"主题", @"活动"];
     self.topTitleView = [SGTopTitleView topTitleViewWithFrame:CGRectMake(self.view.width * 0.2, 0, self.view.frame.size.width * 0.6, self.navigationController.navigationBar.height)];
     _topTitleView.scrollTitleArr = [NSArray arrayWithArray:_titles];
@@ -96,38 +102,53 @@ UIScrollViewDelegate
     _mainScrollView.scrollEnabled = NO;
     
     [self.view addSubview:_mainScrollView];
-
+    
     [self.mainScrollView addSubview:oneVC.view];
     
     [self.view insertSubview:_mainScrollView belowSubview:_topTitleView];
-   
-    // Do any additional setup after loading the view.
-}
-- (void)SGTopTitleView:(SGTopTitleView *)topTitleView didSelectTitleAtIndex:(NSInteger)index{
-    CGFloat offsetX = index * self.view.frame.size.width;
-    self.mainScrollView.contentOffset = CGPointMake(offsetX, 0);
-    [self showVc:index];
+
+
+
 }
 
-
-// 显示控制器的view
-- (void)showVc:(NSInteger)index {
-    CGFloat offsetX = index * self.view.frame.size.width;
-    UIViewController *VC = self.childViewControllers[index];
-    // 判断控制器的view有没有加载过,如果已经加载过,就不需要加载
-    if (VC.isViewLoaded) return;
-    [self.mainScrollView addSubview:VC.view];
-    VC.view.frame = CGRectMake(offsetX, 0, self.view.frame.size.width, self.view.frame.size.height);
-}
-
-- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView{
-
-    NSInteger index = scrollView.contentOffset.x / scrollView.frame.size.width;
-    [self showVc:index];
-    UILabel *selLabel = self.topTitleView.allTitleLabel[index];
-    [self.topTitleView staticTitleLabelSelecteded:selLabel];
+- (void)creatButton {
+    UIButton *userInfoButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    userInfoButton.frame = CGRectMake(0, 0, self.navigationController.navigationBar.height, self.navigationController.navigationBar.height);
+    userInfoButton.backgroundColor = [UIColor redColor];
+    [self.navigationController.navigationBar addSubview:userInfoButton];
+    [userInfoButton handleControlEvent:UIControlEventTouchUpInside withBlock:^{
+        UserViewController *userView = [[UserViewController alloc] init];
+        userView.uid = @189186;
+        [self.navigationController pushViewController:userView animated:YES];
+    }];
     
+    
+    UIButton *searchButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    searchButton.frame = CGRectMake(self.view.width - userInfoButton.width, 0, userInfoButton.width, userInfoButton.height);
+    searchButton.backgroundColor = [UIColor whiteColor];
+    [searchButton setImage:[UIImage imageNamed:@"search"] forState:UIControlStateNormal];
+    [self.navigationController.navigationBar addSubview:searchButton];
+    [searchButton handleControlEvent:UIControlEventTouchUpInside withBlock:^{
+        SearchViewController *searchView = [[SearchViewController alloc] init];
+        [self.navigationController pushViewController:searchView animated:YES];
+    }];
 }
+
+- (void)creatFloatButton {
+    UIButton *floatButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    floatButton.frame = CGRectMake(self.view.width * 0.07, self.view.height * 0.8, self.view.width * 0.1, self.view.width * 0.1);
+    floatButton.backgroundColor = [UIColor clearColor];
+    [floatButton setImage:[UIImage imageNamed:@"floatButton"] forState:UIControlStateNormal];
+    [self.view addSubview:floatButton];
+    [floatButton handleControlEvent:UIControlEventTouchUpInside withBlock:^{
+    
+}];
+
+
+
+
+}
+
 
 
 - (void)didReceiveMemoryWarning {
