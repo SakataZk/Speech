@@ -305,9 +305,9 @@
 		49AA87D31D9C9F3D00706AD9 /* AlbumView */ = {
 			isa = PBXGroup;
 			children = (
-				49AA87D51D9C9F6000706AD9 /* View */,
 				49AA87D41D9C9F5A00706AD9 /* Controller */,
 				49AA87D61D9C9F6500706AD9 /* Model */,
+				49AA87D51D9C9F6000706AD9 /* View */,
 			);
 			path = AlbumView;
 			sourceTree = "<group>";
