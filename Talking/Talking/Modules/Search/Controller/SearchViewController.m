@@ -8,7 +8,7 @@
 //
 
 #import "SearchViewController.h"
-
+#import "MySearchBar.h"
 @interface SearchViewController ()
 <
 UISearchBarDelegate
@@ -20,10 +20,13 @@ UISearchBarDelegate
 
 - (void)viewDidLoad {
     self.navigationController.navigationBarHidden = YES;
-    self.view.backgroundColor = [UIColor redColor];
-
+    self.view.backgroundColor = [UIColor whiteColor];
+    //设置navigationBar的中间为searchBar
+//    self.navigationItem.titleView = [MySearchBar searchBar];
     
-    
+    UIView *titleView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.width, self.view.height * 0.1)];
+    titleView = [MySearchBar searchBar];
+    [self.view addSubview:titleView];
     
     
 }

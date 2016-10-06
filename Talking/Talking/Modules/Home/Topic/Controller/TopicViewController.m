@@ -67,7 +67,7 @@ UIScrollViewDelegate
     [self GetTitleArray];
     
     UICollectionViewFlowLayout *titleCellFlowLayout = [[UICollectionViewFlowLayout alloc] init];
-    titleCellFlowLayout.itemSize = CGSizeMake(self.view.width / 5, self.view.height * 0.07);
+    titleCellFlowLayout.itemSize = CGSizeMake(self.view.width / 4, self.view.height * 0.07);
     titleCellFlowLayout.minimumLineSpacing = 0;
     titleCellFlowLayout.minimumInteritemSpacing = 0;
     
@@ -195,7 +195,6 @@ UIScrollViewDelegate
         TitleCollectionCell *cell = (TitleCollectionCell *)[collectionView cellForItemAtIndexPath:indexPath];
         cell.label.textColor = [UIColor blackColor];
         if (indexPath.row < _titleArray.count) {
-            NSLog(@"点击了");
             NSArray *indexPathArray = [_titleCollectionView indexPathsForVisibleItems];
             for (NSIndexPath *MyIndexPath in indexPathArray) {
                 TitleCollectionCell *cell = (TitleCollectionCell *)[_titleCollectionView cellForItemAtIndexPath:MyIndexPath];
@@ -205,15 +204,9 @@ UIScrollViewDelegate
             cell.label.textColor = [UIColor blackColor];
             _bigScrollView.contentOffset = CGPointMake(SCREEN_WIDTH * indexPath.item, 0);
         }
-        
-        
-        if (indexPath.row < _titleArray.count - 1) {
             TitleModel *model = _titleModelArray[indexPath.row];
             _topicType = model.tsid;
             [self GetTopicInfo];
-        } else {
-            [self GetClassArray];
-        }
         
     }
     if ([collectionView isEqual: _cardCollectionView]) {
@@ -273,30 +266,9 @@ UIScrollViewDelegate
             [_titleArray addObject:title.name];
             [_titleModelArray addObject:title];
         }
-        [_titleArray addObject:@"分类"];
         [self selectFirstTitle];
         [_titleCollectionView reloadData];
         
-    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        NSLog(@"error : %@",error);
-    }];
-}
-
-- (void)GetClassArray{
-    
-    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
-
-    
-    [manager.requestSerializer setValue:@"189186" forHTTPHeaderField:@"X-User"];
-    [manager.requestSerializer setValue:@"A991B7D59DACB35A141ED180BF3EA6534F2B5E4FD8BAE126DF9BDAB620ABB39BDB73F66EB26933318FF792C0DDCF74D2C8C6D1E5978B351A70545ED860B91D8A" forHTTPHeaderField:@"X-AuthToken"];
-    [manager.requestSerializer setValue:@"j8slb29fbalc83pna2af2c2954hcw65" forHTTPHeaderField:@"X-ApiKey"];
-    NSString *url = [NSString stringWithFormat:@"http://app.ry.api.renyan.cn/rest/auth/classification/tag/available"];
-    [manager GET:url parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        NSArray *array = [NSArray arrayWithArray: [responseObject objectForKey:@"classificationTags"]];
-        for (NSDictionary *dic in array) {
-            [_classArray addObject:[dic objectForKey:@"tid"]];
-        }
-        NSLog(@"%@",_classArray);
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"error : %@",error);
     }];

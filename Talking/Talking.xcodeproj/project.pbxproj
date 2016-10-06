@@ -21,6 +21,7 @@
 		49ADC5721D94CF53004CD252 /* EverydayCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 49ADC5711D94CF53004CD252 /* EverydayCollectionViewCell.m */; };
 		49ADC5781D94D9A3004CD252 /* EverydayCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 49ADC5771D94D9A3004CD252 /* EverydayCellModel.m */; };
 		49ADC57B1D9502BF004CD252 /* cardContentsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 49ADC57A1D9502BF004CD252 /* cardContentsModel.m */; };
+		49B2FAB81DA65A30003509A5 /* MySearchBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 49B2FAB71DA65A30003509A5 /* MySearchBar.m */; };
 		49B91D2C1D9A1FF400255632 /* ClassModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 49B91D2B1D9A1FF400255632 /* ClassModel.m */; };
 		49B91D2F1D9A213500255632 /* ClassCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 49B91D2E1D9A213500255632 /* ClassCollectionCell.m */; };
 		49B91D5B1D9A715A00255632 /* ActivityModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 49B91D5A1D9A715A00255632 /* ActivityModel.m */; };
@@ -104,6 +105,8 @@
 		49ADC5771D94D9A3004CD252 /* EverydayCellModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EverydayCellModel.m; sourceTree = "<group>"; };
 		49ADC5791D9502BF004CD252 /* cardContentsModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cardContentsModel.h; sourceTree = "<group>"; };
 		49ADC57A1D9502BF004CD252 /* cardContentsModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = cardContentsModel.m; sourceTree = "<group>"; };
+		49B2FAB61DA65A30003509A5 /* MySearchBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MySearchBar.h; path = Talking/Modules/Home/HomeEveryView/View/MySearchBar.h; sourceTree = SOURCE_ROOT; };
+		49B2FAB71DA65A30003509A5 /* MySearchBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MySearchBar.m; path = Talking/Modules/Home/HomeEveryView/View/MySearchBar.m; sourceTree = SOURCE_ROOT; };
 		49B91D2A1D9A1FF400255632 /* ClassModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClassModel.h; sourceTree = "<group>"; };
 		49B91D2B1D9A1FF400255632 /* ClassModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClassModel.m; sourceTree = "<group>"; };
 		49B91D2D1D9A213500255632 /* ClassCollectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClassCollectionCell.h; sourceTree = "<group>"; };
@@ -618,6 +621,8 @@
 		49BA38CB1D9BE895002D1B57 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				49B2FAB61DA65A30003509A5 /* MySearchBar.h */,
+				49B2FAB71DA65A30003509A5 /* MySearchBar.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1081,6 +1086,7 @@
 				49DADB3A1D967EBC0060D830 /* TitleCollectionCell.m in Sources */,
 				49BA38911D9B6AA9002D1B57 /* CheckActivityViewController.m in Sources */,
 				49FCC0A41D916193007614B5 /* UIButton+Block.m in Sources */,
+				49B2FAB81DA65A30003509A5 /* MySearchBar.m in Sources */,
 				49FCC09C1D916193007614B5 /* NSArray+Categories.m in Sources */,
 				49FCC09E1D916193007614B5 /* NSDate+EasyExtend.mm in Sources */,
 				49BA38BC1D9BB5FD002D1B57 /* WalletViewController.m in Sources */,

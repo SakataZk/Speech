@@ -14,6 +14,7 @@
 #import "ActivityViewController.h"
 #import "UserViewController.h"
 #import "SearchViewController.h"
+#import "CardViewController.h"
 
 
 
@@ -165,6 +166,12 @@ UIScrollViewDelegate
     cardLabel.font = [UIFont systemFontOfSize:12];
     [cardView addSubview:cardLabel];
 
+    
+    [cardButton handleControlEvent:UIControlEventTouchUpInside withBlock:^{
+    CardViewController *cardViewController = [[CardViewController alloc] init];
+    [self.navigationController pushViewController:cardViewController animated:YES];
+
+}];
 
     UIView *articleView = [[UIView alloc] initWithFrame:CGRectMake(cardView.x , cardView.y , cardView.width, cardView.height)];
     articleView.backgroundColor = [UIColor darkGrayColor];
