@@ -36,6 +36,9 @@ UITableViewDelegate
     self.nowActiveModel = [[ActivityModel alloc] init];
     [self GetActivity];
     self.view.backgroundColor = [UIColor whiteColor];
+    
+    
+    
     self.tabelView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, self.view.width, self.view.height - self.navigationController.navigationBar.y - self.navigationController.navigationBar.height) style:UITableViewStylePlain];
     _tabelView.dataSource = self;
     _tabelView.delegate = self;
@@ -73,6 +76,7 @@ UITableViewDelegate
     [manager.requestSerializer setValue:@"j8slb29fbalc83pna2af2c2954hcw65" forHTTPHeaderField:@"X-ApiKey"];
     NSString *url = [NSString stringWithFormat:@"http://app.ry.api.renyan.cn/rest/auth/activity/select_activities/v2?curPage=1&pageSize=20"];
     [manager GET:url parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        
         NSArray *array = [NSArray arrayWithArray:[responseObject objectForKey:@"activities"]];
         for (NSDictionary *dic in array) {
             ActivityModel *model = [[ActivityModel alloc] initWithDic:dic];
@@ -84,8 +88,7 @@ UITableViewDelegate
                 NSURL *url = [NSURL URLWithString:model.picture];
                 [_image sd_setImageWithURL:url];
                 NSLog(@"%@",_nowActiveModel);
-            }
-            
+            }            
         }
         [_tabelView reloadData];
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {

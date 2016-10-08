@@ -46,6 +46,8 @@
 		49DADB3A1D967EBC0060D830 /* TitleCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 49DADB391D967EBC0060D830 /* TitleCollectionCell.m */; };
 		49DADB3D1D967FDD0060D830 /* TitleModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 49DADB3C1D967FDD0060D830 /* TitleModel.m */; };
 		49EBF5901D9E019A007958ED /* EverydayCardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 49EBF58F1D9E019A007958ED /* EverydayCardView.m */; };
+		49ED67E21DA88F8200449B4A /* ResultsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 49ED67E11DA88F8200449B4A /* ResultsModel.m */; };
+		49ED67E51DA890A000449B4A /* ResultTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 49ED67E41DA890A000449B4A /* ResultTableViewCell.m */; };
 		49FCC0601D9160F3007614B5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 49FCC05F1D9160F3007614B5 /* main.m */; };
 		49FCC0631D9160F3007614B5 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 49FCC0621D9160F3007614B5 /* AppDelegate.m */; };
 		49FCC0691D9160F3007614B5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 49FCC0671D9160F3007614B5 /* Main.storyboard */; };
@@ -155,6 +157,10 @@
 		49DADB3C1D967FDD0060D830 /* TitleModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TitleModel.m; sourceTree = "<group>"; };
 		49EBF58E1D9E019A007958ED /* EverydayCardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EverydayCardView.h; sourceTree = "<group>"; };
 		49EBF58F1D9E019A007958ED /* EverydayCardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EverydayCardView.m; sourceTree = "<group>"; };
+		49ED67E01DA88F8200449B4A /* ResultsModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ResultsModel.h; path = Talking/Modules/Home/HomeEveryView/View/ResultsModel.h; sourceTree = SOURCE_ROOT; };
+		49ED67E11DA88F8200449B4A /* ResultsModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ResultsModel.m; path = Talking/Modules/Home/HomeEveryView/View/ResultsModel.m; sourceTree = SOURCE_ROOT; };
+		49ED67E31DA890A000449B4A /* ResultTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ResultTableViewCell.h; path = Talking/Modules/Home/HomeEveryView/View/ResultTableViewCell.h; sourceTree = SOURCE_ROOT; };
+		49ED67E41DA890A000449B4A /* ResultTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ResultTableViewCell.m; path = Talking/Modules/Home/HomeEveryView/View/ResultTableViewCell.m; sourceTree = SOURCE_ROOT; };
 		49FCC05B1D9160F3007614B5 /* Talking.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Talking.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		49FCC05F1D9160F3007614B5 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		49FCC0611D9160F3007614B5 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -614,6 +620,8 @@
 		49BA38CA1D9BE88E002D1B57 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				49ED67E01DA88F8200449B4A /* ResultsModel.h */,
+				49ED67E11DA88F8200449B4A /* ResultsModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -623,6 +631,8 @@
 			children = (
 				49B2FAB61DA65A30003509A5 /* MySearchBar.h */,
 				49B2FAB71DA65A30003509A5 /* MySearchBar.m */,
+				49ED67E31DA890A000449B4A /* ResultTableViewCell.h */,
+				49ED67E41DA890A000449B4A /* ResultTableViewCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1076,6 +1086,7 @@
 				49B91D5B1D9A715A00255632 /* ActivityModel.m in Sources */,
 				49FCC0A21D916193007614B5 /* NSString+Regex.m in Sources */,
 				491E43051D93686000939063 /* HotTopicCollectionViewCell.m in Sources */,
+				49ED67E21DA88F8200449B4A /* ResultsModel.m in Sources */,
 				49AA87D91D9C9F7F00706AD9 /* AlbumViewController.m in Sources */,
 				49ADC57B1D9502BF004CD252 /* cardContentsModel.m in Sources */,
 				49ADC5781D94D9A3004CD252 /* EverydayCellModel.m in Sources */,
@@ -1090,6 +1101,7 @@
 				49FCC09C1D916193007614B5 /* NSArray+Categories.m in Sources */,
 				49FCC09E1D916193007614B5 /* NSDate+EasyExtend.mm in Sources */,
 				49BA38BC1D9BB5FD002D1B57 /* WalletViewController.m in Sources */,
+				49ED67E51DA890A000449B4A /* ResultTableViewCell.m in Sources */,
 				49DADB3D1D967FDD0060D830 /* TitleModel.m in Sources */,
 				49FCC0DF1D91724B007614B5 /* TalkingHomeView.m in Sources */,
 				49AA87DC1D9CBB6800706AD9 /* AlbumCollectionViewCell.m in Sources */,

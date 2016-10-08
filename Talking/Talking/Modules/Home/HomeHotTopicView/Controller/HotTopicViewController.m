@@ -148,6 +148,7 @@ HotTopicCollectionViewLayoutDelegate
     AlbumViewController *albumView = [[AlbumViewController alloc] init];
     NSDictionary *dic = _cellInfoArray[indexPath.row];
     HotTopicModel *hotTopic = [[HotTopicModel alloc] initWithDic:dic];
+    
     albumView.hotTopic = hotTopic;
     [self.navigationController pushViewController:albumView animated:YES];
 

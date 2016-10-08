@@ -207,6 +207,7 @@ UICollectionViewDelegate
     [subscribeView addSubview:subscribeLabel];
 
 }
+
 - (void)tapAction{
         UserViewController *userView = [[UserViewController alloc] init];
         userView.uid = _hotTopic.uid;

@@ -15,21 +15,22 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-        self.size = CGSizeMake(300, 30);
-        self.font = [UIFont systemFontOfSize:15];
-        self.placeholder = @"请输入查询条件";
-        // 提前在Xcode上设置图片中间拉伸
-        self.background = [UIImage imageNamed:@"searchbar_textfield_background"];
+        self.backgroundColor = [UIColor colorWithRed:0.9098 green:0.9059 blue:0.9176 alpha:1.0];
+        self.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
+        self.layer.cornerRadius = 5;
+        self.clipsToBounds = YES;
+        UIImageView *leftView = [[UIImageView alloc] init];
+        leftView.image = [UIImage imageNamed:@"search"];
         
-        // 通过init初始化的控件大多都没有尺寸
-        UIImageView *searchIcon = [[UIImageView alloc] init];
-        searchIcon.image = [UIImage imageNamed:@"searchbar_textfield_search_icon"];
-        // contentMode：default is UIViewContentModeScaleToFill，要设置为UIViewContentModeCenter：使图片居中，防止图片填充整个imageView
-        searchIcon.contentMode = UIViewContentModeCenter;
-        searchIcon.size = CGSizeMake(30, 30);
+        leftView.width = leftView.image.size.width ;
+        leftView.height = leftView.image.size.height ;
+        leftView.contentMode = UIViewContentModeCenter;
         
-        self.leftView = searchIcon;
+        self.leftView = leftView;
         self.leftViewMode = UITextFieldViewModeAlways;
+        self.clearButtonMode = UITextFieldViewModeAlways;
+        self.placeholder = @"搜索言集、用户";
+        
     }
     return self;
 }
