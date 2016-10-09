@@ -8,6 +8,7 @@
 
 #import "NewsViewController.h"
 #import "NoticeViewController.h"
+#import "CommentViewController.h"
 
 @interface NewsViewController ()
 
@@ -76,8 +77,6 @@
     }];
 
     
-    
-    
     UIButton *commentButton = [UIButton buttonWithType:UIButtonTypeCustom];
     commentButton.frame = CGRectMake(NoticeButton.width + 1, NoticeButton.y, NoticeButton.width, NoticeButton.height);
     commentButton.backgroundColor = [UIColor whiteColor];
@@ -95,7 +94,10 @@
     commentLabel.textAlignment = NSTextAlignmentCenter;
     [self.view addSubview:commentLabel];
 
-    
+    [commentButton handleControlEvent:UIControlEventTouchUpInside withBlock:^{
+        CommentViewController *commentView = [[CommentViewController alloc] init];
+        [self.navigationController pushViewController:commentView animated:YES];
+    }];
     
     
     

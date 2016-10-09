@@ -82,10 +82,8 @@
         }
     } else if (cha / 3600 > 1 && cha / 86400 < 1) {
         timeString = [NSString stringWithFormat:@"%.f小时前", cha / 3600];
-    } else if (cha / 86400 > 1 && cha / 604800 < 1) {
-        timeString = [NSString stringWithFormat:@"%.f天前", cha / 86400];
     } else {
-        timeString = [self secondToDate:timeInterval WithFormat:@"yyyy/MM/dd HH:mm"];
+        timeString = [NSString stringWithFormat:@"%.f天前", cha / 86400];
     }
     return timeString;
 }
