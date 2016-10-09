@@ -106,6 +106,7 @@ UIScrollViewDelegate
 }
 
 - (void)setAnimationImageView {
+    
     self.imageView = [[UIImageView alloc] init];
     _imageView.backgroundColor = [UIColor whiteColor];
     _imageView.frame = _bigScrollView.bounds;

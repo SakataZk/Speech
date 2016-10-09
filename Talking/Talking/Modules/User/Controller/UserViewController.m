@@ -262,7 +262,7 @@
     NSString *url = [NSString stringWithFormat:@"http://app.ry.api.renyan.cn/rest/auth/subscribe/get_albums_by_uid?uid=%@",_uid];
     [manager GET:url parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         
-        NSLog(@"%@",responseObject);
+//        NSLog(@"%@",responseObject);
         
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"error : %@",error);

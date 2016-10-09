@@ -8,12 +8,12 @@
 //
 
 #import "AlbumViewController.h"
-#import "HotTopicModel.h"
 #import "UIImageView+WebCache.h"
 #import "AlbumCollectionViewCell.h"
 #import "AlbumModel.h"
 #import "AlbumCardCollectionViewCell.h"
 #import "UserViewController.h"
+#import "AllAlbumModel.h"
 
 
 static NSString *const cellIdentifier = @"cell";
@@ -33,6 +33,14 @@ UICollectionViewDelegate
 @property (nonatomic, strong) UIScrollView *bigView;
 
 @property (nonatomic, strong) UICollectionView *bigCollectionView;
+
+
+@property (nonatomic, strong) UIImageView *backgroundImage;
+@property (nonatomic, strong) UILabel *nickNameLabel;
+@property (nonatomic, strong) UIImageView *headImage;
+@property (nonatomic, strong) UILabel *viewNumber;
+@property (nonatomic, strong) UILabel *subscribeNumber;
+@property (nonatomic, strong) UserViewController *userView;
 @end
 
 @implementation AlbumViewController
@@ -42,10 +50,22 @@ UICollectionViewDelegate
     self.albumArray = [NSMutableArray array];
     self.navigationController.navigationBarHidden = YES;
     self.view.backgroundColor = [UIColor whiteColor];
+    self.userView = [[UserViewController alloc] init];
     [self CreatBackgroudView];
     [self netWorking];
     [self CreatScrollView];
     
+
+    [self creatAlbumView];
+    [self getBackgroundInfo];
+    
+    
+    
+    
+    // Do any additional setup after loading the view.
+}
+
+- (void) creatAlbumView {
     UIButton *shareButton = [UIButton buttonWithType:UIButtonTypeCustom];
     [shareButton setImage:[UIImage imageNamed:@"share"] forState:UIControlStateNormal];
     shareButton.frame = CGRectMake(self.view.width * 0.75, self.view.height * 0.92, self.view.width * 0.06, self.view.width * 0.05);
@@ -75,7 +95,7 @@ UICollectionViewDelegate
     _bigView.userInteractionEnabled = YES;
     _bigView.pagingEnabled = YES;
     [self.view addSubview:_bigView];
-
+    
     
     
     UICollectionViewFlowLayout *bigFlowLayout = [[UICollectionViewFlowLayout alloc] init];
@@ -99,69 +119,96 @@ UICollectionViewDelegate
     swipe.direction = UISwipeGestureRecognizerDirectionDown;
     
     [_bigCollectionView addGestureRecognizer:swipe];
-    
-    
-    
-    
-    
-    // Do any additional setup after loading the view.
+
+
 }
+
 - (void)swipeAction{
- [UIView animateWithDuration:1.0f animations:^{
+ 
+    [UIView animateWithDuration:1.0f animations:^{
     _bigScrollView.scrollEnabled = YES;
     _bigView.frame = CGRectZero;
      _bigScrollView.pagingEnabled = YES;
-}];
-
-
+    }];
 
 }
 
+
+- (void)getBackgroundInfo {
+
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    [manager.requestSerializer setValue:@"189186" forHTTPHeaderField:@"X-User"];
+    [manager.requestSerializer setValue:@"A991B7D59DACB35A141ED180BF3EA6534F2B5E4FD8BAE126DF9BDAB620ABB39BDB73F66EB26933318FF792C0DDCF74D2C8C6D1E5978B351A70545ED860B91D8A" forHTTPHeaderField:@"X-AuthToken"];
+    [manager.requestSerializer setValue:@"j8slb29fbalc83pna2af2c2954hcw65" forHTTPHeaderField:@"X-ApiKey"];
+    
+    NSString *url = [NSString stringWithFormat:@"http://app.ry.api.renyan.cn/rest/auth/album/single_by_id?uid=189186&aid=%@",_aid];
+    [manager GET:url parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+
+        NSDictionary *dic = [responseObject objectForKey:@"album"];
+        AllAlbumModel *model = [[AllAlbumModel alloc] initWithDic:dic];
+        
+        
+        NSURL *url = [NSURL URLWithString:model.coverSmall];
+        [_backgroundImage sd_setImageWithURL:url];
+        _nickNameLabel.text = [NSString stringWithFormat:@"「 %@ 」",model.name];
+        
+        NSURL *headUrl = [NSURL URLWithString:model.ownerProfile];
+        [_headImage sd_setImageWithURL:headUrl];
+        
+        _viewNumber.text =[NSString stringWithFormat:@"%ld",model.view];
+        _subscribeNumber.text =[NSString stringWithFormat:@"%ld",model.subscribe];
+
+        _userView.uid = model.uid;
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        NSLog(@"error : %@",error);
+    }];
+}
+
 - (void)CreatBackgroudView {
-    UIImageView *backgroundImage = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, self.view.width, self.view.height *0.3)];
-    backgroundImage.backgroundColor = [UIColor greenColor];
-    backgroundImage.userInteractionEnabled = YES;
-    NSURL *url = [NSURL URLWithString:_hotTopic.coverSmall];
-    [backgroundImage sd_setImageWithURL:url];
-    [self.view addSubview:backgroundImage];
+    
+    self.backgroundImage = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, self.view.width, self.view.height *0.3)];
+    _backgroundImage.backgroundColor = [UIColor greenColor];
+    _backgroundImage.userInteractionEnabled = YES;
+    [self.view addSubview:_backgroundImage];
+    
     
     UIButton *returnButton = [UIButton buttonWithType:UIButtonTypeCustom];
     returnButton.frame = CGRectMake(self.view.width * 0.055, self.view.height * 0.047, self.view.width * 0.06, self.view.height * 0.04);
     [returnButton setImage:[UIImage imageNamed:@"return"] forState:UIControlStateNormal];
     returnButton.backgroundColor = [UIColor clearColor];
+
     [returnButton handleControlEvent:UIControlEventTouchUpInside withBlock:^{
         [self.navigationController popViewControllerAnimated:YES];
     }];
-    [backgroundImage addSubview:returnButton];
+    [_backgroundImage addSubview:returnButton];
     
-    UILabel *nickNameLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, returnButton.y, self.view.width * 0.8, returnButton.height)];
-    nickNameLabel.centerX = self.view.centerX;
-    nickNameLabel.backgroundColor = [UIColor clearColor];
-    nickNameLabel.text = [NSString stringWithFormat:@"「 %@ 」",_hotTopic.name];
-    nickNameLabel.textAlignment = NSTextAlignmentCenter;
-    nickNameLabel.textColor = [UIColor whiteColor];
-    nickNameLabel.font = [UIFont systemFontOfSize:18];
-    [backgroundImage addSubview:nickNameLabel];
+    
+    self.nickNameLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, returnButton.y, self.view.width * 0.8, returnButton.height)];
+    _nickNameLabel.centerX = self.view.centerX;
+    _nickNameLabel.backgroundColor = [UIColor clearColor];
+    _nickNameLabel.textAlignment = NSTextAlignmentCenter;
+    _nickNameLabel.textColor = [UIColor whiteColor];
+    _nickNameLabel.font = [UIFont systemFontOfSize:18];
+    [_backgroundImage addSubview:_nickNameLabel];
     
     UIView *imageView = [[UIView alloc] init];
         imageView.frame = CGRectMake(self.view.width - returnButton.x - returnButton.width * 2, returnButton.y - returnButton.width / 2, returnButton.width * 2, returnButton.width * 2);
     imageView.backgroundColor = [UIColor whiteColor];
     imageView.layer.cornerRadius = returnButton.width;
     imageView.clipsToBounds = YES;
-    [backgroundImage addSubview:imageView];
+    [_backgroundImage addSubview:imageView];
     
     
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapAction)];
-    UIImageView *headImage = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, returnButton.width * 2 - 5, returnButton.width * 2 - 5)];
-    headImage.backgroundColor = [UIColor redColor];
-    headImage.center = imageView.center;
-    headImage.layer.cornerRadius = (returnButton.width * 2 - 5) / 2;
-    headImage.clipsToBounds = YES;
-    headImage.userInteractionEnabled = YES;
-    NSURL *headUrl = [NSURL URLWithString:_hotTopic.ownerProfile];
-    [headImage sd_setImageWithURL:headUrl];
-    [headImage addGestureRecognizer:tap];
-    [backgroundImage addSubview:headImage];
+    
+    self.headImage = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, returnButton.width * 2 - 5, returnButton.width * 2 - 5)];
+    _headImage.backgroundColor = [UIColor redColor];
+    _headImage.center = imageView.center;
+    _headImage.layer.cornerRadius = (returnButton.width * 2 - 5) / 2;
+    _headImage.clipsToBounds = YES;
+    _headImage.userInteractionEnabled = YES;
+    [_headImage addGestureRecognizer:tap];
+    [_backgroundImage addSubview:_headImage];
     
     
     UIView *view = [[UIView alloc] initWithFrame:CGRectMake(self.view.width * 0.2, self.view.height * 0.2, self.view.width * 0.2, self.view.height * 0.05)];
@@ -169,16 +216,15 @@ UICollectionViewDelegate
     view.alpha = 0.6;
     view.layer.cornerRadius = view.height / 3;
     view.clipsToBounds = YES;
-    [backgroundImage addSubview:view];
+    [_backgroundImage addSubview:view];
     
-    UILabel *viewNumber = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, view.width, view.height / 3)];
-    viewNumber.text =[NSString stringWithFormat:@"%ld",_hotTopic.view];
-    viewNumber.textAlignment = NSTextAlignmentCenter;
-    viewNumber.font = [UIFont systemFontOfSize:12];
-    viewNumber.textColor = [UIColor whiteColor];
-    [view addSubview:viewNumber];
+    self.viewNumber = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, view.width, view.height / 3)];
+    _viewNumber.textAlignment = NSTextAlignmentCenter;
+    _viewNumber.font = [UIFont systemFontOfSize:12];
+    _viewNumber.textColor = [UIColor whiteColor];
+    [view addSubview:_viewNumber];
     
-    UILabel *viewLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, viewNumber.height, viewNumber.width, viewNumber.height)];
+    UILabel *viewLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, _viewNumber.height, _viewNumber.width, _viewNumber.height)];
     viewLabel.textColor = [UIColor whiteColor];
     viewLabel.textAlignment = NSTextAlignmentCenter;
     viewLabel.text = @"浏览数";
@@ -190,16 +236,15 @@ UICollectionViewDelegate
     subscribeView.alpha = 0.6;
     subscribeView.layer.cornerRadius = subscribeView.height / 3;
     subscribeView.clipsToBounds = YES;
-    [backgroundImage addSubview:subscribeView];
+    [_backgroundImage addSubview:subscribeView];
     
-    UILabel *subscribeNumber = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, view.width, view.height / 3)];
-    subscribeNumber.text =[NSString stringWithFormat:@"%ld",_hotTopic.subscribe];
-    subscribeNumber.textAlignment = NSTextAlignmentCenter;
-    subscribeNumber.font = [UIFont systemFontOfSize:12];
-    subscribeNumber.textColor = [UIColor whiteColor];
-    [subscribeView addSubview:subscribeNumber];
+    self.subscribeNumber = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, view.width, view.height / 3)];
+    _subscribeNumber.textAlignment = NSTextAlignmentCenter;
+    _subscribeNumber.font = [UIFont systemFontOfSize:12];
+    _subscribeNumber.textColor = [UIColor whiteColor];
+    [subscribeView addSubview:_subscribeNumber];
     
-    UILabel *subscribeLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, viewNumber.height, viewNumber.width, viewNumber.height)];
+    UILabel *subscribeLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, _viewNumber.height, _viewNumber.width, _viewNumber.height)];
     subscribeLabel.textColor = [UIColor whiteColor];
     subscribeLabel.textAlignment = NSTextAlignmentCenter;
     subscribeLabel.text = @"关注数";
@@ -209,10 +254,10 @@ UICollectionViewDelegate
 }
 
 - (void)tapAction{
-        UserViewController *userView = [[UserViewController alloc] init];
-        userView.uid = _hotTopic.uid;
-        [self.navigationController pushViewController:userView animated:YES];
+        [self.navigationController pushViewController:_userView animated:YES];
 }
+
+
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     return _albumArray.count;
@@ -236,7 +281,7 @@ UICollectionViewDelegate
     [manager.requestSerializer setValue:@"189186" forHTTPHeaderField:@"X-User"];
     [manager.requestSerializer setValue:@"A991B7D59DACB35A141ED180BF3EA6534F2B5E4FD8BAE126DF9BDAB620ABB39BDB73F66EB26933318FF792C0DDCF74D2C8C6D1E5978B351A70545ED860B91D8A" forHTTPHeaderField:@"X-AuthToken"];
     [manager.requestSerializer setValue:@"j8slb29fbalc83pna2af2c2954hcw65" forHTTPHeaderField:@"X-ApiKey"];
-    NSString *url = [NSString stringWithFormat:@"http://app.ry.api.renyan.cn/rest/auth/card/select_by_album?aid=%@&uid=189186&limit=10&queue=1",_hotTopic.aid];
+    NSString *url = [NSString stringWithFormat:@"http://app.ry.api.renyan.cn/rest/auth/card/select_by_album?aid=%@&uid=189186&limit=10&queue=1",_aid];
     [manager GET:url parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         for (NSDictionary *dic in [responseObject objectForKey:@"cards"]) {
             AlbumModel *model = [[AlbumModel alloc] initWithDic:dic];
@@ -280,7 +325,7 @@ UICollectionViewDelegate
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-//    AlbumCollectionViewCell *cell = (AlbumCollectionViewCell *)[collectionView cellForItemAtIndexPath:indexPath];
+
     _bigView.frame = CGRectMake(indexPath.item * self.view.width * 0.6 + self.view .width * 0.4 + ( indexPath.item) * 10 , self.view.height * 0.35, self.view.width * 0.6,self.view.height * 0.55) ;
     
     _bigView.contentOffset = CGPointMake(_bigView.width * indexPath.item, 0);

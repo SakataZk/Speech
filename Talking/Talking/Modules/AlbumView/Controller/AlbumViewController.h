@@ -7,12 +7,12 @@
 //
 
 #import "SpBaseViewController.h"
-@class HotTopicModel;
+
 @interface AlbumViewController : SpBaseViewController
 
 
 
-@property (nonatomic, strong) HotTopicModel *hotTopic;
+@property (nonatomic, strong) NSNumber *aid;
 
 
 @end

@@ -15,6 +15,7 @@
 #import "UserViewController.h"
 #import "SearchViewController.h"
 #import "CardViewController.h"
+#import "NewsViewController.h"
 
 
 
@@ -290,7 +291,12 @@ UIScrollViewDelegate
     newsLabel.font = [UIFont systemFontOfSize:12];
     [newsView addSubview:newsLabel];
     self.isSelect = NO;
-   
+   [newsButton handleControlEvent:UIControlEventTouchUpInside withBlock:^{
+       NewsViewController *newsView = [[NewsViewController alloc] init];
+       [self.navigationController pushViewController:newsView animated:YES];
+   }];
+    
+    
     [floatButton handleControlEvent:UIControlEventTouchUpInside withBlock:^{
         
         if (_isSelect == NO) {

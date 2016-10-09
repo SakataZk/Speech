@@ -51,6 +51,7 @@
 + (NSString *)secondToDate:(long long)timeInterval WithFormat:(NSString *)formatString {
     NSDate *date = [[NSDate alloc] initWithTimeIntervalSince1970:timeInterval / 1000];
     NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+    [dateFormat setDateFormat:formatString];
     return [dateFormat stringFromDate:date];
 }
 
