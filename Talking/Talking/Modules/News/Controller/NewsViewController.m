@@ -9,6 +9,8 @@
 #import "NewsViewController.h"
 #import "NoticeViewController.h"
 #import "CommentViewController.h"
+#import "AttentionViewController.h"
+#import "likeViewController.h"
 
 @interface NewsViewController ()
 
@@ -118,7 +120,10 @@
     attentionLabel.textAlignment = NSTextAlignmentCenter;
     attentionLabel.font = [UIFont systemFontOfSize:15];
     [self.view addSubview:attentionLabel];
-    
+    [attentionButton handleControlEvent:UIControlEventTouchUpInside withBlock:^{
+        AttentionViewController *attentionView = [[AttentionViewController alloc] init];
+        [self.navigationController pushViewController:attentionView animated:YES];
+    }];
     
     
     
@@ -140,7 +145,10 @@
     likeLabel.textAlignment = NSTextAlignmentCenter;
     likeLabel.font = [UIFont systemFontOfSize:15];
     [self.view addSubview:likeLabel];
-    
+    [likeButton handleControlEvent:UIControlEventTouchUpInside withBlock:^{
+        likeViewController *likeView = [[likeViewController alloc] init];
+        [self.navigationController pushViewController:likeView animated:YES];
+    }];
     
 }
 

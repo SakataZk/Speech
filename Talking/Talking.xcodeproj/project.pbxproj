@@ -8,6 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		37E7E7EA4FD0F41EFF1ACD64 /* libPods-Talking.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FAD83B66A1DBF80A4836781 /* libPods-Talking.a */; };
+		4905CCF71DAB1DF500D26C46 /* AttentionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4905CCF61DAB1DF500D26C46 /* AttentionViewController.m */; };
+		4905CCFA1DAB22A900D26C46 /* attentionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4905CCF91DAB22A900D26C46 /* attentionModel.m */; };
+		4905CCFD1DAB22C000D26C46 /* attentionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4905CCFC1DAB22C000D26C46 /* attentionTableViewCell.m */; };
+		4905CD041DAB347300D26C46 /* likeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4905CD031DAB347300D26C46 /* likeViewController.m */; };
+		4905CD381DAB876000D26C46 /* mailboxViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4905CD371DAB876000D26C46 /* mailboxViewController.m */; };
+		4905CD3F1DAB8A9D00D26C46 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4905CD3E1DAB8A9D00D26C46 /* LoginViewController.m */; };
+		4905CD421DAB8F7E00D26C46 /* NSString+EAMD5.m in Sources */ = {isa = PBXBuildFile; fileRef = 4905CD411DAB8F7E00D26C46 /* NSString+EAMD5.m */; };
+		4905CD451DAB9AAE00D26C46 /* model.m in Sources */ = {isa = PBXBuildFile; fileRef = 4905CD441DAB9AAE00D26C46 /* model.m */; };
 		491E43051D93686000939063 /* HotTopicCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 491E43041D93686000939063 /* HotTopicCollectionViewCell.m */; };
 		491E43091D936BED00939063 /* HotTopicModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 491E43081D936BED00939063 /* HotTopicModel.m */; };
 		491E430C1D936F9700939063 /* HotTopicCollectionViewLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 491E430B1D936F9700939063 /* HotTopicCollectionViewLayout.m */; };
@@ -89,6 +97,22 @@
 
 /* Begin PBXFileReference section */
 		4396C489E23B10F19C819177 /* Pods-Talking.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Talking.release.xcconfig"; path = "Pods/Target Support Files/Pods-Talking/Pods-Talking.release.xcconfig"; sourceTree = "<group>"; };
+		4905CCF51DAB1DF500D26C46 /* AttentionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AttentionViewController.h; sourceTree = "<group>"; };
+		4905CCF61DAB1DF500D26C46 /* AttentionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AttentionViewController.m; sourceTree = "<group>"; };
+		4905CCF81DAB22A900D26C46 /* attentionModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = attentionModel.h; sourceTree = "<group>"; };
+		4905CCF91DAB22A900D26C46 /* attentionModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = attentionModel.m; sourceTree = "<group>"; };
+		4905CCFB1DAB22C000D26C46 /* attentionTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = attentionTableViewCell.h; sourceTree = "<group>"; };
+		4905CCFC1DAB22C000D26C46 /* attentionTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = attentionTableViewCell.m; sourceTree = "<group>"; };
+		4905CD021DAB347300D26C46 /* likeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = likeViewController.h; sourceTree = "<group>"; };
+		4905CD031DAB347300D26C46 /* likeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = likeViewController.m; sourceTree = "<group>"; };
+		4905CD361DAB876000D26C46 /* mailboxViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mailboxViewController.h; sourceTree = "<group>"; };
+		4905CD371DAB876000D26C46 /* mailboxViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = mailboxViewController.m; sourceTree = "<group>"; };
+		4905CD3D1DAB8A9D00D26C46 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		4905CD3E1DAB8A9D00D26C46 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		4905CD401DAB8F7E00D26C46 /* NSString+EAMD5.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+EAMD5.h"; sourceTree = "<group>"; };
+		4905CD411DAB8F7E00D26C46 /* NSString+EAMD5.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+EAMD5.m"; sourceTree = "<group>"; };
+		4905CD431DAB9AAE00D26C46 /* model.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = model.h; sourceTree = "<group>"; };
+		4905CD441DAB9AAE00D26C46 /* model.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = model.m; sourceTree = "<group>"; };
 		491E43031D93686000939063 /* HotTopicCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HotTopicCollectionViewCell.h; sourceTree = "<group>"; };
 		491E43041D93686000939063 /* HotTopicCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HotTopicCollectionViewCell.m; sourceTree = "<group>"; };
 		491E43071D936BED00939063 /* HotTopicModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HotTopicModel.h; sourceTree = "<group>"; };
@@ -259,6 +283,145 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4905CCF11DAB1DA000D26C46 /* Attention */ = {
+			isa = PBXGroup;
+			children = (
+				4905CCF41DAB1DB300D26C46 /* Model */,
+				4905CCF31DAB1DAC00D26C46 /* View */,
+				4905CCF21DAB1DA500D26C46 /* Controller */,
+			);
+			name = Attention;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		4905CCF21DAB1DA500D26C46 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				4905CCF51DAB1DF500D26C46 /* AttentionViewController.h */,
+				4905CCF61DAB1DF500D26C46 /* AttentionViewController.m */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		4905CCF31DAB1DAC00D26C46 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				4905CCFB1DAB22C000D26C46 /* attentionTableViewCell.h */,
+				4905CCFC1DAB22C000D26C46 /* attentionTableViewCell.m */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		4905CCF41DAB1DB300D26C46 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				4905CCF81DAB22A900D26C46 /* attentionModel.h */,
+				4905CCF91DAB22A900D26C46 /* attentionModel.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		4905CCFE1DAB344C00D26C46 /* like */ = {
+			isa = PBXGroup;
+			children = (
+				4905CD011DAB345D00D26C46 /* Model */,
+				4905CD001DAB345800D26C46 /* View */,
+				4905CCFF1DAB345300D26C46 /* Controller */,
+			);
+			name = like;
+			sourceTree = "<group>";
+		};
+		4905CCFF1DAB345300D26C46 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				4905CD021DAB347300D26C46 /* likeViewController.h */,
+				4905CD031DAB347300D26C46 /* likeViewController.m */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		4905CD001DAB345800D26C46 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		4905CD011DAB345D00D26C46 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		4905CD321DAB871C00D26C46 /* mailbox */ = {
+			isa = PBXGroup;
+			children = (
+				4905CD351DAB874B00D26C46 /* Model */,
+				4905CD341DAB874600D26C46 /* View */,
+				4905CD331DAB873C00D26C46 /* Controller */,
+			);
+			name = mailbox;
+			sourceTree = "<group>";
+		};
+		4905CD331DAB873C00D26C46 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				4905CD361DAB876000D26C46 /* mailboxViewController.h */,
+				4905CD371DAB876000D26C46 /* mailboxViewController.m */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		4905CD341DAB874600D26C46 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		4905CD351DAB874B00D26C46 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		4905CD391DAB8A6700D26C46 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				4905CD3C1DAB8A8800D26C46 /* Model */,
+				4905CD3B1DAB8A7E00D26C46 /* View */,
+				4905CD3A1DAB8A7700D26C46 /* Controller */,
+			);
+			name = Login;
+			sourceTree = "<group>";
+		};
+		4905CD3A1DAB8A7700D26C46 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				4905CD3D1DAB8A9D00D26C46 /* LoginViewController.h */,
+				4905CD3E1DAB8A9D00D26C46 /* LoginViewController.m */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		4905CD3B1DAB8A7E00D26C46 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		4905CD3C1DAB8A8800D26C46 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				4905CD431DAB9AAE00D26C46 /* model.h */,
+				4905CD441DAB9AAE00D26C46 /* model.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
 		491E42F91D9366DF00939063 /* HomeHotTopicView */ = {
 			isa = PBXGroup;
 			children = (
@@ -455,6 +618,10 @@
 		49B405281DA9164100FEEFE9 /* News */ = {
 			isa = PBXGroup;
 			children = (
+				4905CCFE1DAB344C00D26C46 /* like */,
+				49B4052F1DA929C300FEEFE9 /* Notice */,
+				4905CCF11DAB1DA000D26C46 /* Attention */,
+				49EE2B811DAA58DA00640DFA /* Comment */,
 				49B405291DA9164C00FEEFE9 /* Controller */,
 				49B4052A1DA9165300FEEFE9 /* Model */,
 				49B4052B1DA9165800FEEFE9 /* View */,
@@ -492,7 +659,8 @@
 				49B405311DA929D200FEEFE9 /* Model */,
 				49B405321DA929D800FEEFE9 /* View */,
 			);
-			path = Notice;
+			name = Notice;
+			path = ../Notice;
 			sourceTree = "<group>";
 		};
 		49B405301DA929CC00FEEFE9 /* Controller */ = {
@@ -792,7 +960,8 @@
 				49EE2B841DAA58F200640DFA /* Model */,
 				49EE2B831DAA58EE00640DFA /* View */,
 			);
-			path = Comment;
+			name = Comment;
+			path = ../Comment;
 			sourceTree = "<group>";
 		};
 		49EE2B821DAA58E700640DFA /* Controller */ = {
@@ -920,6 +1089,8 @@
 		49FCC0831D91616C007614B5 /* Categories */ = {
 			isa = PBXGroup;
 			children = (
+				4905CD401DAB8F7E00D26C46 /* NSString+EAMD5.h */,
+				4905CD411DAB8F7E00D26C46 /* NSString+EAMD5.m */,
 				49FCC0841D916193007614B5 /* NSArray+Categories.h */,
 				49FCC0851D916193007614B5 /* NSArray+Categories.m */,
 				49FCC0861D916193007614B5 /* NSDate+Categories.h */,
@@ -991,14 +1162,14 @@
 		49FCC0C51D916234007614B5 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				4905CD391DAB8A6700D26C46 /* Login */,
+				4905CD321DAB871C00D26C46 /* mailbox */,
 				49B91D661D9AAA4400255632 /* ActivityInfo */,
 				49AA87D31D9C9F3D00706AD9 /* AlbumView */,
 				495FD5E01D9D085E0016B349 /* Card */,
 				49BA388B1D9B6A87002D1B57 /* CheckActivity */,
-				49EE2B811DAA58DA00640DFA /* Comment */,
 				49FCC0CC1D916284007614B5 /* Home */,
 				49B405281DA9164100FEEFE9 /* News */,
-				49B4052F1DA929C300FEEFE9 /* Notice */,
 				49BA38C81D9BE87E002D1B57 /* Search */,
 				49BA38BD1D9BB606002D1B57 /* Setting */,
 				49B91D621D9AA40500255632 /* User */,
@@ -1222,6 +1393,7 @@
 				49FCC0B81D916206007614B5 /* HttpClient.m in Sources */,
 				49B91D5B1D9A715A00255632 /* ActivityModel.m in Sources */,
 				49FCC0A21D916193007614B5 /* NSString+Regex.m in Sources */,
+				4905CD381DAB876000D26C46 /* mailboxViewController.m in Sources */,
 				491E43051D93686000939063 /* HotTopicCollectionViewCell.m in Sources */,
 				49ED67E21DA88F8200449B4A /* ResultsModel.m in Sources */,
 				49B405351DA929E700FEEFE9 /* NoticeViewController.m in Sources */,
@@ -1230,6 +1402,8 @@
 				49ADC5781D94D9A3004CD252 /* EverydayCellModel.m in Sources */,
 				49FCC0E21D917268007614B5 /* TalkingHomeModel.m in Sources */,
 				49FCC0631D9160F3007614B5 /* AppDelegate.m in Sources */,
+				4905CD3F1DAB8A9D00D26C46 /* LoginViewController.m in Sources */,
+				4905CCF71DAB1DF500D26C46 /* AttentionViewController.m in Sources */,
 				495FD5E61D9D08A70016B349 /* CardViewController.m in Sources */,
 				49DADB3A1D967EBC0060D830 /* TitleCollectionCell.m in Sources */,
 				49BA38911D9B6AA9002D1B57 /* CheckActivityViewController.m in Sources */,
@@ -1244,6 +1418,7 @@
 				49FCC0DF1D91724B007614B5 /* TalkingHomeView.m in Sources */,
 				49AA87DC1D9CBB6800706AD9 /* AlbumCollectionViewCell.m in Sources */,
 				49B91D2F1D9A213500255632 /* ClassCollectionCell.m in Sources */,
+				4905CCFA1DAB22A900D26C46 /* attentionModel.m in Sources */,
 				49EE2B8A1DAA5E3700640DFA /* CommentTableViewCell.m in Sources */,
 				49FCC0B01D9161CF007614B5 /* SpBaseView.m in Sources */,
 				49D930861D92B001008499F5 /* TopicViewController.m in Sources */,
@@ -1254,17 +1429,21 @@
 				491E434A1D94061E00939063 /* HotTopicLabel.m in Sources */,
 				49EE2B3F1DA9CD3600640DFA /* NoticeTableViewCell.m in Sources */,
 				49FCC0CB1D916279007614B5 /* AboutMe.text in Sources */,
+				4905CD041DAB347300D26C46 /* likeViewController.m in Sources */,
 				49ADC5721D94CF53004CD252 /* EverydayCollectionViewCell.m in Sources */,
 				49BA38C41D9BBC47002D1B57 /* UserModel.m in Sources */,
 				49FCC0A01D916193007614B5 /* NSNumber+Extend.m in Sources */,
 				49FCC0B41D9161ED007614B5 /* DataBaseManager.m in Sources */,
+				4905CD421DAB8F7E00D26C46 /* NSString+EAMD5.m in Sources */,
 				49EE2B8D1DAA5E4B00640DFA /* CommentModel.m in Sources */,
+				4905CCFD1DAB22C000D26C46 /* attentionTableViewCell.m in Sources */,
 				49FCC0A71D916193007614B5 /* UIView+Frame.m in Sources */,
 				49DADB331D9664530060D830 /* TalkingCollectionViewCell.m in Sources */,
 				49FCC0A31D916193007614B5 /* NSUserDefaults+Categories.m in Sources */,
 				49B405271DA9151A00FEEFE9 /* UIView+SGExtension.m in Sources */,
 				49FCC0D91D916BBB007614B5 /* TalkingHomeViewController.m in Sources */,
 				49AA87DF1D9CC12D00706AD9 /* AlbumModel.m in Sources */,
+				4905CD451DAB9AAE00D26C46 /* model.m in Sources */,
 				49FCC0A61D916193007614B5 /* UIImage+Categories.m in Sources */,
 				491E430C1D936F9700939063 /* HotTopicCollectionViewLayout.m in Sources */,
 				49D9308C1D92BB15008499F5 /* HotTopicViewController.m in Sources */,

@@ -16,6 +16,7 @@
 #import "SearchViewController.h"
 #import "CardViewController.h"
 #import "NewsViewController.h"
+#import "mailboxViewController.h"
 
 
 
@@ -28,6 +29,14 @@ UIScrollViewDelegate
 @property (nonatomic, strong) NSArray *titles;
 @property (nonatomic, assign) BOOL isSelect;
 
+@property (nonatomic, strong) UIButton *floatButton;
+
+@property (nonatomic, strong) UIView *cardView;
+@property (nonatomic, strong) UIView *articleView;
+@property (nonatomic, strong) UIView *messageView;
+@property (nonatomic, strong) UIView *searchView;
+@property (nonatomic, strong) UIView *mailboxView;
+@property (nonatomic, strong) UIView *newsView;
 @end
 
 @implementation TalkingHomeViewController
@@ -35,7 +44,9 @@ UIScrollViewDelegate
 - (void)viewWillAppear:(BOOL)animated {
     self.navigationController.navigationBarHidden = NO;
 }
-
+- (void)viewDidDisappear:(BOOL)animated {
+    [self floatButtonPickUp];
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor colorWithWhite:0.9 alpha:1.0];
@@ -140,33 +151,25 @@ UIScrollViewDelegate
 - (void)creatFloatButton {
     
    
-    UIButton *floatButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    floatButton.frame = CGRectMake(self.view.width * 0.07, self.view.height * 0.8, self.view.width * 0.1, self.view.width * 0.1);
-    floatButton.backgroundColor = [UIColor clearColor];
-    [floatButton setImage:[UIImage imageNamed:@"floatButton"] forState:UIControlStateNormal];
-    [self.view addSubview:floatButton];
+    self.floatButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    _floatButton.frame = CGRectMake(self.view.width * 0.07, self.view.height * 0.8, self.view.width * 0.1, self.view.width * 0.1);
+    _floatButton.backgroundColor = [UIColor clearColor];
+    [_floatButton setImage:[UIImage imageNamed:@"floatButton"] forState:UIControlStateNormal];
+    [self.view addSubview:_floatButton];
     
     
-    UIView *cardView = [[UIView alloc] initWithFrame:CGRectMake(floatButton.x, floatButton.y, floatButton.width * 3 / 2, floatButton.width * 3 / 2)];
-    cardView .backgroundColor = [UIColor darkGrayColor];
-    cardView.hidden = YES;
-    cardView.layer.cornerRadius =  floatButton.width * 3 / 4;
-    cardView.clipsToBounds = YES;
-    cardView.layer.borderColor = [UIColor whiteColor].CGColor;
-    cardView.layer.borderWidth = 2;
-    [self.view addSubview:cardView];
+    self.cardView = [[UIView alloc] initWithFrame:CGRectMake(_floatButton.x, _floatButton.y, _floatButton.width * 3 / 2, _floatButton.width * 3 / 2)];
+    _cardView .backgroundColor = [UIColor darkGrayColor];
+    _cardView.hidden = YES;
+    _cardView.layer.cornerRadius =  _floatButton.width * 3 / 4;
+    _cardView.clipsToBounds = YES;
+    _cardView.layer.borderColor = [UIColor whiteColor].CGColor;
+    _cardView.layer.borderWidth = 2;
+    [self.view addSubview:_cardView];
     
-    UIButton *cardButton = [[UIButton alloc] initWithFrame:CGRectMake(cardView.width / 4, 0, cardView.width / 2, cardView.width / 2)];
+    UIButton *cardButton = [[UIButton alloc] initWithFrame:CGRectMake(_cardView.width / 4, _cardView.height / 4, _cardView.width / 2, _cardView.width / 2)];
     [cardButton setImage:[UIImage imageNamed:@"card"] forState:UIControlStateNormal];
-    [cardView addSubview:cardButton];
-    
-    UILabel *cardLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, cardButton.height, cardView.width, cardView.width / 3)];
-    cardLabel.text = @"写卡片";
-    cardLabel.textAlignment = NSTextAlignmentCenter;
-    cardLabel.textColor = [UIColor whiteColor];
-    cardLabel.font = [UIFont systemFontOfSize:12];
-    [cardView addSubview:cardLabel];
-
+    [_cardView addSubview:cardButton];
     
     [cardButton handleControlEvent:UIControlEventTouchUpInside withBlock:^{
     CardViewController *cardViewController = [[CardViewController alloc] init];
@@ -174,46 +177,36 @@ UIScrollViewDelegate
 
 }];
 
-    UIView *articleView = [[UIView alloc] initWithFrame:CGRectMake(cardView.x , cardView.y , cardView.width, cardView.height)];
-    articleView.backgroundColor = [UIColor darkGrayColor];
-    articleView.layer.cornerRadius =  floatButton.width * 3 / 4;
-    articleView.clipsToBounds = YES;
-    articleView.layer.borderColor = [UIColor whiteColor].CGColor;
-    articleView.layer.borderWidth = 2;
-    articleView.hidden = YES;
-    [self.view addSubview:articleView];
+    self.articleView = [[UIView alloc] initWithFrame:CGRectMake(_cardView.x , _cardView.y , _cardView.width, _cardView.height)];
+    _articleView.backgroundColor = [UIColor darkGrayColor];
+    _articleView.layer.cornerRadius =  _floatButton.width * 3 / 4;
+    _articleView.clipsToBounds = YES;
+    _articleView.layer.borderColor = [UIColor whiteColor].CGColor;
+    _articleView.layer.borderWidth = 2;
+    _articleView.hidden = YES;
+    [self.view addSubview:_articleView];
     
-    UIButton *articleButton = [[UIButton alloc] initWithFrame:CGRectMake(articleView.width / 4, 0, articleView.width / 2, articleView.width / 2)];
+    UIButton *articleButton = [[UIButton alloc] initWithFrame:CGRectMake(_articleView.width / 4, _articleView.height / 4, _articleView.width / 2, _articleView.width / 2)];
     [articleButton setImage:[UIImage imageNamed:@"article"] forState:UIControlStateNormal];
-    [articleView addSubview:articleButton];
+    [_articleView addSubview:articleButton];
     
-    UILabel *articleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, articleButton.height, articleView.width, articleView.width / 3)];
-    articleLabel.text = @"写长文";
-    articleLabel.textAlignment = NSTextAlignmentCenter;
-    articleLabel.textColor = [UIColor whiteColor];
-    articleLabel.font = [UIFont systemFontOfSize:12];
-    [articleView addSubview:articleLabel];
+
     
     
-    UIView *messageView = [[UIView alloc] initWithFrame:CGRectMake(articleView.x, articleView.y, articleView.width, articleView.height)];
-    messageView.backgroundColor = [UIColor darkGrayColor];
-    messageView.layer.cornerRadius =  floatButton.width * 3 / 4;
-    messageView.clipsToBounds = YES;
-    messageView.layer.borderColor = [UIColor whiteColor].CGColor;
-    messageView.layer.borderWidth = 2;
-    messageView.hidden = YES;
-    [self.view addSubview:messageView];
+    self.messageView = [[UIView alloc] initWithFrame:CGRectMake(_articleView.x, _articleView.y, _articleView.width, _articleView.height)];
+    _messageView.backgroundColor = [UIColor darkGrayColor];
+    _messageView.layer.cornerRadius =  _floatButton.width * 3 / 4;
+    _messageView.clipsToBounds = YES;
+    _messageView.layer.borderColor = [UIColor whiteColor].CGColor;
+    _messageView.layer.borderWidth = 2;
+    _messageView.hidden = YES;
+    [self.view addSubview:_messageView];
     
-    UIButton *messageButton = [[UIButton alloc] initWithFrame:CGRectMake(messageView.width / 4, 0, messageView.width / 2, messageView.width / 2)];
+    UIButton *messageButton = [[UIButton alloc] initWithFrame:CGRectMake(_messageView.width / 4, _messageView.height / 4, _messageView.width / 2, _messageView.width / 2)];
     [messageButton setImage:[UIImage imageNamed:@"information"] forState:UIControlStateNormal];
-    [messageView addSubview:messageButton];
+    [_messageView addSubview:messageButton];
     
-    UILabel *messageLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, messageButton.height, messageView.width, messageView.width / 3)];
-    messageLabel.text = @"个人信息";
-    messageLabel.textAlignment = NSTextAlignmentCenter;
-    messageLabel.textColor = [UIColor whiteColor];
-    messageLabel.font = [UIFont systemFontOfSize:12];
-    [messageView addSubview:messageLabel];
+
     
     [messageButton handleControlEvent:UIControlEventTouchUpInside withBlock:^{
         UserViewController *userView = [[UserViewController alloc] init];
@@ -223,26 +216,23 @@ UIScrollViewDelegate
     
     
    
-    UIView *searchView = [[UIView alloc] initWithFrame:CGRectMake(messageView.x, messageView.y ,messageView.width, messageView.height)];
-    searchView.backgroundColor = [UIColor darkGrayColor];
-    searchView.layer.cornerRadius =  floatButton.width * 3 / 4;
-    searchView.clipsToBounds = YES;
-    searchView.layer.borderColor = [UIColor whiteColor].CGColor;
-    searchView.layer.borderWidth = 2;
-    searchView.hidden = YES;
-    [self.view addSubview:searchView];
+    self.searchView = [[UIView alloc] initWithFrame:CGRectMake(_messageView.x, _messageView.y ,_messageView.width, _messageView.height)];
+    _searchView.backgroundColor = [UIColor darkGrayColor];
+    _searchView.layer.cornerRadius =  _floatButton.width * 3 / 4;
+    _searchView.clipsToBounds = YES;
+    _searchView.layer.borderColor = [UIColor whiteColor].CGColor;
+    _searchView.layer.borderWidth = 2;
+    _searchView.hidden = YES;
+    [self.view addSubview:_searchView];
     
     
-    UIButton *searchButton = [[UIButton alloc] initWithFrame:CGRectMake(searchView.width / 4, 0, searchView.width / 2, searchView.width / 2)];
+    UIButton *searchButton = [[UIButton alloc] initWithFrame:CGRectMake(_searchView.width / 4, _searchView.height / 4, _searchView.width / 2, _searchView.width / 2)];
     [searchButton setImage:[UIImage imageNamed:@"white search"] forState:UIControlStateNormal];
-    [searchView addSubview:searchButton];
+    [_searchView addSubview:searchButton];
     
-    UILabel *searchLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, searchButton.height, searchView.width, searchView.width / 3)];
-    searchLabel.text = @"搜索";
-    searchLabel.textAlignment = NSTextAlignmentCenter;
-    searchLabel.textColor = [UIColor whiteColor];
-    searchLabel.font = [UIFont systemFontOfSize:12];
-    [searchView addSubview:searchLabel];
+
+    
+    
     [searchButton handleControlEvent:UIControlEventTouchUpInside withBlock:^{
         SearchViewController *searchView = [[SearchViewController alloc] init];
         [self.navigationController pushViewController:searchView animated:YES];
@@ -250,97 +240,102 @@ UIScrollViewDelegate
     
     
     
-    UIView *mailboxView = [[UIView alloc] initWithFrame:CGRectMake(searchView.x , searchView.y, searchView.width, searchView.height)];
-    mailboxView.backgroundColor = [UIColor darkGrayColor];
-    mailboxView.layer.cornerRadius =  floatButton.width * 3 / 4;
-    mailboxView.clipsToBounds = YES;
-    mailboxView.layer.borderColor = [UIColor whiteColor].CGColor;
-    mailboxView.layer.borderWidth = 2;
-    mailboxView.hidden = YES;
-    [self.view addSubview:mailboxView];
+    self.mailboxView = [[UIView alloc] initWithFrame:CGRectMake(_searchView.x , _searchView.y, _searchView.width, _searchView.height)];
+    _mailboxView.backgroundColor = [UIColor darkGrayColor];
+    _mailboxView.layer.cornerRadius =  _floatButton.width * 3 / 4;
+    _mailboxView.clipsToBounds = YES;
+    _mailboxView.layer.borderColor = [UIColor whiteColor].CGColor;
+    _mailboxView.layer.borderWidth = 2;
+    _mailboxView.hidden = YES;
+    [self.view addSubview:_mailboxView];
     
     
-    UIButton *mailboxButton = [[UIButton alloc] initWithFrame:CGRectMake(mailboxView.width / 4, 0, mailboxView.width / 2, mailboxView.width / 2)];
+    UIButton *mailboxButton = [[UIButton alloc] initWithFrame:CGRectMake(_mailboxView.width / 4, _mailboxView.height / 4, _mailboxView.width / 2, _mailboxView.width / 2)];
     [mailboxButton setImage:[UIImage imageNamed:@"mailbox"] forState:UIControlStateNormal];
-    [mailboxView addSubview:mailboxButton];
+    [_mailboxView addSubview:mailboxButton];
     
-    UILabel *mailboxLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, mailboxButton.height, mailboxView.width, mailboxView.width / 3)];
-    mailboxLabel.text = @"信箱";
-    mailboxLabel.textAlignment = NSTextAlignmentCenter;
-    mailboxLabel.textColor = [UIColor whiteColor];
-    mailboxLabel.font = [UIFont systemFontOfSize:12];
-    [mailboxView addSubview:mailboxLabel];
+    [mailboxButton handleControlEvent:UIControlEventTouchUpInside withBlock:^{
+        mailboxViewController *mailboxView = [[mailboxViewController alloc] init];
+        [self.navigationController pushViewController:mailboxView animated:YES];
+    }];
+
     
-    UIView *newsView = [[UIView alloc] initWithFrame:CGRectMake(mailboxView.x , mailboxView.y, mailboxView.width, mailboxView.height)];
-    newsView.backgroundColor = [UIColor darkGrayColor];
-    newsView.layer.cornerRadius =  floatButton.width * 3 / 4;
-    newsView.clipsToBounds = YES;
-    newsView.layer.borderColor = [UIColor whiteColor].CGColor;
-    newsView.layer.borderWidth = 2;
-    newsView.hidden = YES;
-    [self.view addSubview:newsView];
+    self.newsView = [[UIView alloc] initWithFrame:CGRectMake(_mailboxView.x , _mailboxView.y, _mailboxView.width, _mailboxView.height)];
+    _newsView.backgroundColor = [UIColor darkGrayColor];
+    _newsView.layer.cornerRadius =  _floatButton.width * 3 / 4;
+    _newsView.clipsToBounds = YES;
+    _newsView.layer.borderColor = [UIColor whiteColor].CGColor;
+    _newsView.layer.borderWidth = 2;
+    _newsView.hidden = YES;
+    [self.view addSubview:_newsView];
     
-    UIButton *newsButton = [[UIButton alloc] initWithFrame:CGRectMake(newsView.width / 4, 0, newsView.width / 2, newsView.width / 2)];
+    UIButton *newsButton = [[UIButton alloc] initWithFrame:CGRectMake(_newsView.width / 4, _newsView.height / 4, _newsView.width / 2, _newsView.width / 2)];
     [newsButton setImage:[UIImage imageNamed:@"messenge"] forState:UIControlStateNormal];
-    [newsView addSubview:newsButton];
+    [_newsView addSubview:newsButton];
     
-    UILabel *newsLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, newsButton.height, newsView.width, newsView.width / 3)];
-    newsLabel.text = @"消息";
-    newsLabel.textAlignment = NSTextAlignmentCenter;
-    newsLabel.textColor = [UIColor whiteColor];
-    newsLabel.font = [UIFont systemFontOfSize:12];
-    [newsView addSubview:newsLabel];
-    self.isSelect = NO;
+
+    
    [newsButton handleControlEvent:UIControlEventTouchUpInside withBlock:^{
        NewsViewController *newsView = [[NewsViewController alloc] init];
        [self.navigationController pushViewController:newsView animated:YES];
    }];
     
     
-    [floatButton handleControlEvent:UIControlEventTouchUpInside withBlock:^{
-        
+    self.isSelect = NO;
+    [_floatButton handleControlEvent:UIControlEventTouchUpInside withBlock:^{
         if (_isSelect == NO) {
-            [UIView animateWithDuration:0.5f animations:^{
-                _isSelect = YES;
-                cardView.hidden = NO;
-                articleView.hidden = NO;
-                messageView.hidden = NO;
-                searchView.hidden = NO;
-                mailboxView.hidden = NO;
-                newsView.hidden = NO;
-                cardView.frame = CGRectMake(floatButton.x, floatButton.y - self.view.height * 0.4, floatButton.width * 3 / 2, floatButton.width * 3 / 2);
-                articleView.frame = CGRectMake(cardView.x + self.view.height * 0.4 / 6, cardView.y + self.view .height * 0.4 / 6, cardView.width, cardView.height);
-                messageView.frame = CGRectMake(articleView.x + self.view.height * 0.4 / 6, articleView.y + self.view.height * 0.4 / 6, articleView.width, articleView.height);
-                searchView.frame = CGRectMake(messageView.x + self.view.height * 0.4 / 6, messageView.y + self.view.height * 0.4 / 6, messageView.width, messageView.height);
-                mailboxView.frame = CGRectMake(searchView.x + self.view.height * 0.4 / 6, searchView.y + self.view.height * 0.4 / 6, searchView.width, searchView.height);
-                newsView.frame = CGRectMake(mailboxView.x + self.view.height * 0.4 / 6, mailboxView.y + self.view.height * 0.4 / 6, mailboxView.width, mailboxView.height);
-            }];
-
+            [self floatButtonAnimation];
         } else {
-        
-        [UIView animateWithDuration:0.5f animations:^{
-            _isSelect = NO;
-            cardView.center = floatButton.center;
-            articleView.center = floatButton.center;
-            messageView.center = floatButton.center;
-            searchView.center = floatButton.center;
-            mailboxView.center = floatButton.center;
-            newsView.center = floatButton.center;
-        } completion:^(BOOL finished) {
-            cardView.hidden = YES;
-            articleView.hidden = YES;
-            messageView.hidden = YES;
-            searchView.hidden = YES;
-            mailboxView.hidden = YES;
-            newsView .hidden = YES;
-        }];
-       
+            [self floatButtonPickUp];
         }
         }];
 
 }
+- (void)floatButtonAnimation {
+
+    [UIView animateWithDuration:0.2f animations:^{
+        _isSelect = YES;
+        _cardView.hidden = NO;
+        _articleView.hidden = NO;
+        _messageView.hidden = NO;
+        _searchView.hidden = NO;
+        _mailboxView.hidden = NO;
+        _newsView.hidden = NO;
+        CGFloat angle = - M_PI / 11;
+        CGFloat distence = _floatButton.y - self.view.height * 0.4;
+        _cardView.center = CGPointMake(cos(angle * 0) * distence, _floatButton.centerY + sin(angle * 0) * distence);
+        _articleView.center = CGPointMake(cos(angle * 1) *distence, _floatButton.centerY + sin(angle * 1) *distence);
+        _messageView.center = CGPointMake(cos(angle * 2) * distence, _floatButton.centerY + sin(angle * 2) * distence);
+        _searchView.center = CGPointMake(cos(angle * 3) *distence, _floatButton.centerY + sin(angle * 3) * distence);
+        _mailboxView.center = CGPointMake(cos(angle * 4) *distence, _floatButton.centerY + sin(angle * 4) * distence);
+        _newsView.center = CGPointMake(cos(angle * 5) *distence, _floatButton.centerY + sin(angle * 5) * distence);
+    }];
+    
 
 
+
+
+}
+- (void)floatButtonPickUp {
+    [UIView animateWithDuration:0.2f animations:^{
+        _isSelect = NO;
+        _cardView.center = _floatButton.center;
+        _articleView.center = _floatButton.center;
+        _messageView.center = _floatButton.center;
+        _searchView.center = _floatButton.center;
+        _mailboxView.center = _floatButton.center;
+        _newsView.center = _floatButton.center;
+    } completion:^(BOOL finished) {
+        _cardView.hidden = YES;
+        _articleView.hidden = YES;
+        _messageView.hidden = YES;
+        _searchView.hidden = YES;
+        _mailboxView.hidden = YES;
+        _newsView .hidden = YES;
+    }];
+
+
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

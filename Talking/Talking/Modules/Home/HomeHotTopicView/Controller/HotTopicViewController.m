@@ -68,16 +68,16 @@ HotTopicCollectionViewLayoutDelegate
             [self addMoreCard];
         }
     
-        if (_collectionView.contentOffset.y > 64 + self.view.height * 0.07) {
-            [UIView animateWithDuration:2.0f animations:^{
-                self.navigationController.navigationBar.frame = CGRectMake(0, -64, self.view.width, 64);
-                self.navigationController.navigationBarHidden = YES;
-            }];
-        } else {
-        [UIView animateWithDuration:2.0f animations:^{
-            self.navigationController.navigationBarHidden = NO;
-        }];
-        }
+//        if (_collectionView.contentOffset.y > 64 + self.view.height * 0.07) {
+//            [UIView animateWithDuration:2.0f animations:^{
+//                self.navigationController.navigationBar.frame = CGRectMake(0, -64, self.view.width, 64);
+//                self.navigationController.navigationBarHidden = YES;
+//            }];
+//        } else {
+//        [UIView animateWithDuration:2.0f animations:^{
+//            self.navigationController.navigationBarHidden = NO;
+//        }];
+//        }
     }
 }
 

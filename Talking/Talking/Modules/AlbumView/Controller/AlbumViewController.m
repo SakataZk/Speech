@@ -123,15 +123,6 @@ UICollectionViewDelegate
 
 }
 
-- (void)swipeAction{
- 
-    [UIView animateWithDuration:1.0f animations:^{
-    _bigScrollView.scrollEnabled = YES;
-    _bigView.frame = CGRectZero;
-     _bigScrollView.pagingEnabled = YES;
-    }];
-
-}
 
 
 - (void)getBackgroundInfo {
@@ -167,7 +158,7 @@ UICollectionViewDelegate
 - (void)CreatBackgroudView {
     
     self.backgroundImage = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, self.view.width, self.view.height *0.3)];
-    _backgroundImage.backgroundColor = [UIColor greenColor];
+    _backgroundImage.backgroundColor = [UIColor clearColor];
     _backgroundImage.userInteractionEnabled = YES;
     [self.view addSubview:_backgroundImage];
     
@@ -202,7 +193,7 @@ UICollectionViewDelegate
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapAction)];
     
     self.headImage = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, returnButton.width * 2 - 5, returnButton.width * 2 - 5)];
-    _headImage.backgroundColor = [UIColor redColor];
+    _headImage.backgroundColor = [UIColor clearColor];
     _headImage.center = imageView.center;
     _headImage.layer.cornerRadius = (returnButton.width * 2 - 5) / 2;
     _headImage.clipsToBounds = YES;
@@ -267,6 +258,7 @@ UICollectionViewDelegate
     if ([collectionView isEqual:_collectionView]) {
         AlbumCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:cellIdentifier forIndexPath:indexPath];
         cell.model = _albumArray[indexPath.item];
+        cell.backgroundColor = [UIColor whiteColor];
         return cell;
         
     }
@@ -325,23 +317,35 @@ UICollectionViewDelegate
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    UICollectionViewCell * cell = (AlbumCardCollectionViewCell *)[collectionView cellForItemAtIndexPath:indexPath];
+    CGRect cellRect = [_collectionView convertRect:cell.frame toView:_collectionView];
+    CGRect rect = [_collectionView convertRect:cellRect toView:self.view];
+    _bigView.hidden = YES;
+    _bigView.frame = CGRectMake(0, 5, self.view.width , self.view.height - 10);
+    _bigView.contentOffset = CGPointMake(indexPath.item * _bigView.width, 0);
+    UIView *snapView = [cell snapshotViewAfterScreenUpdates:NO];
+    snapView.frame = rect;
+    [self.view addSubview:snapView];
 
-    _bigView.frame = CGRectMake(indexPath.item * self.view.width * 0.6 + self.view .width * 0.4 + ( indexPath.item) * 10 , self.view.height * 0.35, self.view.width * 0.6,self.view.height * 0.55) ;
-    
-    _bigView.contentOffset = CGPointMake(_bigView.width * indexPath.item, 0);
-    [UIView animateWithDuration:1.0f animations:^{
+    [UIView animateWithDuration:0.2f animations:^{
         _bigScrollView.scrollEnabled = NO;
-        _bigView.frame = CGRectMake(0, 5, self.view.width , self.view.height - 10);
+        snapView.frame = CGRectMake(5, 5, self.view.width - 10, self.view.height - 10);
+    } completion:^(BOOL finished) {
+        _bigView.hidden = NO;
+        snapView.hidden = YES;
     }];
 }
 
 
 
-
-
-
-
-
+- (void)swipeAction{
+    
+    [UIView animateWithDuration:0.5f animations:^{
+        _bigScrollView.scrollEnabled = YES;
+        _bigView.frame = CGRectMake(0, _bigView.height * 2, _bigView.width , _bigView.height);
+        _bigScrollView.pagingEnabled = YES;
+    }];
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

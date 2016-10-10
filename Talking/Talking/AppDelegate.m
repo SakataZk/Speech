@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "TalkingHomeViewController.h"
+#import "LoginViewController.h"
 @interface AppDelegate ()
 
 @end
@@ -20,9 +21,13 @@
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     
-    TalkingHomeViewController *viewController = [[TalkingHomeViewController alloc] init];
-    UINavigationController *homeVC = [[UINavigationController alloc] initWithRootViewController:viewController];
-    self.window.rootViewController = homeVC;
+    LoginViewController *loginView = [[LoginViewController alloc] init];
+    self.window.rootViewController = loginView;
+    
+    
+//    TalkingHomeViewController *viewController = [[TalkingHomeViewController alloc] init];
+//    UINavigationController *homeVC = [[UINavigationController alloc] initWithRootViewController:viewController];
+//    self.window.rootViewController = homeVC;
     
     
     
