@@ -9,6 +9,7 @@
 #import "LoginViewController.h"
 #import "NSString+EAMD5.h"
 #import "model.h"
+#import "TalkingHomeViewController.h"
 
 @interface LoginViewController ()
 
@@ -22,6 +23,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.navigationController.navigationBarHidden = YES;
+    
     UIView *view = [[UIView alloc] initWithFrame:CGRectMake(100, 100, 300, 100)];
     [self.view addSubview:view];
     
@@ -68,13 +72,32 @@
             if (!error) {
                 id result = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
                 model *mo = [[model alloc] initWithDic:result];
+                /**
+                 *  请求头
+                 */
+                NSString *token = [result objectForKey:@"token"];
+                NSDictionary *dic = [result objectForKey:@"user"];
+                NSDictionary *userDic = [dic objectForKey:@"userProfile"];
+                /**
+                 *  用户Id
+                 */
+                NSNumber *uid = [userDic objectForKey:@"uid"];
+                /**
+                 *  用户头像
+                 */
+                NSString *picture = [userDic objectForKey:@"smallPicture"];
+                if ([mo.msg isEqualToString:@"登录成功"]) {
+                    TalkingHomeViewController *viewController = [[TalkingHomeViewController alloc] init];
+                    viewController.token = token;
+                    viewController.uid = uid;
+                    viewController.picture = picture;
+                    [self.navigationController pushViewController:viewController animated:NO];
+                }
                 NSLog(@"result : %@",mo.msg);
             }
         });
     }];
     [dataTask resume];
-    
-    
     
 }
 - (void)didReceiveMemoryWarning {

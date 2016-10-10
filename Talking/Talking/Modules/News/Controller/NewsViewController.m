@@ -73,8 +73,11 @@
     noticeLabel.font = [UIFont systemFontOfSize:15];
     noticeLabel.textAlignment = NSTextAlignmentCenter;
     [self.view addSubview:noticeLabel];
+    
     [NoticeButton handleControlEvent:UIControlEventTouchUpInside withBlock:^{
         NoticeViewController *noticeView = [[NoticeViewController alloc] init];
+        noticeView.uid = _uid;
+        noticeView.token = _token;
         [self.navigationController pushViewController:noticeView animated:YES];
     }];
 
@@ -98,6 +101,8 @@
 
     [commentButton handleControlEvent:UIControlEventTouchUpInside withBlock:^{
         CommentViewController *commentView = [[CommentViewController alloc] init];
+        commentView.uid = _uid;
+        commentView.token = _token;
         [self.navigationController pushViewController:commentView animated:YES];
     }];
     
@@ -122,6 +127,8 @@
     [self.view addSubview:attentionLabel];
     [attentionButton handleControlEvent:UIControlEventTouchUpInside withBlock:^{
         AttentionViewController *attentionView = [[AttentionViewController alloc] init];
+        attentionView.uid = _uid;
+        attentionView.token = _token;
         [self.navigationController pushViewController:attentionView animated:YES];
     }];
     

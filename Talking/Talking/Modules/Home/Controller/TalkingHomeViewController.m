@@ -20,6 +20,7 @@
 
 
 
+
 @interface TalkingHomeViewController ()
 <SGTopTitleViewDelegate,
 UIScrollViewDelegate
@@ -43,15 +44,18 @@ UIScrollViewDelegate
 
 - (void)viewWillAppear:(BOOL)animated {
     self.navigationController.navigationBarHidden = NO;
+
 }
 - (void)viewDidDisappear:(BOOL)animated {
     [self floatButtonPickUp];
 }
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor colorWithWhite:0.9 alpha:1.0];
     self.navigationController.navigationBar.translucent = NO;
     self.automaticallyAdjustsScrollViewInsets = NO;
+    self.navigationItem.hidesBackButton =YES;
     [self creatButton];
     [self creatView];
     [self creatFloatButton];
@@ -83,15 +87,23 @@ UIScrollViewDelegate
 }
 
 - (void)creatView {
+    
     HomeViewController *oneVC = [[HomeViewController alloc] init];
+    oneVC.token = _token;
+    oneVC.uid = _uid;
     [self addChildViewController:oneVC];
     TalkingViewController *twoVC = [[TalkingViewController alloc] init];
+    twoVC.uid = _uid;
+    twoVC.token = _token;
     [self addChildViewController:twoVC];
     TopicViewController *threeVC = [[TopicViewController alloc] init];
+    threeVC.uid = _uid;
+    threeVC.token = _token;
     [self addChildViewController:threeVC];
     ActivityViewController *fourVC = [[ActivityViewController alloc] init];
+    fourVC.uid = _uid;
+    fourVC.token = _token;
     [self addChildViewController:fourVC];
-    
     
     self.titles = @[@"首页", @"人言", @"主题", @"活动"];
     self.topTitleView = [SGTopTitleView topTitleViewWithFrame:CGRectMake(self.view.width * 0.2, 0, self.view.frame.size.width * 0.6, self.navigationController.navigationBar.height)];
@@ -126,13 +138,19 @@ UIScrollViewDelegate
 }
 
 - (void)creatButton {
+    
     UIButton *userInfoButton = [UIButton buttonWithType:UIButtonTypeCustom];
     userInfoButton.frame = CGRectMake(0, 0, self.navigationController.navigationBar.height, self.navigationController.navigationBar.height);
-    userInfoButton.backgroundColor = [UIColor redColor];
+    NSURL *url = [NSURL URLWithString:_picture];
+    UIImage *imge = [[UIImage alloc] initWithData:[NSData dataWithContentsOfURL:url]];
+    [userInfoButton setImage:imge forState:UIControlStateNormal];
+    userInfoButton.layer.cornerRadius = self.navigationController.navigationBar.height / 2;
+    userInfoButton.clipsToBounds = YES;
     [self.navigationController.navigationBar addSubview:userInfoButton];
+    
     [userInfoButton handleControlEvent:UIControlEventTouchUpInside withBlock:^{
         UserViewController *userView = [[UserViewController alloc] init];
-        userView.uid = @189186;
+        userView.uid = _uid;
         [self.navigationController pushViewController:userView animated:YES];
     }];
     
@@ -173,6 +191,7 @@ UIScrollViewDelegate
     
     [cardButton handleControlEvent:UIControlEventTouchUpInside withBlock:^{
     CardViewController *cardViewController = [[CardViewController alloc] init];
+        
     [self.navigationController pushViewController:cardViewController animated:YES];
 
 }];
@@ -210,7 +229,7 @@ UIScrollViewDelegate
     
     [messageButton handleControlEvent:UIControlEventTouchUpInside withBlock:^{
         UserViewController *userView = [[UserViewController alloc] init];
-        userView.uid = @189186;
+        userView.uid = _uid;
         [self.navigationController pushViewController:userView animated:YES];
     }];
     
@@ -235,6 +254,9 @@ UIScrollViewDelegate
     
     [searchButton handleControlEvent:UIControlEventTouchUpInside withBlock:^{
         SearchViewController *searchView = [[SearchViewController alloc] init];
+        searchView.uid = _uid;
+        searchView.token = _token;
+        
         [self.navigationController pushViewController:searchView animated:YES];
     }];
     
@@ -277,6 +299,8 @@ UIScrollViewDelegate
     
    [newsButton handleControlEvent:UIControlEventTouchUpInside withBlock:^{
        NewsViewController *newsView = [[NewsViewController alloc] init];
+       newsView.uid = _uid;
+       newsView.token = _token;
        [self.navigationController pushViewController:newsView animated:YES];
    }];
     
@@ -291,6 +315,7 @@ UIScrollViewDelegate
         }];
 
 }
+
 - (void)floatButtonAnimation {
 
     [UIView animateWithDuration:0.2f animations:^{
@@ -316,6 +341,7 @@ UIScrollViewDelegate
 
 
 }
+
 - (void)floatButtonPickUp {
     [UIView animateWithDuration:0.2f animations:^{
         _isSelect = NO;

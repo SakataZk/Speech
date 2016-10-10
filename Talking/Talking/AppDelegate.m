@@ -22,7 +22,8 @@
     [self.window makeKeyAndVisible];
     
     LoginViewController *loginView = [[LoginViewController alloc] init];
-    self.window.rootViewController = loginView;
+    UINavigationController *loginNa = [[UINavigationController alloc] initWithRootViewController:loginView];
+    self.window.rootViewController = loginNa;
     
     
 //    TalkingHomeViewController *viewController = [[TalkingHomeViewController alloc] init];

@@ -32,8 +32,12 @@ UIScrollViewDelegate
     self.navigationController.navigationBarHidden = NO;
     
     self.hotTopicVC = [[HotTopicViewController alloc] init];
+    _hotTopicVC.uid = _uid;
+    _hotTopicVC.token = _token;
     [self addChildViewController:_hotTopicVC];
     EverydayViewController *twoVC = [[EverydayViewController alloc] init];
+    twoVC.uid = _uid;
+    twoVC.token = _token;
     [self addChildViewController:twoVC];
 
     

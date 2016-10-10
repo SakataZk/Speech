@@ -9,5 +9,8 @@
 #import "SpBaseViewController.h"
 
 @interface AttentionViewController : SpBaseViewController
+@property (nonatomic, strong) NSString *token;
+
+@property (nonatomic, strong) NSNumber *uid;
 
 @end

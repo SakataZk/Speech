@@ -75,12 +75,10 @@ UIScrollViewDelegate
     _titleCollectionView.backgroundColor = [UIColor whiteColor];
     _titleCollectionView.delegate = self;
     _titleCollectionView.dataSource = self;
-
     
     [self.view addSubview:_titleCollectionView];
     
     [_titleCollectionView registerClass:[TitleCollectionCell class] forCellWithReuseIdentifier:cellIdentifier];
-    
     
     self.bigScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, _titleCollectionView.y + _titleCollectionView.height, self.view.width, (self.view.height - _titleCollectionView.y - _titleCollectionView.height - self.navigationController.navigationBar.y - self.navigationController.navigationBar.height) / 2 )];
     
@@ -100,9 +98,7 @@ UIScrollViewDelegate
     _cardCollectionView.showsHorizontalScrollIndicator = NO;
     [self.view addSubview:_cardCollectionView];
     
-    
     self.number = 0;
-
 }
 
 - (void)setAnimationImageView {
@@ -221,10 +217,10 @@ UIScrollViewDelegate
 - (void)GetTopicInfo {
     
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
-    [manager.requestSerializer setValue:@"189186" forHTTPHeaderField:@"X-User"];
-    [manager.requestSerializer setValue:@"A991B7D59DACB35A141ED180BF3EA6534F2B5E4FD8BAE126DF9BDAB620ABB39BDB73F66EB26933318FF792C0DDCF74D2C8C6D1E5978B351A70545ED860B91D8A" forHTTPHeaderField:@"X-AuthToken"];
+    [manager.requestSerializer setValue:[NSString stringWithFormat:@"%@",_uid] forHTTPHeaderField:@"X-User"];
+    [manager.requestSerializer setValue:_token forHTTPHeaderField:@"X-AuthToken"];
     [manager.requestSerializer setValue:@"j8slb29fbalc83pna2af2c2954hcw65" forHTTPHeaderField:@"X-ApiKey"];
-    NSString *url = [NSString stringWithFormat:@"http://app.ry.api.renyan.cn/rest/auth/topic_section/card?uid=189186&tsid=%ld",_topicType];
+    NSString *url = [NSString stringWithFormat:@"http://app.ry.api.renyan.cn/rest/auth/topic_section/card?uid=%@&tsid=%ld",_uid,_topicType];
     [manager GET:url parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         if (_cellInfoArray.count > 0) {
             [_cellInfoArray removeAllObjects];
@@ -254,8 +250,8 @@ UIScrollViewDelegate
 - (void)GetTitleArray{
     
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
-    [manager.requestSerializer setValue:@"189186" forHTTPHeaderField:@"X-User"];
-    [manager.requestSerializer setValue:@"A991B7D59DACB35A141ED180BF3EA6534F2B5E4FD8BAE126DF9BDAB620ABB39BDB73F66EB26933318FF792C0DDCF74D2C8C6D1E5978B351A70545ED860B91D8A" forHTTPHeaderField:@"X-AuthToken"];
+    [manager.requestSerializer setValue:[NSString stringWithFormat:@"%@",_uid] forHTTPHeaderField:@"X-User"];
+    [manager.requestSerializer setValue:_token forHTTPHeaderField:@"X-AuthToken"];
     [manager.requestSerializer setValue:@"j8slb29fbalc83pna2af2c2954hcw65" forHTTPHeaderField:@"X-ApiKey"];
     NSString *url = [NSString stringWithFormat:@"http://app.ry.api.renyan.cn/rest/auth/topic_section/available"];
     [manager GET:url parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
@@ -277,8 +273,8 @@ UIScrollViewDelegate
 
 - (void)GetCardInfo:(NSNumber *)cid{
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
-    [manager.requestSerializer setValue:@"189186" forHTTPHeaderField:@"X-User"];
-    [manager.requestSerializer setValue:@"A991B7D59DACB35A141ED180BF3EA6534F2B5E4FD8BAE126DF9BDAB620ABB39BDB73F66EB26933318FF792C0DDCF74D2C8C6D1E5978B351A70545ED860B91D8A" forHTTPHeaderField:@"X-AuthToken"];
+    [manager.requestSerializer setValue:[NSString stringWithFormat:@"%@",_uid] forHTTPHeaderField:@"X-User"];
+    [manager.requestSerializer setValue:_token forHTTPHeaderField:@"X-AuthToken"];
     [manager.requestSerializer setValue:@"j8slb29fbalc83pna2af2c2954hcw65" forHTTPHeaderField:@"X-ApiKey"];
     NSString *url = [NSString stringWithFormat:@"http://app.ry.api.renyan.cn/rest/auth/card/select_by_cids?cids=%@",cid];
     [manager GET:url parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {

@@ -8,14 +8,13 @@
 
 #import "SpBaseViewController.h"
 
-@protocol  EverydayViewControllerDelegate <NSObject>
-
-- (void)showTheCard ;
-
-@end
 
 @interface EverydayViewController : SpBaseViewController
 
-@property (nonatomic, assign) id<EverydayViewControllerDelegate>delegate;
+
+@property (nonatomic, strong) NSString *token;
+
+@property (nonatomic, strong) NSNumber *uid;
+
 
 @end

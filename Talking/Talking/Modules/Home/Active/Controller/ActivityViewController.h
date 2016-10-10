@@ -9,5 +9,7 @@
 #import "SpBaseViewController.h"
 
 @interface ActivityViewController : SpBaseViewController
+@property (nonatomic, strong) NSString *token;
 
+@property (nonatomic, strong) NSNumber *uid;
 @end
