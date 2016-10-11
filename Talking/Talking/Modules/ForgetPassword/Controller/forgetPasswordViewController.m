@@ -98,6 +98,7 @@
     
     self.passWordNubmer = [[UITextField alloc] initWithFrame:CGRectMake(_codeNumber.x, _codeNumber.y + _codeNumber.height + 1, _codeNumber.width, _codeNumber.height)];
     _passWordNubmer.placeholder = @"    密码";
+    _passWordNubmer.secureTextEntry = YES;
     _passWordNubmer.keyboardType = UIKeyboardTypeNamePhonePad;
     _passWordNubmer.textColor = [UIColor lightGrayColor];
     _passWordNubmer.backgroundColor = [UIColor whiteColor];

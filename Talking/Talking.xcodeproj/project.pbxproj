@@ -25,6 +25,7 @@
 		495FD5EC1D9D0D550016B349 /* AlbumCardCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 495FD5EB1D9D0D550016B349 /* AlbumCardCollectionViewCell.m */; };
 		499F51511DACB12700F7FE99 /* registerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 499F51501DACB12700F7FE99 /* registerViewController.m */; };
 		499F51561DACBFEC00F7FE99 /* forgetPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 499F51551DACBFEC00F7FE99 /* forgetPasswordViewController.m */; };
+		499F515B1DACE1EE00F7FE99 /* longTextViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 499F515A1DACE1EE00F7FE99 /* longTextViewController.m */; };
 		49AA87D91D9C9F7F00706AD9 /* AlbumViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49AA87D81D9C9F7F00706AD9 /* AlbumViewController.m */; };
 		49AA87DC1D9CBB6800706AD9 /* AlbumCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 49AA87DB1D9CBB6800706AD9 /* AlbumCollectionViewCell.m */; };
 		49AA87DF1D9CC12D00706AD9 /* AlbumModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 49AA87DE1D9CC12D00706AD9 /* AlbumModel.m */; };
@@ -133,6 +134,8 @@
 		499F51501DACB12700F7FE99 /* registerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = registerViewController.m; sourceTree = "<group>"; };
 		499F51541DACBFEC00F7FE99 /* forgetPasswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = forgetPasswordViewController.h; sourceTree = "<group>"; };
 		499F51551DACBFEC00F7FE99 /* forgetPasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = forgetPasswordViewController.m; sourceTree = "<group>"; };
+		499F51591DACE1EE00F7FE99 /* longTextViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = longTextViewController.h; sourceTree = "<group>"; };
+		499F515A1DACE1EE00F7FE99 /* longTextViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = longTextViewController.m; sourceTree = "<group>"; };
 		49AA87D71D9C9F7F00706AD9 /* AlbumViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlbumViewController.h; sourceTree = "<group>"; };
 		49AA87D81D9C9F7F00706AD9 /* AlbumViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlbumViewController.m; sourceTree = "<group>"; };
 		49AA87DA1D9CBB6800706AD9 /* AlbumCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlbumCollectionViewCell.h; sourceTree = "<group>"; };
@@ -535,6 +538,23 @@
 				499F51551DACBFEC00F7FE99 /* forgetPasswordViewController.m */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		499F51571DACE1C200F7FE99 /* Long text */ = {
+			isa = PBXGroup;
+			children = (
+				499F51581DACE1D600F7FE99 /* Controller */,
+			);
+			name = "Long text";
+			sourceTree = "<group>";
+		};
+		499F51581DACE1D600F7FE99 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				499F51591DACE1EE00F7FE99 /* longTextViewController.h */,
+				499F515A1DACE1EE00F7FE99 /* longTextViewController.m */,
+			);
+			name = Controller;
 			sourceTree = "<group>";
 		};
 		49AA87D31D9C9F3D00706AD9 /* AlbumView */ = {
@@ -1199,6 +1219,7 @@
 		49FCC0C51D916234007614B5 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				499F51571DACE1C200F7FE99 /* Long text */,
 				49B91D661D9AAA4400255632 /* ActivityInfo */,
 				49AA87D31D9C9F3D00706AD9 /* AlbumView */,
 				495FD5E01D9D085E0016B349 /* Card */,
@@ -1424,6 +1445,7 @@
 				491E43091D936BED00939063 /* HotTopicModel.m in Sources */,
 				49B91D2C1D9A1FF400255632 /* ClassModel.m in Sources */,
 				49BA38C11D9BB618002D1B57 /* SettingViewController.m in Sources */,
+				499F515B1DACE1EE00F7FE99 /* longTextViewController.m in Sources */,
 				499F51511DACB12700F7FE99 /* registerViewController.m in Sources */,
 				49BA38C71D9BE86B002D1B57 /* SearchViewController.m in Sources */,
 				49EE2B421DA9CDF000640DFA /* NoticeModel.m in Sources */,

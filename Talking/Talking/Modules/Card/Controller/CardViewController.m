@@ -72,9 +72,7 @@ UINavigationControllerDelegate
 
 -(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info{
    
-    NSLog(@"%@",info);
     //刚才已经看了info中的键值对，可以从info中取出一个UIImage对象，将取出的对象赋给按钮的image
-    
     UIButton *button = (UIButton *)[self.view viewWithTag:1004];
     
     UIImage *resultImage = [info objectForKey:@"UIImagePickerControllerEditedImage"];
@@ -91,6 +89,7 @@ UINavigationControllerDelegate
 
 
 - (void)setupTextView {
+    
     UITextView *textView = [[UITextView alloc] initWithFrame:CGRectMake(self.view.width * 0.17, self.view.height * 0.286, self.view.width * 0.66, self.view.height * 0.4)];
     textView.delegate  =self;
     [textView becomeFirstResponder];

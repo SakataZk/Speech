@@ -34,6 +34,21 @@
 
     
     
+    
+    UIButton *registerButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    [registerButton setTitle:@"退出当前账号" forState:UIControlStateNormal];
+    registerButton.frame = CGRectMake(0, SCREEN_HEIGHT * 0.95, SCREEN_WIDTH * 0.4, SCREEN_HEIGHT * 0.02);
+    [registerButton setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
+    registerButton.titleLabel.font = [UIFont systemFontOfSize:15];
+    registerButton.centerX = self.view.centerX;
+    [self.view addSubview:registerButton];
+    [registerButton handleControlEvent:UIControlEventTouchUpInside withBlock:^{
+
+        [self.navigationController popToRootViewControllerAnimated:YES];
+    }];
+
+    
+    
     // Do any additional setup after loading the view.
 }
 

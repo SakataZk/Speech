@@ -131,6 +131,8 @@ UITableViewDelegate
 
     ActiveInfoViewController *activeInfoView = [[ActiveInfoViewController  alloc] init];
     activeInfoView.model = _activityArray[indexPath.row];
+    activeInfoView.uid = _uid;
+    activeInfoView.token = _token;
     [self.navigationController pushViewController:activeInfoView animated:YES];
 }
 - (void)tapAction {

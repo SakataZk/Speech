@@ -17,6 +17,7 @@
 #import "CardViewController.h"
 #import "NewsViewController.h"
 #import "mailboxViewController.h"
+#import "longTextViewController.h"
 
 
 
@@ -214,7 +215,10 @@ UIScrollViewDelegate
     UIButton *articleButton = [[UIButton alloc] initWithFrame:CGRectMake(_articleView.width / 4, _articleView.height / 4, _articleView.width / 2, _articleView.width / 2)];
     [articleButton setImage:[UIImage imageNamed:@"article"] forState:UIControlStateNormal];
     [_articleView addSubview:articleButton];
-    
+    [articleButton handleControlEvent:UIControlEventTouchUpInside withBlock:^{
+        longTextViewController *longTextView = [[longTextViewController alloc] init];
+        [self.navigationController pushViewController:longTextView animated:YES];
+    }];
 
     
     

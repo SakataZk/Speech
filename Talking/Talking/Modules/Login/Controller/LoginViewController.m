@@ -35,7 +35,8 @@
 
 -(void)viewWillAppear:(BOOL)animated
 {
-    
+    _passwordTextField.text = @"";
+    _phoneNumberTextField.text = @"";
     [super viewWillAppear:animated];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardShow:) name:UIKeyboardWillShowNotification object:nil];
@@ -65,6 +66,9 @@
     }];
     
 }
+
+
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];

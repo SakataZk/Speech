@@ -23,7 +23,7 @@
     self.titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, self.view.height * 0.05, self.view.width, self.view.height * 0.08)];
     _titleLabel.userInteractionEnabled = YES;
     _titleLabel.backgroundColor = [UIColor whiteColor];
-    _titleLabel.text = @"点赞";
+    _titleLabel.text = @"言信";
     _titleLabel.textAlignment = NSTextAlignmentCenter;
     [self.view addSubview:_titleLabel];
     
@@ -39,6 +39,7 @@
     
     // Do any additional setup after loading the view.
 }
+
 
 
 
