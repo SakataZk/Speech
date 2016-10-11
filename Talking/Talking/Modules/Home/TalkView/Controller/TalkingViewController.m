@@ -309,7 +309,7 @@ UICollectionViewDelegate
         [self GetCardInfo:_cidArray[_cidCount]];
         
         CATransition  *transition = [[CATransition alloc] init];
-        transition.duration = 1.f;
+        transition.duration = 0.5f;
         transition.type = @"reveal";
         transition.subtype = kCATransitionFromRight;
         [self.view.layer addAnimation:transition forKey:@"ll"];

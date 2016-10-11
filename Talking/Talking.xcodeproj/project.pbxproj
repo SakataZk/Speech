@@ -23,6 +23,8 @@
 		495FD5E61D9D08A70016B349 /* CardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 495FD5E51D9D08A70016B349 /* CardViewController.m */; };
 		495FD5E91D9D09350016B349 /* CardModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 495FD5E81D9D09350016B349 /* CardModel.m */; };
 		495FD5EC1D9D0D550016B349 /* AlbumCardCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 495FD5EB1D9D0D550016B349 /* AlbumCardCollectionViewCell.m */; };
+		499F51511DACB12700F7FE99 /* registerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 499F51501DACB12700F7FE99 /* registerViewController.m */; };
+		499F51561DACBFEC00F7FE99 /* forgetPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 499F51551DACBFEC00F7FE99 /* forgetPasswordViewController.m */; };
 		49AA87D91D9C9F7F00706AD9 /* AlbumViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49AA87D81D9C9F7F00706AD9 /* AlbumViewController.m */; };
 		49AA87DC1D9CBB6800706AD9 /* AlbumCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 49AA87DB1D9CBB6800706AD9 /* AlbumCollectionViewCell.m */; };
 		49AA87DF1D9CC12D00706AD9 /* AlbumModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 49AA87DE1D9CC12D00706AD9 /* AlbumModel.m */; };
@@ -127,6 +129,10 @@
 		495FD5E81D9D09350016B349 /* CardModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CardModel.m; sourceTree = "<group>"; };
 		495FD5EA1D9D0D550016B349 /* AlbumCardCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlbumCardCollectionViewCell.h; sourceTree = "<group>"; };
 		495FD5EB1D9D0D550016B349 /* AlbumCardCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlbumCardCollectionViewCell.m; sourceTree = "<group>"; };
+		499F514F1DACB12700F7FE99 /* registerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = registerViewController.h; sourceTree = "<group>"; };
+		499F51501DACB12700F7FE99 /* registerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = registerViewController.m; sourceTree = "<group>"; };
+		499F51541DACBFEC00F7FE99 /* forgetPasswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = forgetPasswordViewController.h; sourceTree = "<group>"; };
+		499F51551DACBFEC00F7FE99 /* forgetPasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = forgetPasswordViewController.m; sourceTree = "<group>"; };
 		49AA87D71D9C9F7F00706AD9 /* AlbumViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlbumViewController.h; sourceTree = "<group>"; };
 		49AA87D81D9C9F7F00706AD9 /* AlbumViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlbumViewController.m; sourceTree = "<group>"; };
 		49AA87DA1D9CBB6800706AD9 /* AlbumCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlbumCollectionViewCell.h; sourceTree = "<group>"; };
@@ -286,12 +292,11 @@
 		4905CCF11DAB1DA000D26C46 /* Attention */ = {
 			isa = PBXGroup;
 			children = (
+				4905CCF21DAB1DA500D26C46 /* Controller */,
 				4905CCF41DAB1DB300D26C46 /* Model */,
 				4905CCF31DAB1DAC00D26C46 /* View */,
-				4905CCF21DAB1DA500D26C46 /* Controller */,
 			);
-			name = Attention;
-			path = ..;
+			path = Attention;
 			sourceTree = "<group>";
 		};
 		4905CCF21DAB1DA500D26C46 /* Controller */ = {
@@ -300,7 +305,7 @@
 				4905CCF51DAB1DF500D26C46 /* AttentionViewController.h */,
 				4905CCF61DAB1DF500D26C46 /* AttentionViewController.m */,
 			);
-			name = Controller;
+			path = Controller;
 			sourceTree = "<group>";
 		};
 		4905CCF31DAB1DAC00D26C46 /* View */ = {
@@ -309,7 +314,7 @@
 				4905CCFB1DAB22C000D26C46 /* attentionTableViewCell.h */,
 				4905CCFC1DAB22C000D26C46 /* attentionTableViewCell.m */,
 			);
-			name = View;
+			path = View;
 			sourceTree = "<group>";
 		};
 		4905CCF41DAB1DB300D26C46 /* Model */ = {
@@ -318,17 +323,17 @@
 				4905CCF81DAB22A900D26C46 /* attentionModel.h */,
 				4905CCF91DAB22A900D26C46 /* attentionModel.m */,
 			);
-			name = Model;
+			path = Model;
 			sourceTree = "<group>";
 		};
 		4905CCFE1DAB344C00D26C46 /* like */ = {
 			isa = PBXGroup;
 			children = (
+				4905CCFF1DAB345300D26C46 /* Controller */,
 				4905CD011DAB345D00D26C46 /* Model */,
 				4905CD001DAB345800D26C46 /* View */,
-				4905CCFF1DAB345300D26C46 /* Controller */,
 			);
-			name = like;
+			path = like;
 			sourceTree = "<group>";
 		};
 		4905CCFF1DAB345300D26C46 /* Controller */ = {
@@ -337,31 +342,31 @@
 				4905CD021DAB347300D26C46 /* likeViewController.h */,
 				4905CD031DAB347300D26C46 /* likeViewController.m */,
 			);
-			name = Controller;
+			path = Controller;
 			sourceTree = "<group>";
 		};
 		4905CD001DAB345800D26C46 /* View */ = {
 			isa = PBXGroup;
 			children = (
 			);
-			name = View;
+			path = View;
 			sourceTree = "<group>";
 		};
 		4905CD011DAB345D00D26C46 /* Model */ = {
 			isa = PBXGroup;
 			children = (
 			);
-			name = Model;
+			path = Model;
 			sourceTree = "<group>";
 		};
 		4905CD321DAB871C00D26C46 /* mailbox */ = {
 			isa = PBXGroup;
 			children = (
+				4905CD331DAB873C00D26C46 /* Controller */,
 				4905CD351DAB874B00D26C46 /* Model */,
 				4905CD341DAB874600D26C46 /* View */,
-				4905CD331DAB873C00D26C46 /* Controller */,
 			);
-			name = mailbox;
+			path = mailbox;
 			sourceTree = "<group>";
 		};
 		4905CD331DAB873C00D26C46 /* Controller */ = {
@@ -370,31 +375,31 @@
 				4905CD361DAB876000D26C46 /* mailboxViewController.h */,
 				4905CD371DAB876000D26C46 /* mailboxViewController.m */,
 			);
-			name = Controller;
+			path = Controller;
 			sourceTree = "<group>";
 		};
 		4905CD341DAB874600D26C46 /* View */ = {
 			isa = PBXGroup;
 			children = (
 			);
-			name = View;
+			path = View;
 			sourceTree = "<group>";
 		};
 		4905CD351DAB874B00D26C46 /* Model */ = {
 			isa = PBXGroup;
 			children = (
 			);
-			name = Model;
+			path = Model;
 			sourceTree = "<group>";
 		};
 		4905CD391DAB8A6700D26C46 /* Login */ = {
 			isa = PBXGroup;
 			children = (
+				4905CD3A1DAB8A7700D26C46 /* Controller */,
 				4905CD3C1DAB8A8800D26C46 /* Model */,
 				4905CD3B1DAB8A7E00D26C46 /* View */,
-				4905CD3A1DAB8A7700D26C46 /* Controller */,
 			);
-			name = Login;
+			path = Login;
 			sourceTree = "<group>";
 		};
 		4905CD3A1DAB8A7700D26C46 /* Controller */ = {
@@ -403,14 +408,14 @@
 				4905CD3D1DAB8A9D00D26C46 /* LoginViewController.h */,
 				4905CD3E1DAB8A9D00D26C46 /* LoginViewController.m */,
 			);
-			name = Controller;
+			path = Controller;
 			sourceTree = "<group>";
 		};
 		4905CD3B1DAB8A7E00D26C46 /* View */ = {
 			isa = PBXGroup;
 			children = (
 			);
-			name = View;
+			path = View;
 			sourceTree = "<group>";
 		};
 		4905CD3C1DAB8A8800D26C46 /* Model */ = {
@@ -419,7 +424,7 @@
 				4905CD431DAB9AAE00D26C46 /* model.h */,
 				4905CD441DAB9AAE00D26C46 /* model.m */,
 			);
-			name = Model;
+			path = Model;
 			sourceTree = "<group>";
 		};
 		491E42F91D9366DF00939063 /* HomeHotTopicView */ = {
@@ -496,6 +501,40 @@
 				495FD5E81D9D09350016B349 /* CardModel.m */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		499F514D1DACB0EC00F7FE99 /* Register */ = {
+			isa = PBXGroup;
+			children = (
+				499F514E1DACB10000F7FE99 /* Controller */,
+			);
+			path = Register;
+			sourceTree = "<group>";
+		};
+		499F514E1DACB10000F7FE99 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				499F514F1DACB12700F7FE99 /* registerViewController.h */,
+				499F51501DACB12700F7FE99 /* registerViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		499F51521DACBFC800F7FE99 /* ForgetPassword */ = {
+			isa = PBXGroup;
+			children = (
+				499F51531DACBFD200F7FE99 /* Controller */,
+			);
+			path = ForgetPassword;
+			sourceTree = "<group>";
+		};
+		499F51531DACBFD200F7FE99 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				499F51541DACBFEC00F7FE99 /* forgetPasswordViewController.h */,
+				499F51551DACBFEC00F7FE99 /* forgetPasswordViewController.m */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 		49AA87D31D9C9F3D00706AD9 /* AlbumView */ = {
@@ -618,13 +657,13 @@
 		49B405281DA9164100FEEFE9 /* News */ = {
 			isa = PBXGroup;
 			children = (
-				4905CCFE1DAB344C00D26C46 /* like */,
-				49B4052F1DA929C300FEEFE9 /* Notice */,
 				4905CCF11DAB1DA000D26C46 /* Attention */,
 				49EE2B811DAA58DA00640DFA /* Comment */,
 				49B405291DA9164C00FEEFE9 /* Controller */,
 				49B4052A1DA9165300FEEFE9 /* Model */,
+				49B4052F1DA929C300FEEFE9 /* Notice */,
 				49B4052B1DA9165800FEEFE9 /* View */,
+				4905CCFE1DAB344C00D26C46 /* like */,
 			);
 			path = News;
 			sourceTree = "<group>";
@@ -659,8 +698,7 @@
 				49B405311DA929D200FEEFE9 /* Model */,
 				49B405321DA929D800FEEFE9 /* View */,
 			);
-			name = Notice;
-			path = ../Notice;
+			path = Notice;
 			sourceTree = "<group>";
 		};
 		49B405301DA929CC00FEEFE9 /* Controller */ = {
@@ -960,8 +998,7 @@
 				49EE2B841DAA58F200640DFA /* Model */,
 				49EE2B831DAA58EE00640DFA /* View */,
 			);
-			name = Comment;
-			path = ../Comment;
+			path = Comment;
 			sourceTree = "<group>";
 		};
 		49EE2B821DAA58E700640DFA /* Controller */ = {
@@ -1089,8 +1126,6 @@
 		49FCC0831D91616C007614B5 /* Categories */ = {
 			isa = PBXGroup;
 			children = (
-				4905CD401DAB8F7E00D26C46 /* NSString+EAMD5.h */,
-				4905CD411DAB8F7E00D26C46 /* NSString+EAMD5.m */,
 				49FCC0841D916193007614B5 /* NSArray+Categories.h */,
 				49FCC0851D916193007614B5 /* NSArray+Categories.m */,
 				49FCC0861D916193007614B5 /* NSDate+Categories.h */,
@@ -1103,6 +1138,8 @@
 				49FCC08D1D916193007614B5 /* NSNumber+Extend.m */,
 				49FCC08E1D916193007614B5 /* NSString+Categories.h */,
 				49FCC08F1D916193007614B5 /* NSString+Categories.m */,
+				4905CD401DAB8F7E00D26C46 /* NSString+EAMD5.h */,
+				4905CD411DAB8F7E00D26C46 /* NSString+EAMD5.m */,
 				49FCC0901D916193007614B5 /* NSString+Regex.h */,
 				49FCC0911D916193007614B5 /* NSString+Regex.m */,
 				49FCC0921D916193007614B5 /* NSUserDefaults+Categories.h */,
@@ -1162,18 +1199,20 @@
 		49FCC0C51D916234007614B5 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
-				4905CD391DAB8A6700D26C46 /* Login */,
-				4905CD321DAB871C00D26C46 /* mailbox */,
 				49B91D661D9AAA4400255632 /* ActivityInfo */,
 				49AA87D31D9C9F3D00706AD9 /* AlbumView */,
 				495FD5E01D9D085E0016B349 /* Card */,
 				49BA388B1D9B6A87002D1B57 /* CheckActivity */,
+				499F51521DACBFC800F7FE99 /* ForgetPassword */,
 				49FCC0CC1D916284007614B5 /* Home */,
+				4905CD391DAB8A6700D26C46 /* Login */,
 				49B405281DA9164100FEEFE9 /* News */,
+				499F514D1DACB0EC00F7FE99 /* Register */,
 				49BA38C81D9BE87E002D1B57 /* Search */,
 				49BA38BD1D9BB606002D1B57 /* Setting */,
 				49B91D621D9AA40500255632 /* User */,
 				49BA38B81D9BB5D8002D1B57 /* Wallet */,
+				4905CD321DAB871C00D26C46 /* mailbox */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -1385,6 +1424,7 @@
 				491E43091D936BED00939063 /* HotTopicModel.m in Sources */,
 				49B91D2C1D9A1FF400255632 /* ClassModel.m in Sources */,
 				49BA38C11D9BB618002D1B57 /* SettingViewController.m in Sources */,
+				499F51511DACB12700F7FE99 /* registerViewController.m in Sources */,
 				49BA38C71D9BE86B002D1B57 /* SearchViewController.m in Sources */,
 				49EE2B421DA9CDF000640DFA /* NoticeModel.m in Sources */,
 				49FCC0A11D916193007614B5 /* NSString+Categories.m in Sources */,
@@ -1447,6 +1487,7 @@
 				49FCC0A61D916193007614B5 /* UIImage+Categories.m in Sources */,
 				491E430C1D936F9700939063 /* HotTopicCollectionViewLayout.m in Sources */,
 				49D9308C1D92BB15008499F5 /* HotTopicViewController.m in Sources */,
+				499F51561DACBFEC00F7FE99 /* forgetPasswordViewController.m in Sources */,
 				49B91D611D9AA3CA00255632 /* UserViewController.m in Sources */,
 				49EE2B871DAA598200640DFA /* CommentViewController.m in Sources */,
 				49D930801D92AFDC008499F5 /* HomeViewController.m in Sources */,

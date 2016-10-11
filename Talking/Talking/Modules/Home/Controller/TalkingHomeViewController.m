@@ -141,6 +141,8 @@ UIScrollViewDelegate
     
     UIButton *userInfoButton = [UIButton buttonWithType:UIButtonTypeCustom];
     userInfoButton.frame = CGRectMake(0, 0, self.navigationController.navigationBar.height, self.navigationController.navigationBar.height);
+    
+    userInfoButton.backgroundColor = [UIColor lightGrayColor];
     NSURL *url = [NSURL URLWithString:_picture];
     UIImage *imge = [[UIImage alloc] initWithData:[NSData dataWithContentsOfURL:url]];
     [userInfoButton setImage:imge forState:UIControlStateNormal];
