@@ -165,6 +165,7 @@ UIScrollViewDelegate
     searchButton.backgroundColor = [UIColor whiteColor];
     [searchButton setImage:[UIImage imageNamed:@"search"] forState:UIControlStateNormal];
     [self.navigationController.navigationBar addSubview:searchButton];
+    
     [searchButton handleControlEvent:UIControlEventTouchUpInside withBlock:^{
         SearchViewController *searchView = [[SearchViewController alloc] init];
         searchView.uid = _uid;

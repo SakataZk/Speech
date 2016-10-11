@@ -324,8 +324,8 @@ UITableViewDataSource
             if (_userButton.selected) {
                 [_userArray addObjectsFromArray:_array];
             }
+            [_tabelView reloadData];
         }
-        [_tabelView reloadData];
     }
      
          failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
