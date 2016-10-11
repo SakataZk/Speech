@@ -48,7 +48,6 @@ UITableViewDataSource
 @property (nonatomic, strong) NSMutableArray *albumArray;
 @property (nonatomic, strong) NSMutableArray *userArray;
 
-@property (nonatomic, strong) AlbumViewController *albumView;
 @end
 
 @implementation SearchViewController
@@ -342,25 +341,33 @@ UITableViewDataSource
         if (model.type == 2) {
             UserViewController *userView = [[UserViewController alloc] init];
             userView.uid = model.allid;
+            userView.token = _token;
+            userView.headId = _uid;
             [self.navigationController pushViewController:userView animated:YES];
         } else {
-            self.albumView = [[AlbumViewController alloc] init];
-            _albumView.aid = model.allid;
-            [self.navigationController pushViewController:_albumView animated:YES];
+            AlbumViewController *albumView = [[AlbumViewController alloc] init];
+            albumView.aid = model.allid;
+            albumView.token = _token;
+            albumView.uid = _uid;
+            [self.navigationController pushViewController:albumView animated:YES];
         }
         
     }
     if (_albumButton.selected) {
         ResultsModel *model = _albumArray[indexPath.row];
-        self.albumView = [[AlbumViewController alloc] init];
-        _albumView.aid = model.allid;
-        [self.navigationController pushViewController:_albumView animated:YES];
+        AlbumViewController *albumView = [[AlbumViewController alloc] init];
+        albumView.aid = model.allid;
+        albumView.token = _token;
+        albumView.uid = _uid;
+        [self.navigationController pushViewController:albumView animated:YES];
         
     }
     if (_userButton.selected) {
         ResultsModel *model = _userArray[indexPath.row];
         UserViewController *userView = [[UserViewController alloc] init];
         userView.uid = model.allid;
+        userView.token = _token;
+        userView.headId = _uid;
         [self.navigationController pushViewController:userView animated:YES];
         
     }

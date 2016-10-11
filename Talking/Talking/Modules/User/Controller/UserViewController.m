@@ -28,15 +28,18 @@
 @property (nonatomic, strong) UILabel *cardCountNumber;
 
 @property (nonatomic, strong) UILabel *aboutMe;
+
 @end
 
 @implementation UserViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    NSLog(@"%@",_uid);
+    NSLog(@"%@",_token);
     self.view.backgroundColor = [UIColor whiteColor];
     self.navigationController.navigationBarHidden = YES;
+    
     [self GetUserInfo];
     
     self.backgroungImage = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, self.view.width, self.view.height * 0.53)];
@@ -47,7 +50,7 @@
     [self CreatHeadView];
     [self CreatView];
     [self CreatAlbumsButton];
-    [self GetAlbumsInfo];
+//    [self GetAlbumsInfo];
     
 
     
@@ -166,11 +169,12 @@
 - (void)GetUserInfo {
     
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
-    [manager.requestSerializer setValue:@"189186" forHTTPHeaderField:@"X-User"];
-    [manager.requestSerializer setValue:@"A991B7D59DACB35A141ED180BF3EA6534F2B5E4FD8BAE126DF9BDAB620ABB39BDB73F66EB26933318FF792C0DDCF74D2CF198978C67462E6D2B50E0BBDFE4062" forHTTPHeaderField:@"X-AuthToken"];
+    [manager.requestSerializer setValue:[NSString stringWithFormat:@"%@",_headId] forHTTPHeaderField:@"X-User"];
+    [manager.requestSerializer setValue:_token forHTTPHeaderField:@"X-AuthToken"];
     [manager.requestSerializer setValue:@"j8slb29fbalc83pna2af2c2954hcw65" forHTTPHeaderField:@"X-ApiKey"];
     NSString *url = [NSString stringWithFormat:@"http://app.ry.api.renyan.cn/rest/auth/profile/query_profile?uid=%@",_uid];
     [manager GET:url parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSLog(@"%@",responseObject);
         UserModel *model = [[UserModel alloc] initWithDic:[responseObject objectForKey:@"profile"]];
         
         NSURL *url = [NSURL URLWithString:model.coverPicture];
@@ -196,10 +200,6 @@
 }
 
 - (void)CreatAlbumsButton {
-    
-    
-
-    
     UIButton *albumsButton = [UIButton buttonWithType: UIButtonTypeCustom];
     albumsButton.frame = CGRectMake(0, _backgroungImage.height, self.view.width / 3, _nickNameLabel.height);
     [albumsButton setTitle:@"言集" forState:UIControlStateNormal];
@@ -212,7 +212,7 @@
     
     [albumsButton handleControlEvent:UIControlEventTouchUpInside withBlock:^{
         label.frame = CGRectMake(0, albumsButton.y + albumsButton.height, albumsButton.width, 2);
-        [self GetAlbumsInfo];
+//        [self GetAlbumsInfo];
     }];
 
     
@@ -223,7 +223,7 @@
     [self.view addSubview:attentionButton];
     [attentionButton handleControlEvent:UIControlEventTouchUpInside withBlock:^{
         label.frame = CGRectMake(albumsButton.width, albumsButton.y + albumsButton.height, albumsButton.width, 2);
-        [self GetAttention];
+//        [self GetAttention];
     }];
 
 
@@ -237,42 +237,36 @@
     
 }
 
-- (void)GetAlbumsInfo {
-    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
-    [manager.requestSerializer setValue:@"189186" forHTTPHeaderField:@"X-User"];
-    [manager.requestSerializer setValue:@"A991B7D59DACB35A141ED180BF3EA6534F2B5E4FD8BAE126DF9BDAB620ABB39BDB73F66EB26933318FF792C0DDCF74D2C8C6D1E5978B351A70545ED860B91D8A" forHTTPHeaderField:@"X-AuthToken"];
-    [manager.requestSerializer setValue:@"j8slb29fbalc83pna2af2c2954hcw65" forHTTPHeaderField:@"X-ApiKey"];
-    NSString *url = [NSString stringWithFormat:@"http://app.ry.api.renyan.cn/rest/auth/album/user_albums?uid=%@",_uid];
-    [manager GET:url parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        
-//        NSLog(@"%@",responseObject);
-        
-    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        NSLog(@"error : %@",error);
-    }];
-
-
-}
-- (void)GetAttention {
-
-    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
-    [manager.requestSerializer setValue:@"189186" forHTTPHeaderField:@"X-User"];
-    [manager.requestSerializer setValue:@"A991B7D59DACB35A141ED180BF3EA6534F2B5E4FD8BAE126DF9BDAB620ABB39BDB73F66EB26933318FF792C0DDCF74D2C8C6D1E5978B351A70545ED860B91D8A" forHTTPHeaderField:@"X-AuthToken"];
-    [manager.requestSerializer setValue:@"j8slb29fbalc83pna2af2c2954hcw65" forHTTPHeaderField:@"X-ApiKey"];
-    NSString *url = [NSString stringWithFormat:@"http://app.ry.api.renyan.cn/rest/auth/subscribe/get_albums_by_uid?uid=%@",_uid];
-    [manager GET:url parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-//        A991B7D59DACB35A141ED180BF3EA6534F2B5E4FD8BAE126DF9BDAB620ABB39BDB73F66EB26933318FF792C0DDCF74D2CF198978C67462E6D2B50E0BBDFE4062
-//        A991B7D59DACB35A141ED180BF3EA6534F2B5E4FD8BAE126DF9BDAB620ABB39BDB73F66EB26933318FF792C0DDCF74D2C  8C6D1E5978B351A70545ED860B91D8A
-//        NSLog(@"%@",responseObject);
-        
-    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        NSLog(@"error : %@",error);
-    }];
 
 
 
 
-}
+
+//- (void)GetAlbumsInfo {
+//    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+//    [manager.requestSerializer setValue:[NSString stringWithFormat:@"%@",_uid] forHTTPHeaderField:@"X-User"];
+//    [manager.requestSerializer setValue:_token forHTTPHeaderField:@"X-AuthToken"];
+//    [manager.requestSerializer setValue:@"j8slb29fbalc83pna2af2c2954hcw65" forHTTPHeaderField:@"X-ApiKey"];
+//    NSString *url = [NSString stringWithFormat:@"http://app.ry.api.renyan.cn/rest/auth/album/user_albums?uid=%@",_uid];
+//    [manager GET:url parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+//        
+//    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+//        NSLog(@"error : %@",error);
+//    }];
+//}
+//- (void)GetAttention {
+//
+//    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+//    [manager.requestSerializer setValue:[NSString stringWithFormat:@"%@",_uid] forHTTPHeaderField:@"X-User"];
+//    [manager.requestSerializer setValue:_token forHTTPHeaderField:@"X-AuthToken"];
+//    [manager.requestSerializer setValue:@"j8slb29fbalc83pna2af2c2954hcw65" forHTTPHeaderField:@"X-ApiKey"];
+//    NSString *url = [NSString stringWithFormat:@"http://app.ry.api.renyan.cn/rest/auth/subscribe/get_albums_by_uid?uid=%@",_uid];
+//    [manager GET:url parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+//        
+//    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+//        NSLog(@"error : %@",error);
+//    }];
+//}
 
 
 - (void)didReceiveMemoryWarning {

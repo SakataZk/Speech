@@ -13,6 +13,8 @@
 
 @property (nonatomic, strong) ActivityModel *model;
 
+@property (nonatomic, strong) NSString *token;
 
+@property (nonatomic, strong) NSNumber *uid;
 
 @end

@@ -23,7 +23,6 @@
     
     
     UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, self.view.width, self.view.height * 0.08)];
-//    titleLabel.backgroundColor = [UIColor whiteColor];
     titleLabel.userInteractionEnabled = YES;
     titleLabel.text = _model.name;
     titleLabel.textAlignment = NSTextAlignmentCenter;
@@ -77,6 +76,9 @@
     [checkButton handleControlEvent:UIControlEventTouchUpInside withBlock:^{
         CheckActivityViewController *checkActivityView = [[CheckActivityViewController alloc] init];
         checkActivityView.model = _model;
+        checkActivityView.uid = _uid;
+        checkActivityView.token = _token;
+        
         [self.navigationController pushViewController:checkActivityView animated:YES];
     }];
     

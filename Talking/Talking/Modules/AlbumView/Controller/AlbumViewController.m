@@ -50,16 +50,17 @@ UICollectionViewDelegate
     self.albumArray = [NSMutableArray array];
     self.navigationController.navigationBarHidden = YES;
     self.view.backgroundColor = [UIColor whiteColor];
-    self.userView = [[UserViewController alloc] init];
-    [self CreatBackgroudView];
-    [self netWorking];
-    [self CreatScrollView];
     
-
-    [self creatAlbumView];
+    self.userView = [[UserViewController alloc] init];
+    
+    [self CreatBackgroudView];
     [self getBackgroundInfo];
     
+    [self netWorking];
+    [self CreatScrollView];
+    [self creatAlbumView];
     
+
     
     
     // Do any additional setup after loading the view.
@@ -128,17 +129,14 @@ UICollectionViewDelegate
 - (void)getBackgroundInfo {
 
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
-    [manager.requestSerializer setValue:@"189186" forHTTPHeaderField:@"X-User"];
-    [manager.requestSerializer setValue:@"A991B7D59DACB35A141ED180BF3EA6534F2B5E4FD8BAE126DF9BDAB620ABB39BDB73F66EB26933318FF792C0DDCF74D2C8C6D1E5978B351A70545ED860B91D8A" forHTTPHeaderField:@"X-AuthToken"];
+    [manager.requestSerializer setValue:[NSString stringWithFormat:@"%@",_uid] forHTTPHeaderField:@"X-User"];
+    [manager.requestSerializer setValue:_token forHTTPHeaderField:@"X-AuthToken"];
     [manager.requestSerializer setValue:@"j8slb29fbalc83pna2af2c2954hcw65" forHTTPHeaderField:@"X-ApiKey"];
-    
-    NSString *url = [NSString stringWithFormat:@"http://app.ry.api.renyan.cn/rest/auth/album/single_by_id?uid=189186&aid=%@",_aid];
+    NSString *url = [NSString stringWithFormat:@"http://app.ry.api.renyan.cn/rest/auth/album/single_by_id?uid=%@&aid=%@",_uid,_aid];
     [manager GET:url parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-
+        NSLog(@"background  %@",responseObject);
         NSDictionary *dic = [responseObject objectForKey:@"album"];
         AllAlbumModel *model = [[AllAlbumModel alloc] initWithDic:dic];
-        
-        
         NSURL *url = [NSURL URLWithString:model.coverSmall];
         [_backgroundImage sd_setImageWithURL:url];
         _nickNameLabel.text = [NSString stringWithFormat:@"「 %@ 」",model.name];
@@ -150,10 +148,16 @@ UICollectionViewDelegate
         _subscribeNumber.text =[NSString stringWithFormat:@"%ld",model.subscribe];
 
         _userView.uid = model.uid;
+        _userView.token = _token;
+        _userView.headId = _uid;
+
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        NSLog(@"error : %@",error);
+        NSLog(@"backgroud error");
     }];
 }
+
+
+
 
 - (void)CreatBackgroudView {
     
@@ -245,6 +249,7 @@ UICollectionViewDelegate
 }
 
 - (void)tapAction{
+    
         [self.navigationController pushViewController:_userView animated:YES];
 }
 
@@ -270,26 +275,31 @@ UICollectionViewDelegate
 
 - (void)netWorking {
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
-    [manager.requestSerializer setValue:@"189186" forHTTPHeaderField:@"X-User"];
-    [manager.requestSerializer setValue:@"A991B7D59DACB35A141ED180BF3EA6534F2B5E4FD8BAE126DF9BDAB620ABB39BDB73F66EB26933318FF792C0DDCF74D2C8C6D1E5978B351A70545ED860B91D8A" forHTTPHeaderField:@"X-AuthToken"];
+    [manager.requestSerializer setValue:[NSString stringWithFormat:@"%@",_uid] forHTTPHeaderField:@"X-User"];
+    [manager.requestSerializer setValue:_token forHTTPHeaderField:@"X-AuthToken"];
     [manager.requestSerializer setValue:@"j8slb29fbalc83pna2af2c2954hcw65" forHTTPHeaderField:@"X-ApiKey"];
-    NSString *url = [NSString stringWithFormat:@"http://app.ry.api.renyan.cn/rest/auth/card/select_by_album?aid=%@&uid=189186&limit=10&queue=1",_aid];
+    NSString *url = [NSString stringWithFormat:@"http://app.ry.api.renyan.cn/rest/auth/card/select_by_album?aid=%@&uid=%@&limit=10&queue=1",_aid,_uid];
     [manager GET:url parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        for (NSDictionary *dic in [responseObject objectForKey:@"cards"]) {
-            AlbumModel *model = [[AlbumModel alloc] initWithDic:dic];
-            [_albumArray addObject:model];
+        NSLog(@"network %@",responseObject);
+        NSArray *array = [responseObject objectForKey:@"cards"];
+        if (array.count > 0) {
+            for (NSDictionary *dic in array) {
+                AlbumModel *model = [[AlbumModel alloc] initWithDic:dic];
+                [_albumArray addObject:model];
+            }
+            _collectionView.size = CGSizeMake(_albumArray.count * self.view.width * 0.4 +( _albumArray.count + 2) * 12 , self.view.height * 0.55);
+            _bigScrollView.contentSize  = CGSizeMake(self.view.width * 0.4 + _collectionView.width, 0);
+            
+            _bigCollectionView.size = CGSizeMake(_albumArray.count * (self.view.width - 10) + (_albumArray.count - 1) * 10, self.view.height - 10);
+            _bigView.contentSize = CGSizeMake(5 + _bigCollectionView.width, 0);
+            
+            [_collectionView reloadData];
+            [_bigCollectionView reloadData];
         }
-        _collectionView.size = CGSizeMake(_albumArray.count * self.view.width * 0.4 +( _albumArray.count + 2) * 12 , self.view.height * 0.55);
-        _bigScrollView.contentSize  = CGSizeMake(self.view.width * 0.4 + _collectionView.width, 0);
-        
-        _bigCollectionView.size = CGSizeMake(_albumArray.count * (self.view.width - 10) + (_albumArray.count - 1) * 10, self.view.height - 10);
-        _bigView.contentSize = CGSizeMake(5 + _bigCollectionView.width, 0);
-        
-        [_collectionView reloadData];
-        [_bigCollectionView reloadData];
         
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        NSLog(@"error : %@",error);
+//        NSLog(@"error : %@",error);
+        NSLog(@"error");
     }];
 }
 
@@ -317,6 +327,7 @@ UICollectionViewDelegate
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    
     UICollectionViewCell * cell = (AlbumCardCollectionViewCell *)[collectionView cellForItemAtIndexPath:indexPath];
     CGRect cellRect = [_collectionView convertRect:cell.frame toView:_collectionView];
     CGRect rect = [_collectionView convertRect:cellRect toView:self.view];

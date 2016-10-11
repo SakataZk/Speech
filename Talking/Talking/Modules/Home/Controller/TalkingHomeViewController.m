@@ -150,7 +150,9 @@ UIScrollViewDelegate
     
     [userInfoButton handleControlEvent:UIControlEventTouchUpInside withBlock:^{
         UserViewController *userView = [[UserViewController alloc] init];
+        userView.headId = _uid;
         userView.uid = _uid;
+        userView.token = _token;
         [self.navigationController pushViewController:userView animated:YES];
     }];
     
@@ -162,6 +164,8 @@ UIScrollViewDelegate
     [self.navigationController.navigationBar addSubview:searchButton];
     [searchButton handleControlEvent:UIControlEventTouchUpInside withBlock:^{
         SearchViewController *searchView = [[SearchViewController alloc] init];
+        searchView.uid = _uid;
+        searchView.token  = _token;
         [self.navigationController pushViewController:searchView animated:YES];
     }];
 }
@@ -229,6 +233,8 @@ UIScrollViewDelegate
     
     [messageButton handleControlEvent:UIControlEventTouchUpInside withBlock:^{
         UserViewController *userView = [[UserViewController alloc] init];
+        userView.headId = _uid;
+        userView.token = _token;
         userView.uid = _uid;
         [self.navigationController pushViewController:userView animated:YES];
     }];

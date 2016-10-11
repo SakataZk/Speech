@@ -9,7 +9,11 @@
 #import "SpBaseViewController.h"
 
 @interface SearchViewController : SpBaseViewController
+
 @property (nonatomic, strong) NSString *token;
 
 @property (nonatomic, strong) NSNumber *uid;
+
+
 @end
+

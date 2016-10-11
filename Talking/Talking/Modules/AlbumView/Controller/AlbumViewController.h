@@ -14,5 +14,8 @@
 
 @property (nonatomic, strong) NSNumber *aid;
 
+@property (nonatomic, strong) NSString *token;
+
+@property (nonatomic, strong) NSNumber *uid;
 
 @end

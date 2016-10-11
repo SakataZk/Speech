@@ -154,6 +154,8 @@
     [self.view addSubview:likeLabel];
     [likeButton handleControlEvent:UIControlEventTouchUpInside withBlock:^{
         likeViewController *likeView = [[likeViewController alloc] init];
+        likeView.uid = _uid;
+        likeView.token = _token;
         [self.navigationController pushViewController:likeView animated:YES];
     }];
     

@@ -111,8 +111,7 @@ UICollectionViewDelegate
             AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
             [manager.requestSerializer setValue:[NSString stringWithFormat:@"%@",_uid] forHTTPHeaderField:@"X-User"];
             [manager.requestSerializer setValue:_token forHTTPHeaderField:@"X-AuthToken"];
-            [manager.requestSerializer setValue:@"j8slb29fbalc83pna2af2c2954hcw65" forHTTPHeaderField:@"X-ApiKey"];
-            
+            [manager.requestSerializer setValue:@"j8slb29fbalc83pna2af2c2954hcw65" forHTTPHeaderField:@"X-ApiKey"];            
             NSString *url = [NSString stringWithFormat:@"http://app.ry.api.renyan.cn/rest/auth/selection/card/get/all?day=%ld",_cout];
             [manager GET:url parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
                 _array =[responseObject objectForKey:@"cards"];

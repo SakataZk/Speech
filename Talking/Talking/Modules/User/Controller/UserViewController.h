@@ -12,4 +12,7 @@
 
 @property (nonatomic, strong) NSNumber *uid;
 
+@property (nonatomic, strong) NSString *token;
+
+@property (nonatomic, strong) NSNumber *headId;
 @end
