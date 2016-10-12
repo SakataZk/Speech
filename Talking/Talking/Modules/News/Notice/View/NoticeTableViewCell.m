@@ -92,21 +92,22 @@
 -(void)setNoticeModel:(NoticeModel *)noticeModel {
  
     if (_noticeModel != noticeModel) {
-        NSURL *headUrl = [NSURL URLWithString:noticeModel.fromProfile];
+        _noticeModel = noticeModel;
+        NSURL *headUrl = [NSURL URLWithString:_noticeModel.fromProfile];
         [_headImageView sd_setImageWithURL:headUrl];
-        _nameLabel.text = noticeModel.fromName;
-        _timeLabel.text = [NSDate secondToDate:noticeModel.createTime  WithFormat:@"MM-dd HH:mm"];
+        _nameLabel.text = _noticeModel.fromName;
+        _timeLabel.text = [NSDate secondToDate:_noticeModel.createTime  WithFormat:@"MM-dd HH:mm"];
         
         NSString *text = @"";
-        if (noticeModel.contextType == 9 || noticeModel.contextType == 3) {
-            text = noticeModel.message;
+        if (_noticeModel.contextType == 9 || _noticeModel.contextType == 3) {
+            text = _noticeModel.message;
             [_firstImage removeFromSuperview];
             [_secondImage removeFromSuperview];
             [_thirdImage removeFromSuperview];
             
         }
-        if (noticeModel.contextType == 4) {
-            NSArray *array = [noticeModel.message componentsSeparatedByString:@";"];
+        if (_noticeModel.contextType == 4) {
+            NSArray *array = [_noticeModel.message componentsSeparatedByString:@";"];
             text = [array lastObject];
             NSURL *firstUrl = [NSURL URLWithString:[array firstObject]];
             [_firstImage sd_setImageWithURL:firstUrl];

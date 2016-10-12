@@ -63,12 +63,12 @@
 
     if (_model != model) {
         _model = model;
-        NSURL *headUrl = [NSURL URLWithString:model.userCoverSmall];
+        NSURL *headUrl = [NSURL URLWithString:_model.userCoverSmall];
         [_headImage sd_setImageWithURL:headUrl];
 
-        _attentionLabel.text = [NSString stringWithFormat:@"%@ 关注了「 %@ 」",model.uname, model.albumName];
-        _timeLabel. text = [NSDate intervalSinceNow:model.createTime];
-        NSURL *albumUrl = [NSURL URLWithString:model.albumCover];
+        _attentionLabel.text = [NSString stringWithFormat:@"%@ 关注了「 %@ 」",_model.uname, _model.albumName];
+        _timeLabel. text = [NSDate intervalSinceNow:_model.createTime];
+        NSURL *albumUrl = [NSURL URLWithString:_model.albumCover];
         [_albumImageView sd_setImageWithURL:albumUrl];
     }
 }

@@ -24,7 +24,8 @@
 }
 -(void)setTitleText:(NSString *)titleText {
     if (_titleText != titleText) {
-        _label.text = titleText;
+        _titleText = titleText;
+        _label.text = _titleText;
     }
 }
 - (void)layoutSubviews {

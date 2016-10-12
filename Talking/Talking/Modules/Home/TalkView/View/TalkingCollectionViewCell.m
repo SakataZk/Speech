@@ -28,7 +28,8 @@
 
 -(void)setImageString:(NSString *)imageString {
     if (_imageString != imageString) {
-        NSURL *url = [NSURL URLWithString:imageString];
+        _imageString = imageString;
+        NSURL *url = [NSURL URLWithString:_imageString];
         [_myImageView sd_setImageWithURL:url];
     }
 

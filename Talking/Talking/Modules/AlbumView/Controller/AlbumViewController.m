@@ -164,6 +164,7 @@ UICollectionViewDelegate
     self.backgroundImage = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, self.view.width, self.view.height *0.3)];
     _backgroundImage.backgroundColor = [UIColor clearColor];
     _backgroundImage.userInteractionEnabled = YES;
+    _backgroundImage.image = [UIImage imageNamed:@"zhan"];
     [self.view addSubview:_backgroundImage];
     
     

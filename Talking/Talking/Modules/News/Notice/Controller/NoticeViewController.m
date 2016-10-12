@@ -129,14 +129,17 @@ UITableViewDelegate
         if (_midArray.count > 0) {
             [_midArray removeAllObjects];
         }
-        NSArray *array = [responseObject objectForKey:@"messages"];
-        for (NSDictionary *dic in array) {
-            NSDictionary *subDic = [dic objectForKey:@"message"];
-            NoticeModel *model = [[NoticeModel alloc] initWithDic:subDic];
-            [_midArray addObject:model.mid];
-            [_noticeArray addObject:model];
+        if (![[responseObject objectForKey:@"msg"] isEqualToString:@"查询成功，结果为空"]) {
+            NSArray *array = [responseObject objectForKey:@"messages"];
+            for (NSDictionary *dic in array) {
+                NSDictionary *subDic = [dic objectForKey:@"message"];
+                NoticeModel *model = [[NoticeModel alloc] initWithDic:subDic];
+                [_midArray addObject:model.mid];
+                [_noticeArray addObject:model];
+                [_tabelView reloadData];            
         }
-        [_tabelView reloadData];
+        
+        }
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"error : %@",error);
     }];

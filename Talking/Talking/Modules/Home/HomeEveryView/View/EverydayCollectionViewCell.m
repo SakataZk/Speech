@@ -59,13 +59,13 @@
 }
 - (void)setEverydayCell:(EverydayCellModel *)everydayCell {
     if (_everydayCell != everydayCell) {
-        
-        NSURL *url = [NSURL URLWithString:everydayCell.albumCover];
+        _everydayCell = everydayCell;
+        NSURL *url = [NSURL URLWithString:_everydayCell.albumCover];
         [_albumImage sd_setImageWithURL:url];
-        _albumNameLabel.text = [NSString stringWithFormat:@"「 %@ 」",everydayCell.albumName];
+        _albumNameLabel.text = [NSString stringWithFormat:@"「 %@ 」",_everydayCell.albumName];
                 
-        if ([everydayCell.text isEqualToString:@"此内容为长文内容,请升级客户端到最新版本查看"]) {
-            NSArray *array = everydayCell.cardContents;
+        if ([_everydayCell.text isEqualToString:@"此内容为长文内容,请升级客户端到最新版本查看"]) {
+            NSArray *array = _everydayCell.cardContents;
             for (int i = 0; i < array.count; i++) {
                 cardContentsModel *cards = [[cardContentsModel alloc] initWithDic:array[i]];
                 if (cards.type == 2) {
@@ -76,11 +76,11 @@
                 }
             }
         }else {
-            NSURL *coverUrl = [NSURL URLWithString:everydayCell.pictureSmall];
+            NSURL *coverUrl = [NSURL URLWithString:_everydayCell.pictureSmall];
             [_pictureSmall sd_setImageWithURL:coverUrl];
-            _textLabel.text = everydayCell.text;
+            _textLabel.text = _everydayCell.text;
             
-            if (everydayCell.template == 6) {
+            if (_everydayCell.template == 6) {
                 _pictureSmall.y = _albumNameLabel.y + _albumNameLabel.height;
                 _pictureSmall.centerX = self.centerX;
                 _pictureSmall.size = CGSizeMake(self.width * 0.6, self.width * 0.6);
@@ -88,11 +88,11 @@
                 _pictureSmall.layer.masksToBounds = YES;
                 _textLabel.frame = CGRectMake(_albumImage.x, _pictureSmall.y + _pictureSmall.height, self.width - _albumImage.x * 2, self.height - _pictureSmall.y - _pictureSmall.height - 5);
             }
-            if ( !(everydayCell.template == 3 || everydayCell.template == 5 || everydayCell.template == 6)) {
+            if ( !(_everydayCell.template == 3 || _everydayCell.template == 5 || _everydayCell.template == 6)) {
                 _pictureSmall.frame = CGRectMake(_albumImage.x + _albumImage.width / 2, _albumNameLabel.y + _albumNameLabel.height, self.width - (_albumImage.x + _albumImage.width / 2) * 2, self.height * 0.4);
                 _textLabel.frame = CGRectMake(_albumImage.x, _pictureSmall.y + _pictureSmall.height, self.width - _albumImage.x * 2, self.height - _pictureSmall.y - _pictureSmall.height - 5);
             }
-            if (everydayCell.template == 1) {
+            if (_everydayCell.template == 1) {
                 _textLabel.frame = CGRectMake(_albumImage.x, _albumNameLabel.y + _albumNameLabel.height, self.width - _albumImage.x * 2,  self.height - _pictureSmall.y - 5);
             }
         }

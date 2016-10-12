@@ -152,11 +152,12 @@
 
 - (void)setModel:(AlbumModel *)model {
     if (_model != model) {
-        NSURL *url = [NSURL URLWithString:model.pictureCut];
+        _model = model;
+        NSURL *url = [NSURL URLWithString:_model.pictureCut];
         [_imageView sd_setImageWithURL:url];
-        NSString *maintagString = [NSString stringWithFormat:@"%@",model.albumMainTag];
+        NSString *maintagString = [NSString stringWithFormat:@"%@",_model.albumMainTag];
         _mainTagLabel.text = maintagString;
-        _subTagLabel.text = [NSString stringWithFormat:@"%@",model.albumSubTag];
+        _subTagLabel.text = [NSString stringWithFormat:@"%@",_model.albumSubTag];
         
         NSDictionary *tagDic = @{NSFontAttributeName : [UIFont systemFontOfSize:15.f]};
         CGSize maintagSize = CGSizeMake(1000, self.width * 0.045);
@@ -166,21 +167,21 @@
         _mainTagLabel.clipsToBounds = YES;
         
         CGSize subtagSize = CGSizeMake(1000, self.width * 0.045);
-        NSString *subtagString = model.albumSubTag;
+        NSString *subtagString = _model.albumSubTag;
         CGRect subtagRect = [subtagString boundingRectWithSize:subtagSize options:NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading attributes:tagDic context:nil];
         _subTagLabel.frame = CGRectMake(-subtagRect.size.height, self.width * 0.35, subtagRect.size.width + subtagRect.size.height * 2,  subtagRect.size.height);
         _subTagLabel.layer.cornerRadius = subtagRect.size.height / 2;
         _subTagLabel.clipsToBounds = YES;
-        if ([model.albumSubTag isEqualToString:@""]) {
+        if ([_model.albumSubTag isEqualToString:@""]) {
             [_subTagLabel removeFromSuperview];
         }
-        if (model.template == 1) {
+        if (_model.template == 1) {
             _textLabel.frame = CGRectMake(self.width * 0.18, self.height * 0.15, self.width * 0.64, self.width * 0.64);
         }else {        
             _textLabel.frame = CGRectMake(_imageView.x, _imageView.y + _imageView.height + self.height * 0.04, _imageView.width, 40);
         }
-        NSString *text = model.text;
-        NSString *albumName = [NSString stringWithFormat:@"「 %@ 」",model.albumName];
+        NSString *text = _model.text;
+        NSString *albumName = [NSString stringWithFormat:@"「 %@ 」",_model.albumName];
         NSDictionary *dic = @{NSFontAttributeName : [UIFont systemFontOfSize:17.f]};
         
         CGSize textSize = CGSizeMake(_imageView.width, 1000);
@@ -202,8 +203,8 @@
         _albumNameLabel.text = albumName;
         _albumNameLabel.frame = CGRectMake(self.width - _imageView.x - albumNameRect.size.width, _textLabel.y + _textLabel.size.height + self.height * 0.04, albumNameRect.size.width, albumNameRect.size.height);
         
-        _viewLabel.text = [NSString stringWithFormat:@"%ld",model.view];
-        _commentLabel.text = [NSString stringWithFormat:@"%ld",model.comment];
+        _viewLabel.text = [NSString stringWithFormat:@"%ld",_model.view];
+        _commentLabel.text = [NSString stringWithFormat:@"%ld",_model.comment];
 
     }
 }

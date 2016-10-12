@@ -47,7 +47,7 @@
         [self.contentView addSubview:_view];
         
         self.headImageView = [[UIImageView alloc] init];
-        _headImageView.backgroundColor = [UIColor redColor];
+        _headImageView.backgroundColor = [UIColor whiteColor];
         [_view addSubview:_headImageView];
         
         self.nameLabel = [[UILabel alloc] init];

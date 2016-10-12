@@ -59,8 +59,7 @@
     
     UIButton *NoticeButton = [UIButton buttonWithType:UIButtonTypeCustom];
     NoticeButton.frame = CGRectMake(0,_titleLabel.y + _titleLabel.height + 1 , (self.view.width - 1 ) / 2,( SCREEN_HEIGHT - 1 - _titleLabel.y - _titleLabel.height ) / 2);
-    NoticeButton.backgroundColor = [UIColor whiteColor];
-    [self.view addSubview:NoticeButton];
+    NoticeButton.backgroundColor = [UIColor clearColor];
 
     UIImageView *noticeImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, NoticeButton.width * 0.16, NoticeButton.height * 0.1)];
     noticeImageView.image = [UIImage imageNamed:@"notice"];
@@ -74,6 +73,9 @@
     noticeLabel.textAlignment = NSTextAlignmentCenter;
     [self.view addSubview:noticeLabel];
     
+    
+    
+    [self.view addSubview:NoticeButton];
     [NoticeButton handleControlEvent:UIControlEventTouchUpInside withBlock:^{
         NoticeViewController *noticeView = [[NoticeViewController alloc] init];
         noticeView.uid = _uid;
@@ -84,8 +86,7 @@
     
     UIButton *commentButton = [UIButton buttonWithType:UIButtonTypeCustom];
     commentButton.frame = CGRectMake(NoticeButton.width + 1, NoticeButton.y, NoticeButton.width, NoticeButton.height);
-    commentButton.backgroundColor = [UIColor whiteColor];
-    [self.view addSubview:commentButton];
+    commentButton.backgroundColor = [UIColor clearColor];
 
     UIImageView *commentImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, noticeImageView.width, noticeImageView.height)];
     commentImageView.center = commentButton.center;
@@ -99,6 +100,7 @@
     commentLabel.textAlignment = NSTextAlignmentCenter;
     [self.view addSubview:commentLabel];
 
+    [self.view addSubview:commentButton];
     [commentButton handleControlEvent:UIControlEventTouchUpInside withBlock:^{
         CommentViewController *commentView = [[CommentViewController alloc] init];
         commentView.uid = _uid;
@@ -111,8 +113,7 @@
     
     UIButton *attentionButton = [UIButton buttonWithType:UIButtonTypeCustom];
     attentionButton.frame = CGRectMake(0, NoticeButton.y + NoticeButton.height + 1, NoticeButton.width, NoticeButton.height);
-    attentionButton.backgroundColor = [UIColor whiteColor];
-    [self.view addSubview:attentionButton];
+    attentionButton.backgroundColor = [UIColor clearColor];
     
     UIImageView *attentionImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, commentImageView.width, commentImageView.height)];
     attentionImageView.center = attentionButton.center;
@@ -125,6 +126,8 @@
     attentionLabel.textAlignment = NSTextAlignmentCenter;
     attentionLabel.font = [UIFont systemFontOfSize:15];
     [self.view addSubview:attentionLabel];
+    
+    [self.view addSubview:attentionButton];
     [attentionButton handleControlEvent:UIControlEventTouchUpInside withBlock:^{
         AttentionViewController *attentionView = [[AttentionViewController alloc] init];
         attentionView.uid = _uid;
@@ -138,8 +141,7 @@
     
     UIButton *likeButton = [UIButton buttonWithType:UIButtonTypeCustom];
     likeButton.frame = CGRectMake(commentButton.x, attentionButton.y, attentionButton.width, attentionButton.height);
-    likeButton.backgroundColor = [UIColor whiteColor];
-    [self.view addSubview:likeButton];
+    likeButton.backgroundColor = [UIColor clearColor];
     
     UIImageView *likeImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, attentionImageView.width, attentionImageView.height)];
     likeImageView.center = likeButton.center;
@@ -152,13 +154,15 @@
     likeLabel.textAlignment = NSTextAlignmentCenter;
     likeLabel.font = [UIFont systemFontOfSize:15];
     [self.view addSubview:likeLabel];
+    
+    
+    [self.view addSubview:likeButton];
     [likeButton handleControlEvent:UIControlEventTouchUpInside withBlock:^{
         likeViewController *likeView = [[likeViewController alloc] init];
         likeView.uid = _uid;
         likeView.token = _token;
         [self.navigationController pushViewController:likeView animated:YES];
-    }];
-    
+    }];    
 }
 
 

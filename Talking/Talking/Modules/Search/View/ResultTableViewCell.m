@@ -51,20 +51,15 @@
 
 - (void)setResultModel:(ResultsModel *)resultModel {
     if (_resultModel != resultModel) {
-        NSURL *url = [NSURL URLWithString:resultModel.image];
+        _resultModel = resultModel;
+        NSURL *url = [NSURL URLWithString:_resultModel.image];
         [_headImageView sd_setImageWithURL:url];
-        if (resultModel.type == 2) {
-            _nameLabel.text = resultModel.name;
+        if (_resultModel.type == 2) {
+            _nameLabel.text = _resultModel.name;
         } else {
-            _nameLabel.text = [NSString stringWithFormat:@"「 %@ 」",resultModel.name];
+            _nameLabel.text = [NSString stringWithFormat:@"「 %@ 」",_resultModel.name];
         }
     }
-
-
-
-
-
-
 }
 
 

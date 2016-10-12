@@ -30,7 +30,8 @@
 }
 - (void)setText:(NSString *)text {
     if (_text != text) {
-        _label.text = text;
+        _text = text;
+        _label.text = _text;
     }
 }
 - (void)layoutSubviews {

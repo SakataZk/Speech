@@ -82,7 +82,7 @@ UIScrollViewDelegate
     
     self.bigScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, _titleCollectionView.y + _titleCollectionView.height, self.view.width, (self.view.height - _titleCollectionView.y - _titleCollectionView.height - self.navigationController.navigationBar.y - self.navigationController.navigationBar.height) / 2 )];
     
-    _bigScrollView.contentSize = CGSizeMake(self.view.width * 5, _bigScrollView.height);
+    _bigScrollView.contentSize = CGSizeMake(self.view.width * 4, _bigScrollView.height);
     _bigScrollView.pagingEnabled = YES;
     _bigScrollView.delegate = self;
     [self.view addSubview:_bigScrollView];

@@ -48,13 +48,13 @@
 
 - (void)setModel:(AlbumModel *)model {
     if (_model != model) {
-        
-        NSURL *url = [NSURL URLWithString:model.pictureSmall];
+        _model = model;
+        NSURL *url = [NSURL URLWithString:_model.pictureSmall];
         [_imageView sd_setImageWithURL:url];
-        if (model.template == 1) {
+        if (_model.template == 1) {
             _textLabel.frame = CGRectMake(self.width * 0.15, self.height * 0.1, self.width * 0.7, self.height * 0.76);
         }
-        _textLabel.text = [NSString stringWithFormat:@"%@",model.text];
+        _textLabel.text = [NSString stringWithFormat:@"%@",_model.text];
         
     }
 

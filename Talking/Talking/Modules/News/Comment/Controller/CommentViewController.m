@@ -85,13 +85,15 @@ UITableViewDelegate
         if (_commentArray.count > 0) {
             [_commentArray removeAllObjects];
         }
-        
-        NSArray *array = [responseObject objectForKey:@"comments"];
-        for (NSDictionary *dic in array) {
-            CommentModel *model = [[CommentModel alloc] initWithDic:dic];
-            [_commentArray addObject:model];
+        if (![[responseObject objectForKey:@"msg"] isEqualToString:@"查询成功，结果为空"]) {
+            NSArray *array = [responseObject objectForKey:@"comments"];
+            for (NSDictionary *dic in array) {
+                CommentModel *model = [[CommentModel alloc] initWithDic:dic];
+                [_commentArray addObject:model];
+                [_tabelView reloadData];
+            }
         }
-        [_tabelView reloadData];
+        
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"error : %@",error);
     }];

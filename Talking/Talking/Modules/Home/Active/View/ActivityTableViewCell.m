@@ -36,7 +36,8 @@
 
 - (void)setImageUrl:(NSString *)imageUrl {
     if (_imageUrl != imageUrl) {
-        NSURL *url = [NSURL URLWithString:imageUrl];
+        _imageUrl = imageUrl;
+        NSURL *url = [NSURL URLWithString:_imageUrl];
         [_activityImageView sd_setImageWithURL:url];
     }
 }

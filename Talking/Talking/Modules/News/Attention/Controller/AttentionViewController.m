@@ -99,13 +99,16 @@ UITableViewDelegate
         if (_sidArray.count > 0) {
             [_sidArray removeAllObjects];
         }
-        NSArray *array = [responseObject objectForKey:@"subscribes"];
-        for (NSDictionary *dic in array) {
-            attentionModel *model = [[attentionModel alloc] initWithDic:dic];
-            [_sidArray addObject:model.sid];
-            [_attentionArray addObject:model];
+        if (![[responseObject objectForKey:@"msg"] isEqualToString:@"查询成功，结果为空"]) {
+        
+            NSArray *array = [responseObject objectForKey:@"subscribes"];
+            for (NSDictionary *dic in array) {
+                attentionModel *model = [[attentionModel alloc] initWithDic:dic];
+                [_sidArray addObject:model.sid];
+                [_attentionArray addObject:model];
+                [_tableView reloadData];
+            }
         }
-        [_tableView reloadData];
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"error : %@",error);
     }];

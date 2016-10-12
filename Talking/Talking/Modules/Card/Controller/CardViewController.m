@@ -34,9 +34,7 @@ UINavigationControllerDelegate
     addCameraImage.frame = CGRectMake(self.view.width * 0.3, self.view.width * 0.3, self.view.width * 0.11, self.view .width * 0.09);
     [self.view addSubview:addCameraImage];
 
-    
-    
-    
+   
     
     UIButton *addPhotoImage = [UIButton buttonWithType:UIButtonTypeCustom];
     [addPhotoImage setImage:[UIImage imageNamed:@"addImage"] forState:UIControlStateNormal];

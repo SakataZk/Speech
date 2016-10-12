@@ -133,24 +133,25 @@
 
 - (void)setHotTopicCell:(HotTopicModel *)hotTopicCell {
     if (_hotTopicCell != hotTopicCell) {
-        _titleLabel.text = [NSString stringWithFormat:@"「 %@ 」",hotTopicCell.name];
-        _recommendLabel.text = [NSString stringWithFormat:@" %@",hotTopicCell.recommend];
-        if (hotTopicCell.view < 100) {
-            _viewLabel.text = [NSString stringWithFormat:@"%ld",hotTopicCell.view];
+        _hotTopicCell = hotTopicCell;
+        _titleLabel.text = [NSString stringWithFormat:@"「 %@ 」",_hotTopicCell.name];
+        _recommendLabel.text = [NSString stringWithFormat:@" %@",_hotTopicCell.recommend];
+        if (_hotTopicCell.view < 100) {
+            _viewLabel.text = [NSString stringWithFormat:@"%ld",_hotTopicCell.view];
         } else {
-            _viewLabel.text = [NSString stringWithFormat:@"%ld.%ldk",hotTopicCell.view / 1000,hotTopicCell.view % 1000 / 100];
+            _viewLabel.text = [NSString stringWithFormat:@"%ld.%ldk",_hotTopicCell.view / 1000,_hotTopicCell.view % 1000 / 100];
         }
-        _subscribeLabel.text = [NSString stringWithFormat:@"%ld",hotTopicCell.subscribe];
-        _tagLabel.text = [NSString stringWithFormat:@"标签:%@,%@",hotTopicCell.tagMain,hotTopicCell.tagSub];
-        _unameLabel.text = [NSString stringWithFormat:@"  %@",hotTopicCell.uname];
-        if ([hotTopicCell.about isEqualToString:@""]) {
+        _subscribeLabel.text = [NSString stringWithFormat:@"%ld",_hotTopicCell.subscribe];
+        _tagLabel.text = [NSString stringWithFormat:@"标签:%@,%@",_hotTopicCell.tagMain,_hotTopicCell.tagSub];
+        _unameLabel.text = [NSString stringWithFormat:@"  %@",_hotTopicCell.uname];
+        if ([_hotTopicCell.about isEqualToString:@""]) {
             _aboutLabel.text = @"  言集简介: (该作者很懒,并没有写什么简介)";
         }else {
-            _aboutLabel.text = [NSString stringWithFormat:@"  言集简介:%@",hotTopicCell.about];
+            _aboutLabel.text = [NSString stringWithFormat:@"  言集简介:%@",_hotTopicCell.about];
         }
-        NSURL *url = [NSURL URLWithString:hotTopicCell.ownerProfile];
+        NSURL *url = [NSURL URLWithString:_hotTopicCell.ownerProfile];
         [_ownerProfileImageView sd_setImageWithURL:url];
-        NSURL *bigurl = [NSURL URLWithString:hotTopicCell.coverSmall];
+        NSURL *bigurl = [NSURL URLWithString:_hotTopicCell.coverSmall];
         [_hotTopicImageView sd_setImageWithURL:bigurl];
     }
 
