@@ -106,43 +106,21 @@
     
     _albumLabel.frame = CGRectMake(_view.width * 0.35, 0, _view.width * 0.6, _albumImageView.height);
     _albumLabel.centerY = _albumImageView.centerY;
-    
-
-
-    
-    
 }
 
 - (void)setCommentModel:(CommentModel *)commentModel {
     if (_commentModel != commentModel) {
-        NSURL *headUrl = [NSURL URLWithString:commentModel.uprofile];
+        _commentModel = commentModel;
+        NSURL *headUrl = [NSURL URLWithString:_commentModel.uprofile];
         [_headImageView sd_setImageWithURL:headUrl];
-        
-        _nameLabel.text = commentModel.uname;
-        
-        _commentLabel.text = commentModel.commentText;
-        NSURL *albumUrl = [NSURL URLWithString:commentModel.coverSmall];
+        _nameLabel.text = _commentModel.uname;
+        _commentLabel.text = _commentModel.commentText;
+        NSURL *albumUrl = [NSURL URLWithString:_commentModel.coverSmall];
         [_albumImageView sd_setImageWithURL:albumUrl];
-        _albumLabel.text = commentModel.context;
-        _timeLabel.text = [NSDate intervalSinceNow:commentModel.createTime];
-        
-        
-        
+        _albumLabel.text = _commentModel.context;
+        _timeLabel.text = [NSDate intervalSinceNow:_commentModel.createTime];
     }
-
-
-
-
 }
-
-
-
-
-
-
-
-
-
 
 
 - (void)awakeFromNib {

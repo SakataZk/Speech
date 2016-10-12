@@ -11,6 +11,7 @@
 #import "ActivityTableViewCell.h"
 #import "ActiveInfoViewController.h"
 #import "UIImageView+WebCache.h"
+#import "webViewViewController.h"
 
 static NSString *const identifier = @"cell";
 @interface ActivityViewController ()
@@ -136,11 +137,15 @@ UITableViewDelegate
     [self.navigationController pushViewController:activeInfoView animated:YES];
 }
 - (void)tapAction {
-    ActiveInfoViewController *activeInfoView = [[ActiveInfoViewController  alloc] init];
-    activeInfoView.model = _nowActiveModel;
-    activeInfoView.uid  = _uid;
-    activeInfoView.token = _token;
-    [self.navigationController pushViewController:activeInfoView animated:YES];
+    
+    webViewViewController *webView = [[webViewViewController alloc] init];
+    webView.activitying = _nowActiveModel.activityUrl;
+    webView.text = _nowActiveModel.name;
+//    ActiveInfoViewController *activeInfoView = [[ActiveInfoViewController  alloc] init];
+//    activeInfoView.model = _nowActiveModel;
+//    activeInfoView.uid  = _uid;
+//    activeInfoView.token = _token;
+    [self.navigationController pushViewController:webView animated:YES];
 }
 
 @end

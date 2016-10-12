@@ -37,6 +37,7 @@
 		49B405271DA9151A00FEEFE9 /* UIView+SGExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 49B405251DA9151A00FEEFE9 /* UIView+SGExtension.m */; };
 		49B4052E1DA9168100FEEFE9 /* NewsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49B4052D1DA9168100FEEFE9 /* NewsViewController.m */; };
 		49B405351DA929E700FEEFE9 /* NoticeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49B405341DA929E700FEEFE9 /* NoticeViewController.m */; };
+		49B6B9021DADC3BD00DFD93C /* webViewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49B6B9011DADC3BD00DFD93C /* webViewViewController.m */; };
 		49B91D2C1D9A1FF400255632 /* ClassModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 49B91D2B1D9A1FF400255632 /* ClassModel.m */; };
 		49B91D2F1D9A213500255632 /* ClassCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 49B91D2E1D9A213500255632 /* ClassCollectionCell.m */; };
 		49B91D5B1D9A715A00255632 /* ActivityModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 49B91D5A1D9A715A00255632 /* ActivityModel.m */; };
@@ -158,6 +159,8 @@
 		49B4052D1DA9168100FEEFE9 /* NewsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsViewController.m; sourceTree = "<group>"; };
 		49B405331DA929E700FEEFE9 /* NoticeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoticeViewController.h; sourceTree = "<group>"; };
 		49B405341DA929E700FEEFE9 /* NoticeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoticeViewController.m; sourceTree = "<group>"; };
+		49B6B9001DADC3BD00DFD93C /* webViewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = webViewViewController.h; sourceTree = "<group>"; };
+		49B6B9011DADC3BD00DFD93C /* webViewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = webViewViewController.m; sourceTree = "<group>"; };
 		49B91D2A1D9A1FF400255632 /* ClassModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClassModel.h; sourceTree = "<group>"; };
 		49B91D2B1D9A1FF400255632 /* ClassModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClassModel.m; sourceTree = "<group>"; };
 		49B91D2D1D9A213500255632 /* ClassCollectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClassCollectionCell.h; sourceTree = "<group>"; };
@@ -748,6 +751,23 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		49B6B8FE1DADC38C00DFD93C /* WebView */ = {
+			isa = PBXGroup;
+			children = (
+				49B6B8FF1DADC39500DFD93C /* Controller */,
+			);
+			name = WebView;
+			sourceTree = "<group>";
+		};
+		49B6B8FF1DADC39500DFD93C /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				49B6B9001DADC3BD00DFD93C /* webViewViewController.h */,
+				49B6B9011DADC3BD00DFD93C /* webViewViewController.m */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
 		49B91D551D9A6BA200255632 /* Active */ = {
 			isa = PBXGroup;
 			children = (
@@ -1219,6 +1239,7 @@
 		49FCC0C51D916234007614B5 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				49B6B8FE1DADC38C00DFD93C /* WebView */,
 				499F51571DACE1C200F7FE99 /* Long text */,
 				49B91D661D9AAA4400255632 /* ActivityInfo */,
 				49AA87D31D9C9F3D00706AD9 /* AlbumView */,
@@ -1516,6 +1537,7 @@
 				495FD5EC1D9D0D550016B349 /* AlbumCardCollectionViewCell.m in Sources */,
 				49D9308F1D92BB56008499F5 /* EverydayViewController.m in Sources */,
 				49FCC0A51D916193007614B5 /* UIColor+Categories.m in Sources */,
+				49B6B9021DADC3BD00DFD93C /* webViewViewController.m in Sources */,
 				49EBF5901D9E019A007958ED /* EverydayCardView.m in Sources */,
 				49FCC0C11D91621A007614B5 /* AppStoreUtils.m in Sources */,
 				49B4052E1DA9168100FEEFE9 /* NewsViewController.m in Sources */,

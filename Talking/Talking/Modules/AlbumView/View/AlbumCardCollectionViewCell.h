@@ -14,4 +14,6 @@
 
 @property (nonatomic, strong) AlbumModel *model;
 
+@property (nonatomic, strong) UIButton *commentButton;
+
 @end

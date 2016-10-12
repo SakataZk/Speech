@@ -268,7 +268,12 @@ UICollectionViewDelegate
         
     }
     AlbumCardCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:cardCellIdentifier forIndexPath:indexPath];
+    
     cell.model = _albumArray[indexPath.item];
+    [cell.commentButton handleControlEvent:UIControlEventTouchUpInside withBlock:^{
+        
+    }];
+    
     return cell;
     
 }

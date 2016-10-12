@@ -25,4 +25,6 @@
 @property (nonatomic, assign) NSNumber *tpid;
 
 @property (nonatomic, strong) NSString *urlSuffix;
+
+@property (nonatomic, strong) NSString *activityUrl;
 @end

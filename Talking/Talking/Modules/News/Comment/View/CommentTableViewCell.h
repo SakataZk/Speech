@@ -10,6 +10,7 @@
 
 
 @class CommentModel;
+
 @interface CommentTableViewCell : UITableViewCell
 
 @property (nonatomic, strong) CommentModel *commentModel;

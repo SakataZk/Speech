@@ -33,7 +33,7 @@
 /**
  *  评论
  */
-@property (nonatomic, strong) UIButton *commentButton;
+
 @property (nonatomic, strong) UILabel *commentLabel;
 /**
  *  分享
