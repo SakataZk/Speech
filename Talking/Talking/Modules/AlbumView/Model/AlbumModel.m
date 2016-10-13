@@ -1,0 +1,13 @@
+//
+//  AlbumModel.m
+//  Talking
+//
+//  Created by dllo on 16/9/29.
+//  Copyright © 2016年 Sakata_ZK. All rights reserved.
+//
+
+#import "AlbumModel.h"
+
+@implementation AlbumModel
+
+@end
