@@ -34,7 +34,7 @@ UIScrollViewDelegate
 
 @property (nonatomic, strong) UIImageView *imageView;
 @property (nonatomic, strong) NSMutableArray *imageArray;
-@property (nonatomic, assign) NSInteger number;
+
 @property (nonatomic, strong) NSTimer *timer;
 
 @property (nonatomic, strong) UICollectionView *cardCollectionView;
@@ -65,6 +65,7 @@ UIScrollViewDelegate
     self.cidArray = [NSMutableArray array];
     self.topicType = 0;
     [self GetTitleArray];
+    
     
     UICollectionViewFlowLayout *titleCellFlowLayout = [[UICollectionViewFlowLayout alloc] init];
     titleCellFlowLayout.itemSize = CGSizeMake(self.view.width / 4, self.view.height * 0.07);
@@ -98,11 +99,13 @@ UIScrollViewDelegate
     _cardCollectionView.showsHorizontalScrollIndicator = NO;
     [self.view addSubview:_cardCollectionView];
     
-    self.number = 0;
+    
+
 }
 
 - (void)setAnimationImageView {
     
+
     self.imageView = [[UIImageView alloc] init];
     _imageView.backgroundColor = [UIColor whiteColor];
     _imageView.frame = _bigScrollView.bounds;
@@ -114,6 +117,7 @@ UIScrollViewDelegate
             UIImage *imge = [[UIImage alloc] initWithData:[NSData dataWithContentsOfURL:url]];
             [imageViewArray addObject:imge];
         }
+        
         [self.imageView isAnimating];
         [self.imageView setAnimationImages:imageViewArray];
         [self.imageView setAnimationDuration:3.0f * imageViewArray.count];
@@ -240,7 +244,6 @@ UIScrollViewDelegate
             }
         }
         [_cardCollectionView reloadData];
-        _number = 0;
         [self setAnimationImageView];
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"error : %@",error);
@@ -283,8 +286,6 @@ UIScrollViewDelegate
         NSDictionary *dic = [_array firstObject];
         AlbumModel *model = [[AlbumModel alloc] initWithDic:dic];
         _firtsCardView.model = model;
-
-
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"error : %@",error);
     }];

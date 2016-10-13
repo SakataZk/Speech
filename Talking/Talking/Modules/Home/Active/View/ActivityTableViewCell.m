@@ -38,7 +38,7 @@
     if (_imageUrl != imageUrl) {
         _imageUrl = imageUrl;
         NSURL *url = [NSURL URLWithString:_imageUrl];
-        [_activityImageView sd_setImageWithURL:url];
+        [_activityImageView sd_setImageWithPreviousCachedImageWithURL:url placeholderImage:[UIImage imageNamed:@"zhan"] options:0 progress:nil completed:nil];
     }
 }
 - (void) layoutSubviews {

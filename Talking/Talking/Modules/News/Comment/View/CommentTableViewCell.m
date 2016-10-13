@@ -95,7 +95,7 @@
     _headImageView.layer.cornerRadius = _view.height * 0.25 / 2;
     _headImageView.clipsToBounds = YES;
     
-    _nameLabel.frame = CGRectMake(_view.height * 0.35, _headImageView.y, _view.width * 0.7, _headImageView.height / 2);
+    _nameLabel.frame = CGRectMake(_view.height * 0.35, _headImageView.y, _view.width * 0.6, _headImageView.height / 2);
     _commentLabel.frame = CGRectMake(_nameLabel.x, _nameLabel.y + _nameLabel.height, _nameLabel.width, _nameLabel.height);
     
     _timeLabel.frame = CGRectMake(_nameLabel.x + _nameLabel.width, _nameLabel.y, _view.width - (_nameLabel.x + _nameLabel.width) - _view.height * 0.07, _nameLabel.height);

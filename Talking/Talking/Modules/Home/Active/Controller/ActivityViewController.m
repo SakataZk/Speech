@@ -88,7 +88,6 @@ UITableViewDelegate
                 _nowActiveModel = model;
                 NSURL *url = [NSURL URLWithString:model.picture];
                 [_image sd_setImageWithURL:url];
-                NSLog(@"%@",_nowActiveModel);
             }            
         }
         [_tabelView reloadData];
@@ -141,10 +140,6 @@ UITableViewDelegate
     webViewViewController *webView = [[webViewViewController alloc] init];
     webView.activitying = _nowActiveModel.activityUrl;
     webView.text = _nowActiveModel.name;
-//    ActiveInfoViewController *activeInfoView = [[ActiveInfoViewController  alloc] init];
-//    activeInfoView.model = _nowActiveModel;
-//    activeInfoView.uid  = _uid;
-//    activeInfoView.token = _token;
     [self.navigationController pushViewController:webView animated:YES];
 }
 
