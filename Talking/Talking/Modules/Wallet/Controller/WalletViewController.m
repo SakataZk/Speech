@@ -31,7 +31,7 @@
     [returnButton handleControlEvent:UIControlEventTouchUpInside withBlock:^{
         [self.navigationController popViewControllerAnimated:YES];
     }];
-    [titleLabel addSubview:returnButton];
+    [self.view addSubview:returnButton];
 
     // Do any additional setup after loading the view.
 }

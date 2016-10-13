@@ -32,9 +32,6 @@
     }];
     [self.view addSubview:returnButton];
 
-    
-    
-    
     UIButton *registerButton = [UIButton buttonWithType:UIButtonTypeCustom];
     [registerButton setTitle:@"退出当前账号" forState:UIControlStateNormal];
     registerButton.frame = CGRectMake(0, SCREEN_HEIGHT * 0.95, SCREEN_WIDTH * 0.4, SCREEN_HEIGHT * 0.02);
@@ -47,6 +44,22 @@
         [self.navigationController popToRootViewControllerAnimated:YES];
     }];
 
+    
+//    UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, titleLabel.y + titleLabel.height, SCREEN_WIDTH, SCREEN_HEIGHT * 0.5) style:UITableViewStylePlain];
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
     
     // Do any additional setup after loading the view.

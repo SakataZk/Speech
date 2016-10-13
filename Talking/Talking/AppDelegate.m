@@ -7,8 +7,9 @@
 //
 
 #import "AppDelegate.h"
-#import "TalkingHomeViewController.h"
 #import "LoginViewController.h"
+
+#import "guideViewController.h"
 @interface AppDelegate ()
 
 @end
@@ -17,22 +18,26 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    
+    
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     
-    LoginViewController *loginView = [[LoginViewController alloc] init];
-    UINavigationController *loginNa = [[UINavigationController alloc] initWithRootViewController:loginView];
-    self.window.rootViewController = loginNa;
+    //  使用NSUserDefaults 读取用户数据
+    NSUserDefaults *useDef = [NSUserDefaults standardUserDefaults];
+    if ( ! [useDef boolForKey:@"notFirst"]) {
+        //  如果是第一次, 进入引导页
+        _window.rootViewController = [[guideViewController alloc] init];
+    }else {
+        LoginViewController *loginView = [[LoginViewController alloc] init];
+        UINavigationController *loginNa = [[UINavigationController alloc] initWithRootViewController:loginView];
+        self.window.rootViewController = loginNa;
+    }
     
     
-//    TalkingHomeViewController *viewController = [[TalkingHomeViewController alloc] init];
-//    UINavigationController *homeVC = [[UINavigationController alloc] initWithRootViewController:viewController];
-//    self.window.rootViewController = homeVC;
     
-    
-    
-    // Override point for customization after application launch.
+
     return YES;
 }
 

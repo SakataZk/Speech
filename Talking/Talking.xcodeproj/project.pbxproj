@@ -59,6 +59,7 @@
 		49DADB331D9664530060D830 /* TalkingCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 49DADB321D9664530060D830 /* TalkingCollectionViewCell.m */; };
 		49DADB3A1D967EBC0060D830 /* TitleCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 49DADB391D967EBC0060D830 /* TitleCollectionCell.m */; };
 		49DADB3D1D967FDD0060D830 /* TitleModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 49DADB3C1D967FDD0060D830 /* TitleModel.m */; };
+		49DFA14C1DAF834900188E50 /* guideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49DFA14B1DAF834900188E50 /* guideViewController.m */; };
 		49EBF5901D9E019A007958ED /* EverydayCardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 49EBF58F1D9E019A007958ED /* EverydayCardView.m */; };
 		49ED67E21DA88F8200449B4A /* ResultsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 49ED67E11DA88F8200449B4A /* ResultsModel.m */; };
 		49ED67E51DA890A000449B4A /* ResultTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 49ED67E41DA890A000449B4A /* ResultTableViewCell.m */; };
@@ -203,6 +204,8 @@
 		49DADB391D967EBC0060D830 /* TitleCollectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TitleCollectionCell.m; sourceTree = "<group>"; };
 		49DADB3B1D967FDD0060D830 /* TitleModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TitleModel.h; sourceTree = "<group>"; };
 		49DADB3C1D967FDD0060D830 /* TitleModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TitleModel.m; sourceTree = "<group>"; };
+		49DFA14A1DAF834900188E50 /* guideViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = guideViewController.h; sourceTree = "<group>"; };
+		49DFA14B1DAF834900188E50 /* guideViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = guideViewController.m; sourceTree = "<group>"; };
 		49EBF58E1D9E019A007958ED /* EverydayCardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EverydayCardView.h; sourceTree = "<group>"; };
 		49EBF58F1D9E019A007958ED /* EverydayCardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EverydayCardView.m; sourceTree = "<group>"; };
 		49ED67E01DA88F8200449B4A /* ResultsModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResultsModel.h; sourceTree = "<group>"; };
@@ -1031,6 +1034,23 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		49DFA1481DAF832600188E50 /* Guide */ = {
+			isa = PBXGroup;
+			children = (
+				49DFA1491DAF832F00188E50 /* Controller */,
+			);
+			name = Guide;
+			sourceTree = "<group>";
+		};
+		49DFA1491DAF832F00188E50 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				49DFA14A1DAF834900188E50 /* guideViewController.h */,
+				49DFA14B1DAF834900188E50 /* guideViewController.m */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
 		49EE2B811DAA58DA00640DFA /* Comment */ = {
 			isa = PBXGroup;
 			children = (
@@ -1239,6 +1259,7 @@
 		49FCC0C51D916234007614B5 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				49DFA1481DAF832600188E50 /* Guide */,
 				49B6B8FE1DADC38C00DFD93C /* WebView */,
 				499F51571DACE1C200F7FE99 /* Long text */,
 				49B91D661D9AAA4400255632 /* ActivityInfo */,
@@ -1515,6 +1536,7 @@
 				4905CD041DAB347300D26C46 /* likeViewController.m in Sources */,
 				49ADC5721D94CF53004CD252 /* EverydayCollectionViewCell.m in Sources */,
 				49BA38C41D9BBC47002D1B57 /* UserModel.m in Sources */,
+				49DFA14C1DAF834900188E50 /* guideViewController.m in Sources */,
 				49FCC0A01D916193007614B5 /* NSNumber+Extend.m in Sources */,
 				49FCC0B41D9161ED007614B5 /* DataBaseManager.m in Sources */,
 				4905CD421DAB8F7E00D26C46 /* NSString+EAMD5.m in Sources */,
